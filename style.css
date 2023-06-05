@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+/* The global styling */
+html{
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+:root{
+  /* colors */
+  --primary-color: #85619D;
+}
+.heading{
+  color: var(--primary-color);
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+}
+.heading::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10rem;
+  height: .6rem;
+  border-radius: .6rem;
+  background: var(--primary-color);
+}
+.heading-text{
+  font-size: 1.4rem;
+}
+hr{
+  margin: 2rem 0;
+}
+
+/* The navigation-bar */
+.navigation-bar{
+  position: fixed;
+  background: var(--primary-color);
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2%;
+}
+.navigation-bar .logo{
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.navigation-bar nav{
+  color: #fff;
+  display: flex;
+  gap: 2rem;
+}
+.navigation-bar nav a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  padding: .2rem;
+}
+/* The styling of the home page */
+.home{
+  margin: 8rem 4% 4rem 4%;
+}
+.topic .mini-topic{
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+.topic .topic-box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25.5rem, 1fr));
+  gap: 4rem;
+}
+.topic .topic-box-container .topic-box{
+  border: .1rem solid var(--primary-color);
+  border-radius: 0 1rem 0 1rem;
+  box-shadow: .5rem .5rem .8rem .4rem rgba(133, 97, 157, .5);
+}
+.topic .topic-box-container .topic-box .topic-name{
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--primary-color);
+  padding: .8rem 2rem;
+  border-radius: 0 1rem 0 1rem;
+}
+.topic .topic-box-container .topic-box .topic-content{
+  font-size: 1.4rem;
+  margin: 2rem;
+}
+.topic .topic-box-container .topic-box .topic-image{
+  height: 18rem;
+  margin: 2rem;
+}
+.topic .topic-box-container .topic-box .topic-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.started .signup-login-request-container{
+  font-size: 1.4rem;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.started .signup-login-request-container .signup-request-btn, .btn{
+  font-size: 1.8rem;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 0 1rem 0 1rem;
+}
+/* The footer section */
+footer{
+  background: #DFDFDF;
+  padding: 4rem 4% 2rem 4%;
+  font-size: 1.4rem;
+  background: #DFDFDF;
+  font-size: 1.4rem;
+}
+footer .link-box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20.5rem, 1fr));
+  gap: 2rem;
+}
+footer .link-box .link-title{
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+footer .link-box a, p{
+  text-decoration: none;
+  margin: 2rem 0;
+  font-size: 1.3rem;
+  display: block;
+  color: #000;
+  transition: all .3s ease;
+}
+footer .link-box a:hover{
+  color: var(--primary-color);
+}
+footer .link-box input{
+  background: none;
+  margin: 0 0 2rem 0;
+  padding: 1rem 1rem;
+  width: 100%;
+  border-radius: 0 1rem 0 1rem;
+  outline: none;
+  border: .1rem solid #c1bfbf;
+}
+footer .link-box button{
+  border: none;
+  outline: none;
+  width: 100%;
+}
+footer .copyright-text{
+  text-align: center;
+}
