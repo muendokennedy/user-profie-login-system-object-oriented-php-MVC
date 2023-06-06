@@ -13,6 +13,7 @@ html{
 :root{
   /* colors */
   --primary-color: #85619D;
+  --primary-color-hover: #ad48f0;
 }
 .heading{
   color: var(--primary-color);
@@ -39,7 +40,19 @@ html{
 hr{
   margin: 2rem 0;
 }
-
+.btn{
+  font-size: 1.8rem;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 0 1rem 0 1rem;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.btn:hover{
+  background: var(--primary-color-hover);
+}
 /* The navigation-bar */
 .navigation-bar{
   position: fixed;
@@ -118,13 +131,67 @@ hr{
   align-items: center;
   gap: 2rem;
 }
-.started .signup-login-request-container .signup-request-btn, .btn{
-  font-size: 1.8rem;
-  background: var(--primary-color);
-  color: #fff;
-  text-decoration: none;
-  padding: 1rem 2.5rem;
-  border-radius: 0 1rem 0 1rem;
+
+/* The sign up or the create account page */
+.sign-up{
+  border: .1rem solid var(--primary-color);
+  width: 50%;
+  margin: 1.5rem auto;
+  border-radius: 0 4rem 0 4rem;
+  padding: 2.5rem 3.5rem;
+}
+.sign-up .signup-title{
+  font-size: 2rem;
+  font-weight: 500;
+  padding-bottom: 1.2rem;
+  text-align: center;
+  color: var(--primary-color);
+  border-bottom: .2rem solid #c1bfbf;
+}
+.sign-up .input-box{
+  width: 100%;
+  height: 4.5rem;
+  margin: 2.5rem 0;
+  position: relative;
+}
+.sign-up .input-box label{
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  transition: all .3s ease;
+}
+.sign-up .input-box input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 1.5rem 0 1.5rem;
+  outline: none;
+  border: .1rem solid #c1bfbf;
+  padding: 1.8rem 1rem;
+  font-size: 1.6rem;
+}
+.sign-up .input-box input:focus ~ label,
+.sign-up .input-box input:valid ~ label{
+  transform: translateY(-3.6rem);
+  padding: .2rem 1rem;
+  background: #fff;
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.sign-up .input-box:last-child{
+  position: initial;
+  height: auto;
+}
+.sign-up .input-box input[type="submit"]{
+  position: initial;
+  border: none;
+  outline: none;
+  padding: 1rem 2rem;
+  text-align: center;
+  display: inline-block;
 }
 /* The footer section */
 footer{
