@@ -21,8 +21,8 @@ html{
   text-transform: uppercase;
   font-weight: 600;
   position: relative;
-  margin: 1.5rem 0;
-  padding: 1.5rem 0;
+  margin: 2rem 0;
+  padding: 1rem 0;
 }
 .heading::after{
   content: "";
@@ -30,7 +30,7 @@ html{
   bottom: 0;
   left: 0;
   width: 10rem;
-  height: .6rem;
+  height: .4rem;
   border-radius: .6rem;
   background: var(--primary-color);
 }
@@ -52,6 +52,37 @@ hr{
 }
 .btn:hover{
   background: var(--primary-color-hover);
+}
+.box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25.5rem, 1fr));
+  gap: 4rem;
+}
+.box{
+  border: .1rem solid var(--primary-color);
+  border-radius: 0 1rem 0 1rem;
+  box-shadow: .5rem .5rem .8rem .4rem rgba(133, 97, 157, .5);
+}
+.name{
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--primary-color);
+  padding: .8rem 2rem;
+  border-radius: 0 1rem 0 1rem;
+}
+.content{
+  font-size: 1.4rem;
+  margin: 2rem;
+}
+.image{
+  height: 18rem;
+  margin: 2rem;
+}
+.image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 /* The navigation-bar */
 .navigation-bar{
@@ -206,6 +237,97 @@ hr{
   padding: 1rem 2rem;
   text-align: center;
   display: inline-block;
+}
+.sign-up p{
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.sign-up p a{
+  color: #000;
+}
+.sign-up p a:hover{
+  color: var(--primary-color-hover);
+}
+.sign-up .link-container{
+  display: flex;
+  justify-content: space-between;
+}
+/* The styling of the profile container */
+.profile-bio-container{
+  display: flex;
+  gap: 20rem;
+  align-items: center;
+}
+.profile-bio-image{
+  display: flex;
+  width: 40rem;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.profile-bio-image img{
+  width: 100%;
+  border-radius: 0 2rem 0 2rem;
+}
+.profile-bio-image .swipe-indicator{
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+}
+.profile-bio-image .swipe-indicator span{
+  height: 1.4rem;
+  width: 6rem;
+  border-radius: .6rem;
+  background: var(--primary-color);
+}
+.profile-bio-content .profile-title{
+  color: var(--primary-color);
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 1.5rem 0;
+}
+.profile-bio-content p{
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+.profile-bio-content p b{
+  margin-right: 1.2rem;
+}
+.edit-btn{
+  margin: 4rem 0;
+}
+.friends-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25.5rem, 1fr));
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+.friend-box{
+  text-align: center;
+  border: .1rem solid var(--primary-color);
+  border-radius: 0 1rem 0 1rem;
+  padding: .8rem 2rem;
+}
+.friend-box .friend-image{
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+  text-align: center;
+  display: inline-block;
+  border: .6rem solid var(--primary-color);
+  margin-top: 1.5rem;
+}
+.friend-box .friend-image img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.friend-box .friend-content{
+  text-align: justify;
+  font-size: 1.4rem;
+  margin: 1.5rem 0;
 }
 /* The footer section */
 footer{
