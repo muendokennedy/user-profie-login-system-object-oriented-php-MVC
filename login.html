@@ -28,25 +28,13 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">create account</div>
+    <div class="heading">login to your account</div>
     <div class="sign-up">
       <form action="#" method="POST" autocomplete="off">
         <div class="signup-title">Create account</div>
         <div class="input-box">
-          <input type="text" name="fname" id="fname" required>
-          <label for="fname">Enter your first name:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="lname" id="lname" required>
-          <label for="lname">Enter your last name:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="email" id="email" required>
-          <label for="email">Enter your email:</label>
-        </div>
-        <div class="input-box">
           <input type="text" name="uid" id="uid" required>
-          <label for="uid">Enter your username:</label>
+          <label for="uid">Enter your username or email:</label>
         </div>
         <div class="input-box">
           <input type="password" name="pwd" id="pwd" required>
@@ -54,11 +42,7 @@
           <span class="show-btn">SHOW</span>
         </div>
         <div class="input-box">
-          <input type="password" name="confirm-pwd" id="confirm-pwd" required>
-          <label for="confirm-pwd">Confirm your password:</label>
-        </div>
-        <div class="input-box">
-          <input type="submit" name="submit" value="sign up" class="btn">
+          <input type="submit" name="submit" value="login" class="btn">
         </div>
       </form>
     </div>
@@ -102,6 +86,26 @@
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
-  <script src="script.js"></script>
+  <script>
+      const passwordField1 = document.getElementById("pwd");
+      const showBtn = document.querySelector(".input-box .show-btn");
+
+      passwordField1.onkeyup = () => {
+        if(passwordField1.value){
+        showBtn.style.display = "block";
+        showBtn.onclick = () => {
+          if(passwordField1.type == "password"){
+            passwordField1.type = "text";
+            showBtn.innerText = "HIDE";
+          } else {
+            passwordField1.type = "password";
+            showBtn.innerText = "SHOW";
+            }
+          }
+        }else if(!passwordField1.value){
+          showBtn.style.display = "none";
+        }
+      }
+  </script>
 </body>
 </html>

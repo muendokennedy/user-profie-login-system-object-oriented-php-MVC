@@ -172,6 +172,17 @@ hr{
   padding: 1.8rem 1rem;
   font-size: 1.6rem;
 }
+.sign-up .input-box span{
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 1.5rem 2rem;
+  display: none;
+}
 .sign-up .input-box input:focus ~ label,
 .sign-up .input-box input:valid ~ label{
   transform: translateY(-3.6rem);
@@ -180,6 +191,9 @@ hr{
   font-size: 1.4rem;
   color: var(--primary-color);
   font-weight: 600;
+}
+.sign-up .input-box input:focus{
+  border: .2rem solid var(--primary-color);
 }
 .sign-up .input-box:last-child{
   position: initial;
