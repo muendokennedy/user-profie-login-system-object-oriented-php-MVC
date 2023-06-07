@@ -17,6 +17,7 @@ passwordField1.onkeyup = () => {
       }
     }
   }else if(!passwordField1.value){
+    passwordField2.value = "";
     showBtn.style.display = "none";
   }
 }
