@@ -447,7 +447,9 @@ hr{
   display: flex;
   justify-content: space-between;
 }
-
+.contact-form{
+  display: block;
+}
 /* The footer section */
 footer{
   background: #DFDFDF;
