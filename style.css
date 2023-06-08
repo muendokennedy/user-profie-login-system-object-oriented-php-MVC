@@ -422,6 +422,9 @@ hr{
   border: .1rem solid #FF0011;
   display: none;
 }
+.edit-btn button{
+  border: none;
+}
 /* The footer section */
 footer{
   background: #DFDFDF;
