@@ -28,46 +28,107 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="sign-up">
-      <form action="#" method="POST" autocomplete="off">
-        <div class="signup-title">Your profile</div>
-        <div class="input-box">
-          <input type="text" name="first-pic" id="first-pic" required>
-          <label for="first-pic">Select your profile picture:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="second-pic" id="second-pic" required>
-          <label for="second-pic">Select your second profile picture:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="third-pic" id="third-pic" required>
-          <label for="third-pic">Select your third profile picture:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="nick-name" id="nick-name" required>
-          <label for="nick-name">Enter your nickname:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="hobbies" id="hobbies" required>
-          <label for="hobbies">Describe your hobbies:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="career" id="career" required>
-          <label for="career">Describe your career:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="college" id="college" required>
-          <label for="college">Describe your college:</label>
-        </div>
-        <div class="input-box">
-          <input type="text" name="highschool" id="highschool" required>
-          <label for="highschool">Describe your highschool:</label>
-        </div>
-        <div class="input-box">
-          <input type="submit" name="submit" value="sign up" class="btn">
-        </div>
-      </form>
+    <div class="form-progress-indicator">
+      <span class="first indicator-btn"></span>
+      <span class="second indicator-btn"></span>
+      <span class="third indicator-btn"></span>
+      <span class="fourth indicator-btn"></span>
     </div>
+    <div class="error-block">All fields are required</div>
+    <form action="#" method="POST"  autocomplete="off" class="form-container sign-up">
+      <div class="step-form">
+          <div class="signup-title">Your profile</div>
+          <div class="input-row">
+          <div class="input-box">
+            <input type="file" name="first-pic" id="first-pic" required>
+            <label for="first-pic">Select profile pic</label>
+          </div>
+          <div class="input-box">
+            <input type="file" name="second-pic" id="second-pic" required>
+            <label for="second-pic">Select second profile pic:</label>
+          </div>
+          </div>
+          <div class="input-row">
+          <div class="input-box">
+            <input type="file" name="third-pic" id="third-pic" required>
+            <label for="third-pic">Select third profile pic:</label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="nick-name" id="nick-name" required>
+            <label for="nick-name">Enter nickname:</label>
+          </div>
+          </div>
+          <div class="input-row">
+          <div class="input-box profile-input-box">
+            <textarea name="hobbies" id="hobbies" required></textarea>
+            <label for="hobbies">Describe your hobbies:</label>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="career" id="career" required></textarea>
+            <label for="career">Describe your career:</label>
+          </div>
+          </div>
+          <div class="input-row">
+          <div class="input-box profile-input-box">
+            <textarea name="college" id="college" required></textarea>
+            <label for="college">Describe your college:</label>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="highschool" id="highschool" required></textarea>
+            <label for="highschool">Describe your highschool:</label>
+          </div>
+          </div>
+      </div>
+      <div class="step-form">
+          <div class="signup-title">More about your hobbies</div>
+          <div class="input-box">
+            <input type="text" name="hobby-name" id="hobby-name" required>
+            <label for="hobby-name">Enter the hobby name:</label>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="hobby-more" id="hobby-more" required></textarea>
+            <label for="hobby-more">Describe the hobby briefly:</label>
+          </div>
+          <div class="input-box">
+            <input type="file" name="hobby-photo" id="hobby-photo" required>
+            <label for="hobby-photo">Select a memory photo:</label>
+          </div>
+      </div>
+      <div class="step-form">
+          <div class="signup-title">More about your career life</div>
+          <div class="input-box">
+            <input type="text" name="career-name" id="career-name" required>
+            <label for="career-name">Enter the career name:</label>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="career-more" id="career-more" required></textarea>
+            <label for="career-more">Describe the career briefly:</label>
+          </div>
+          <div class="input-box">
+            <input type="file" name="career-photo" id="career-photo" required>
+            <label for="career-photo">Select a memory photo:</label>
+          </div>
+      </div>
+      <div class="step-form">
+          <div class="signup-title">Talk about your friends</div>
+          <div class="input-box">
+            <input type="text" name="friend-name" id="friend-name" required>
+            <label for="friend-name">Enter the friend name:</label>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="relation-more" id="relation-more" required></textarea>
+            <label for="relation-more">Describe the relationship:</label>
+          </div>
+          <div class="input-box">
+            <input type="file" name="friend-photo" id="friend-photo" required>
+            <label for="friend-photo">Select a memory photo:</label>
+          </div>
+      </div>
+      <div class="input-box profile-navigation-button-container">
+        <button type="button" class="btn prev" onclick="nextPrev(-1)">previous</button>
+        <button type="button" class="btn next" onclick="nextPrev(1)">Next</button>
+      </div>
+  </form>
     <hr>
   </section>
   <footer>
@@ -108,6 +169,6 @@
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
-  <script src="signup.js"></script>
+  <script src="profile_input.js"></script>
 </body>
 </html>
