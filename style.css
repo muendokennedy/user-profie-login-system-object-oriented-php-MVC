@@ -422,9 +422,32 @@ hr{
   border: .1rem solid #FF0011;
   display: none;
 }
+/* Styling of the gallery page */
 .edit-btn button{
   border: none;
 }
+.manage-moodle{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  padding: 1.5rem 2rem;
+  width: 70rem;
+  background: #E6E6E6;
+  border: .1rem solid #85619D;
+  border-radius: 0 2rem 0 2rem;
+  display: none;
+}
+.manage-moodle .moodle-msg{
+  margin: 0 0 2rem 0;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+}
+.manage-moodle .moodle-btn-container{
+  display: flex;
+  justify-content: space-between;
+}
+
 /* The footer section */
 footer{
   background: #DFDFDF;

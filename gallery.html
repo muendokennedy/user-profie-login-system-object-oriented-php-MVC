@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
   <title>Personara profile system</title>
 </head>
-<body>
+<div class="blurred-part">
   <!-- The navigation bar -->
   <div class="navigation-bar">
     <div class="logo">personara</div>
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="edit-btn">
-        <button class="btn">manage</button>
+        <button class="btn" onclick="showMoodle();">manage</button>
         </div>
       </div>
       <div>
@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="edit-btn">
-        <button class="btn">manage</button>
+        <button class="btn" onclick="showMoodle();">manage</button>
         </div>
       </div>
       <div>
@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="edit-btn">
-        <button class="btn">manage</button>
+        <button class="btn" onclick="showMoodle();">manage</button>
         </div>
       </div>
       <div>
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="edit-btn">
-        <button class="btn">manage</button>
+        <button class="btn" onclick="showMoodle();">manage</button>
         </div>
       </div>
       <div>
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="edit-btn">
-        <button class="btn">manage</button>
+        <button class="btn" onclick="showMoodle();">manage</button>
         </div>
       </div>
       <div>
@@ -93,7 +93,7 @@
         </div>
       </div>
       <div class="edit-btn">
-        <button class="btn">manage</button>
+        <button class="btn" onclick="showMoodle();">manage</button>
       </div>
       </div>
     </div>
@@ -137,5 +137,15 @@
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
+</div>
+  <div class="manage-moodle">
+    <div class="moodle-msg">Do want to delete or update this post? once deleted, it cannot be recovered</div>
+    <div class="moodle-btn-container">
+      <span class="btn cancel">Cancel</span>
+      <a href="#" class="btn">Download</a>
+      <a href="#" class="btn">Delete</a>
+    </div>
+  </div>
+  <script src="gallery.js"></script>
 </body>
 </html>
