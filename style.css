@@ -8,6 +8,7 @@
 /* The global styling */
 html{
   font-size: 62.5%;
+  overflow-x: hidden;
   /* scroll-behavior: smooth; */
 }
 :root{
@@ -102,6 +103,9 @@ hr{
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: 500;
+}
+.menu, .close{
+  display: none;
 }
 .navigation-bar nav{
   color: #fff;
@@ -329,7 +333,7 @@ hr{
 }
 /* Profile data entry page styling */
 .form-container{
-  width: 100rem;
+  width: 90%;
 }
 .step-form{
   display: none;
@@ -495,4 +499,144 @@ footer .link-box button{
 }
 footer .copyright-text{
   text-align: center;
+}
+/* The media queries */
+/* The home page */
+@media only screen and (max-width: 900px){
+  .sign-up{
+    width: 70%;
+  }
+  .contact-form{
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .sign-up {
+    width: 90%;
+  }
+  .input-row {
+    flex-direction: column;
+  }
+  .form-container .input-row .input-box {
+    width: 100%;
+  }
+  }
+@media only screen and (max-width: 600px) {
+  .navigation-bar{
+    display: block;
+  }
+  .navigation-bar nav {
+    top: 4rem;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    width: 60%;
+    z-index: 110;
+    display: block;
+    padding: .5rem 0;
+    background: var(--primary-color);
+    right: -100%;
+    transition: all .3s ease;
+  }
+  .navigation-bar nav.show{
+    right: 0;
+  }
+  .navigation-bar nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    padding: 2rem 2.5rem;
+  }
+  .menu{
+    display: block;
+    position: absolute;
+    right: 4rem;
+    top: 2rem;
+    color: #fff;
+    z-index: 200;
+    font-size: 1.6rem;
+    font-style: normal;
+    text-transform: uppercase;
+  }
+  .home {
+    margin: 8rem 2% 1rem 2%;
+  }
+  .heading {
+    margin: 1rem 0;
+    padding: 1rem 0;
+  }
+  .started .signup-login-request-container{
+    font-size: 1.4rem;
+    margin: 0 auto;
+    gap: .5rem;
+  }
+  .started .signup-login-request-container .btn {
+    font-size: 1.4rem;
+    padding: .5rem 1.5rem;
+  }
+  .started .signup-login-request-container p{
+    font-size: 1.4rem;
+    padding: .5rem 1.5rem;
+  }
+  footer .copyright-text {
+    font-size: 1.2rem;
+  }
+  .sign-up .signup-title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: var(--primary-color);
+    border-bottom: .2rem solid #c1bfbf;
+  }
+  .sign-up .input-box {
+    width: 100%;
+    height: 4.5rem;
+    margin: 2rem 0;
+    position: relative;
+  }
+  .sign-up .input-box label {
+    font-size: 1.4rem;
+  }
+  .sign-up p {
+    font-size: 1.2rem;
+  }
+  .sign-up {
+    padding: 2rem;
+  }
+  .form-container .input-box{
+    position: relative;
+  }
+  .sign-up .profile-navigation-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+  }
+  .sign-up .input-box {
+    width: 100%;
+    height: 4.5rem;
+    margin: 2.5rem 0;
+    position: relative;
+  }
+  .sign-up .profile-input-box {
+    height: 6rem;
+    margin-bottom: 5rem;
+  }
+}
+@media only screen and (max-width: 400px){
+  .navigation-bar nav {
+    width: 75%;
+  }
+  .sign-up {
+    width: 100%;
+    padding: 1.5rem;
+  }
+  .profile-navigation-button-container button {
+    padding: .2rem 1.5rem;
+    font-size: 1.4rem;
+    width: unset;
+  }
 }
