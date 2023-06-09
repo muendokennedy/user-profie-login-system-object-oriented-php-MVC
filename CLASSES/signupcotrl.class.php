@@ -1,6 +1,6 @@
 <?php
 
-class Signupcotrl
+class Signupcotrl extends Signup
 {
 
   private $fname;
@@ -9,8 +9,12 @@ class Signupcotrl
   private $user_name;
   private $pwd;
   private $pwd_repeat;
+  private $code;
+  private $status;
 
-  public function __construct($fname, $lname, $email, $user_name, $pwd, $pwd_repeat)
+  // publicly available array
+
+  public function __construct($fname, $lname, $email, $user_name, $pwd, $pwd_repeat, $code, $status)
   {
     $this->fname = $fname;
     $this->lname = $lname;
@@ -18,6 +22,36 @@ class Signupcotrl
     $this->user_name = $user_name;
     $this->pwd = $pwd;
     $this->pwd_repeat = $pwd_repeat;
+    $this->code = $code;
+    $this->status = $status;
+  }
+  public function sigup_user()
+  {
+    if(!$this->emptyInput()){
+      // echo 'empty input'
+      header("Location: ../signup.php?error=emptyinputs");
+      exit();
+    }
+    if(!$this->invalidUsername()){
+      // echo 'Invalid username'
+      header("Location: ../signup.php?error=invaliduid");
+      exit();
+    }
+    if(!$this->emailCheck()){
+      // echo 'invalid email'
+      header("Location: ../signup.php?error=invalidemail");
+      exit();
+    }
+    if(!$this->passwordMatch()){
+      // echo 'passowords don't match'
+      header("Location: ../signup.php?error=passwordsdontmatch");
+      exit();
+    }
+    if($this->check_User()){
+      // echo 'username or email exists' 
+      header("Location: ../signup.php?error=uidexists");
+      exit();
+    }
   }
   public function emptyInput()
   {
@@ -67,7 +101,7 @@ class Signupcotrl
     return $result;
 
   }
-  public function passowMatch()
+  public function passwordMatch()
   {
     $result = true;
 
@@ -83,6 +117,24 @@ class Signupcotrl
 
     return $result;
     
+  }
+  public function check_User()
+  {
+
+    $result = true;
+
+    if(!$this->checkUser($this->user_name, $this->email)){
+
+      $result = false;
+
+    } else {
+
+      $result = true;
+
+    }
+
+    return $result;
+
   }
 
 }
