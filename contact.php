@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- The custom CSS link -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="STYLE/style.css?<?php echo time(); ?>">
   <!-- The font-awesome CDN link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
   <title>Personara profile system</title>
@@ -15,10 +15,10 @@
   <div class="navigation-bar">
     <div class="logo">personara</div>
     <nav>
-      <a href="index.html">home</a>
-      <a href="signup.html">signup</a>
-      <a href="login.html">login</a>
-      <a href="contact.html">contact</a>
+      <a href="index.php">home</a>
+      <a href="signup.php">signup</a>
+      <a href="login.php">login</a>
+      <a href="contact.php">contact</a>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
@@ -29,29 +29,38 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">login to your account</div>
-    <div class="sign-up">
-      <form action="#" method="POST" autocomplete="off">
-        <div class="signup-title">Create account</div>
-        <div class="input-box">
-          <input type="text" name="uid" id="uid" required>
-          <label for="uid">Enter your username or email:</label>
-        </div>
-        <div class="input-box">
-          <input type="password" name="pwd" id="pwd" required>
-          <label for="pwd">Enter your password:</label>
-          <span class="show-btn">SHOW</span>
-        </div>
-        <div class="input-box">
-          <input type="submit" name="submit" value="login" class="btn">
-        </div>
-        <p class="forgot-pwd"><a href="#">Forgot password</a></p>
-        <div class="link-container">
-          <p>Don't have an account?</p>
-          <p><a href="signup.html">sign up</a></p>
-        </div>
-      </form>
-    </div>
+    <div class="heading">talk to personara</div>
+    <div class="error-block">All fields are required</div>
+    <form action="#" method="POST"  autocomplete="off" class="form-container sign-up contact-form">
+          <div class="signup-title">Talk to us</div>
+          <div class="input-row">
+          <div class="input-box">
+            <input type="text" name="fname" id="fname" required>
+            <label for="fname">Enter your first name:</label>
+          </div>
+          <div class="input-box">
+            <input type="text" name="lname" id="lname" required>
+            <label for="lname">Enter your last name:</label>
+          </div>
+          </div>
+          <div class="input-row">
+            <div class="input-box">
+              <input type="text" name="email" id="email" required>
+              <label for="email">Enter your email:</label>
+            </div>
+          <div class="input-box">
+            <input type="text" name="subject" id="subject" required>
+            <label for="subject">Enter your subject:</label>
+          </div>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="highschool" id="highschool" required></textarea>
+            <label for="highschool">Describe your highschool:</label>
+          </div>
+          <div class="input-box profile-navigation-button-container">
+            <button type="submit" class="btn" name="submit">Send Message</button>
+          </div>
+        </form>
     <hr>
   </section>
   <footer>
@@ -92,7 +101,6 @@
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
-  <script src="menu.js"></script>
-  <script src="login.js"></script>
+  <script src="JS/menu.js"></script>
 </body>
 </html>

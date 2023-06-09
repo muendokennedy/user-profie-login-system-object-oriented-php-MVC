@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- The custom CSS link -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="STYLE/style.css?<?php echo time(); ?>">
   <!-- The font-awesome CDN link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
   <title>Personara profile system</title>
@@ -16,10 +16,10 @@
     <div class="logo">personara</div>
     <nav>
       <div class="close"><span class="fa-solid fa-xmark">Close</span></div>
-      <a href="index.html">home</a>
-      <a href="signup.html">signup</a>
-      <a href="login.html">login</a>
-      <a href="contact.html">contact</a>
+      <a href="index.php">home</a>
+      <a href="signup.php">signup</a>
+      <a href="login.php">login</a>
+      <a href="contact.php">contact</a>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
@@ -38,21 +38,21 @@
           <div class="topic-name name">Engineering</div>
           <div class="topic-content content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
           <div class="topic-image image">
-            <img src="home-1.jpg" alt="">
+            <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Programming</div>
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam,</div>
           <div class="topic-image">
-            <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Writing</div>
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam?</div>
           <div class="topic-image">
-            <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
       </div>
@@ -62,21 +62,21 @@
           <div class="topic-name">Swimming</div>
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam, </div>
           <div class="topic-image">
-            <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Knitting</div>
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam, </div>
           <div class="topic-image">
-            <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Singing</div>
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam,</div>
           <div class="topic-image">
-            <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
       </div>
@@ -130,6 +130,6 @@
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
-  <script src="menu.js"></script>
+  <script src="JS/menu.js"></script>
 </body>
 </html>

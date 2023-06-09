@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- The custom CSS link -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="STYLE/style.css?<?php echo time(); ?>">
   <!-- The font-awesome CDN link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
   <title>Personara profile system</title>
@@ -15,10 +15,10 @@
   <div class="navigation-bar">
     <div class="logo">personara</div>
     <nav>
-      <a href="index.html">home</a>
-      <a href="signup.html">signup</a>
-      <a href="login.html">login</a>
-      <a href="contact.html">contact</a>
+      <a href="index.php">home</a>
+      <a href="signup.php">signup</a>
+      <a href="login.php">login</a>
+      <a href="contact.php">contact</a>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
@@ -35,7 +35,7 @@
       <div class="box">
         <div class="name">swimming</div>
         <div class="image">
-          <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
         </div>
       </div>
       <div class="edit-btn">
@@ -46,7 +46,7 @@
       <div class="box">
         <div class="name">swimming</div>
         <div class="image">
-          <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
         </div>
       </div>
       <div class="edit-btn">
@@ -57,7 +57,7 @@
       <div class="box">
         <div class="name">swimming</div>
         <div class="image">
-          <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
         </div>
       </div>
       <div class="edit-btn">
@@ -68,7 +68,7 @@
       <div class="box">
         <div class="name">programming</div>
         <div class="image">
-          <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
         </div>
       </div>
       <div class="edit-btn">
@@ -79,7 +79,7 @@
       <div class="box">
         <div class="name">writing</div>
         <div class="image">
-          <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
         </div>
       </div>
       <div class="edit-btn">
@@ -90,7 +90,7 @@
       <div class="box">
         <div class="name">designing</div>
         <div class="image">
-          <img src="home-1.jpg" alt="">
+          <img src="IMAGES/home-1.jpg" alt="">
         </div>
       </div>
       <div class="edit-btn">
@@ -147,7 +147,7 @@
       <a href="#" class="btn">Delete</a>
     </div>
   </div>
-  <script src="menu.js"></script>
-  <script src="gallery.js"></script>
+  <script src="JS/menu.js"></script>
+  <script src="JS/gallery.js"></script>
 </body>
 </html>
