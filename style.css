@@ -261,11 +261,8 @@ hr{
   align-items: center;
 }
 .profile-bio-image{
-  display: flex;
-  width: 40rem;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
+  /* width: 40rem;
+  height: 40rem; */
 }
 .profile-bio-image img{
   width: 100%;
@@ -276,10 +273,28 @@ hr{
   align-items: center;
   gap: 6rem;
 }
+.profile-swiper{
+  width: 40rem;
+  height: 30rem;
+  /* height: 20rem; */
+}
+.profile-swiper img{
+  object-fit: cover;
+  border-radius: 0 2rem 0 2rem;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.profile-swiper img.active{
+  display: block;
+}
 .profile-bio-image .swipe-indicator span{
   height: 1.4rem;
   width: 6rem;
   border-radius: .6rem;
+  background: #c1bfbf;
+}
+.profile-bio-image .swipe-indicator span.active{
   background: var(--primary-color);
 }
 .profile-bio-content .profile-title{
@@ -454,6 +469,8 @@ hr{
 .contact-form{
   display: block;
 }
+
+
 /* The footer section */
 footer{
   background: #DFDFDF;
@@ -510,6 +527,19 @@ footer .copyright-text{
     width: 95%;
     margin: 0 auto;
   }
+  .profile-bio-container {
+    gap: 10rem;
+  }
+  .sign-up .input-box input[type="file"] {
+    padding-left: 18rem;
+    font-size: 1rem;
+  }
+  .sign-up .input-box label {
+    font-size: 1.3rem;
+  }
+  .profile{
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .sign-up {
@@ -521,7 +551,22 @@ footer .copyright-text{
   .form-container .input-row .input-box {
     width: 100%;
   }
+  .profile-bio-container {
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem auto;
+    width: 90%;
   }
+  .profile-swiper {
+    width: 100%;
+  }
+  .manage-moodle {
+    width: 90%;
+  }
+  .manage-moodle .moodle-msg{
+    font-size: 1.2rem;
+  }
+}
 @media only screen and (max-width: 600px) {
   .navigation-bar{
     display: block;
@@ -625,6 +670,13 @@ footer .copyright-text{
     height: 6rem;
     margin-bottom: 5rem;
   }
+  .form-progress-indicator{
+    width: 70%;
+  }
+  .moodle-btn-container .btn{
+    font-size: 1.2rem;
+    padding: .4rem 1rem;
+  }
 }
 @media only screen and (max-width: 400px){
   .navigation-bar nav {
@@ -634,9 +686,12 @@ footer .copyright-text{
     width: 100%;
     padding: 1.5rem;
   }
-  .profile-navigation-button-container button {
+  .profile-navigation-button-container button{
     padding: .2rem 1.5rem;
     font-size: 1.4rem;
     width: unset;
+  }
+  .form-progress-indicator span {
+    width: 3rem;
   }
 }
