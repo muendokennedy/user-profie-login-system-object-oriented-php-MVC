@@ -12,8 +12,6 @@ class Signupcotrl extends Signup
   private $code;
   private $status;
 
-  // publicly available array
-
   public function __construct($fname, $lname, $email, $user_name, $pwd, $pwd_repeat, $code, $status)
   {
     $this->fname = $fname;
@@ -52,12 +50,14 @@ class Signupcotrl extends Signup
       header("Location: ../signup.php?error=uidexists");
       exit();
     }
+    // Add the current user to the database
+    $this->setUser($this->fname, $this->lname, $this->email, $this->user_name, $this->pwd, $this->code, $this->status);
   }
   public function emptyInput()
   {
     $result = true;
 
-    if(empty($this->fname) || empty($this->lname) || empty($this->email) || empty($this->user_name) || empty($this->pwd) || empty($this->pwd_repeat)){
+    if(empty($this->fname) || empty($this->lname) || empty($this->email) || empty($this->user_name) || empty($this->pwd) || empty($this->pwd_repeat) || empty($this->code) || empty($this->status)){
 
       $result = false;
 
