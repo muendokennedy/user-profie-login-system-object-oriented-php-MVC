@@ -31,7 +31,7 @@
     </div>
     <div class="heading">login to your account</div>
     <div class="sign-up">
-      <form action="#" method="POST" autocomplete="off">
+      <form action="INCLUDES/login.inc.php" method="POST">
         <div class="signup-title">Create account</div>
         <div class="input-box">
           <input type="text" name="uid" id="uid" required>
