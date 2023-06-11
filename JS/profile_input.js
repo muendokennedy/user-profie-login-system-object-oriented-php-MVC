@@ -4,8 +4,12 @@ const previousBtn = document.querySelector(".prev");
 const allStepForms = document.querySelectorAll(".step-form");
 const allIndicatorBtns = document.querySelectorAll(".indicator-btn");
 const errorMessage = document.querySelector(".error-block");
-
 let currentForm = 0;
+const inputs = allStepForms[currentForm].querySelectorAll("input");
+const textArea = allStepForms[currentForm].querySelectorAll("textarea");
+const allInputs = [...inputs, ...textArea];
+
+
 
 showCurrentForm(currentForm);
 
@@ -24,14 +28,13 @@ function showCurrentForm(i){
   }else{
     previousBtn.style.display = "block";
   }
-  allIndicatorBtns[i].classList.add("current");
+  showIndicator(i);
 }
 
 function nextPrev(i){
 
   if(i == 1 && !emptyInput()){
     return false;
-
   } else{
     allStepForms[currentForm].style.display = "none";
     currentForm += i;
@@ -47,9 +50,6 @@ function nextPrev(i){
 }
 
 function emptyInput(){
-  let inputs = allStepForms[currentForm].querySelectorAll("input");
-  let textArea = allStepForms[currentForm].querySelectorAll("textarea");
-  let allInputs = [...inputs, ...textArea];
   let isvalid = true;
   for(let i = 0; i < allInputs.length; i++){
     if(allInputs[i].value == ""){
@@ -63,4 +63,10 @@ function emptyInput(){
     }
   }
   return isvalid;
+}
+function showIndicator(x){
+  for(let i = 0; i < allIndicatorBtns.length; i++){
+    allIndicatorBtns[i].classList.remove("current");
+  }
+  allIndicatorBtns[x].classList.add("current");
 }

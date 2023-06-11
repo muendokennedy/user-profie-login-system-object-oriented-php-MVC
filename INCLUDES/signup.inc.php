@@ -21,6 +21,15 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   //Running the error handlers and the user signup
   $signup->sigup_user();
   // Going back to the front page
-  header("Location: ../signup.php?error=none");
+  // mail the user for account activation
+  // $mail_to = $email;
+  // $message = "Your account verification code is: ";
+  // $txt = "You have received an email from personara " . "\n\n" . $message .$code;
+  // $subject = "Email verification";
+  // $sender = "From: PERSONARA";
+  
+  // mail($mail_to, $subject, $txt, $sender);
+  
+  header("Location: ../login.php");
   exit();
 }

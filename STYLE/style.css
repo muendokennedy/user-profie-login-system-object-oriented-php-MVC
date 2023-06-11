@@ -381,9 +381,6 @@ hr{
 .form-progress-indicator .indicator-btn.current{
   background: var(--primary-color);
 }
-.form-progress-indicator span:first-child{
-  background: var(--primary-color);
-}
 .sign-up .profile-navigation-button-container{
   display: flex;
   justify-content: space-between;

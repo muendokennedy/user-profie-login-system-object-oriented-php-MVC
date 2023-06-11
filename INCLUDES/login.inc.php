@@ -10,10 +10,10 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   require_once("../CLASSES/logincotrl.class.php");
 
   // Instantiate the login controller class
-  $signup = new Logincotrl($user_name, $password);
+  $login = new Logincotrl($user_name, $password);
   //Running the error handlers and the user signup
-  $signup->login_user();
+  $login->login_user();
   // Going back to the profile page
-  header("Location: ../profile.php");
+  header("Location: ../profile_input.php");
   exit();
 }

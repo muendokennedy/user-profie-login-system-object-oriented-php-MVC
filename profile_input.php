@@ -36,7 +36,7 @@
       <span class="fourth indicator-btn"></span>
     </div>
     <div class="error-block">All fields are required</div>
-    <form action="#" method="POST"  autocomplete="off" class="form-container sign-up profile">
+    <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
       <div class="step-form">
           <div class="signup-title">Your profile</div>
           <div class="input-row">
@@ -127,7 +127,7 @@
       </div>
       <div class="input-box profile-navigation-button-container">
         <button type="button" class="btn prev" onclick="nextPrev(-1)">previous</button>
-        <button type="button" class="btn next" onclick="nextPrev(1)">Next</button>
+        <button type="submit" class="btn next" onclick="nextPrev(1)" name="submit">Next</button>
       </div>
   </form>
     <hr>
@@ -171,6 +171,6 @@
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
   <script src="JS/menu.js"></script> 
-  <script src="JS/profile_input.js"></script>
+  <script src="JS/profile_input.js?<?php echo time(); ?>"></script>
 </body>
 </html>
