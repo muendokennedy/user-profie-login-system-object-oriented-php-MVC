@@ -28,10 +28,35 @@ class Profile extends Dbh
     $stmt->execute();
 
   }
-  public function set_hobby_photo($name)
+  public function set_hobbies($hobby_name, $hobby_more, $name)
   {
-    $sql = "UPDATE hobbies SET hobbyphoto) VALUES(:hobbyname, :hobbymore, :hobbyphoto);";
-  }
-  UPDATE `users` SET `firstname` = 'Kennedy' WHERE `users`.`id` = 1
+    $sql = "INSERT INTO hobbies(hobbyname, hobbymore, hobbyphoto) VALUES(:name, :more, :photo);";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->bindParam(":name", $hobby_name);
+    $stmt->bindParam(":more", $hobby_more);
+    $stmt->bindParam(":photo", $name);
 
+    $stmt->execute();
+  }
+  public function set_careers($career_name, $career_more, $name)
+  {
+    $sql = "INSERT INTO careers(careername, careermore, careerphoto	
+    ) VALUES(:name, :more, :photo);";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->bindParam(":name", $career_name);
+    $stmt->bindParam(":more", $career_more);
+    $stmt->bindParam(":photo", $name);
+
+    $stmt->execute();
+  }
+  public function set_friends($friend_name, $friend_more, $name)
+  {
+    $sql = "INSERT INTO friends(friendname, friendmore, friendphoto) VALUES(:name, :more, :photo);";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->bindParam(":name", $friend_name);
+    $stmt->bindParam(":more", $friend_more);
+    $stmt->bindParam(":photo", $name);
+
+    $stmt->execute();
+  }
 }
