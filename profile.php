@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+require_once("CLASSES/dbh.class.php");
+require_once("CLASSES/profile.class.php");
+require_once("CLASSES/profilecotrl.class.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,136 +39,66 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">about kennedy</div>
+    <div class="heading">about <?php
+      if(isset($_SESSION["usersid"])){
+        echo $_SESSION["firstname"];
+      }
+      ?></div>
     <div class="profile-bio-container">
-        <div class="profile-swiper">
-          <img src="IMAGES/client-3.jpg" alt="" class="active">
-          <img src="IMAGES/client-1.jpg" alt="">
-          <img src="IMAGES/client-2.jpg" alt="">
-        </div>
-      <div class="profile-bio-content">
-        <div class="profile-title">kennedy in brief</div>
-        <p><b>Full name:</b>Muendo kennedy Munyao</p>
-        <p><b>Nick name:</b>Ken</p>
-        <p><b>Hobbies:</b>swimming, reading</p>
-        <p><b>Career:</b>Programming</p>
-        <p><b>College:</b>Multimedia University of Kenya</p>
-        <p><b>Highschool:</b>Machakos School</p>
-      </div>
+      <?php
+      if(isset($_SESSION["usersid"])){
+        $images = new Profilecotrl("");
+        $images->get_pictures($_SESSION["usersid"]);
+        $profile_info = new Profilecotrl("");
+        $profile_info->get_profile_information($_SESSION["usersid"]);
+      }
+      ?>
+      
     </div>
     <div class="edit-btn">
     <a href="#" class="btn">Edit</a>
     </div>
     <hr>
-    <div class="heading">what kenedy likes doing for leasure</div>
+    <div class="heading">what <?php
+      if(isset($_SESSION["usersid"])){
+        echo $_SESSION["firstname"];
+      }
+      ?> likes doing for leasure</div>
     <div class="leisure-box box-container">
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <a href="#" class="btn">Edit</a>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <a href="#" class="btn">Edit</a>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <a href="#" class="btn">Edit</a>
-        </div>
-      </div>
+    <?php
+      if(isset($_SESSION["usersid"])){
+        $hobby_info = new Profilecotrl("");
+        $hobby_info->get_hobby_info($_SESSION["usersid"]);
+      }
+      ?>
     </div>
     <hr>
-    <div class="heading">what kennedy does in career life</div>
+    <div class="heading">what <?php
+      if(isset($_SESSION["usersid"])){
+        echo $_SESSION["firstname"];
+      }
+      ?> does in career life</div>
     <div class="leisure-box box-container">
-      <div>
-      <div class="box">
-        <div class="name">programming</div>
-        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <a href="#" class="btn">Edit</a>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">writing</div>
-        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <a href="#" class="btn">Edit</a>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">designing</div>
-        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <a href="#" class="btn">Edit</a>
-      </div>
-      </div>
+    <?php
+      if(isset($_SESSION["usersid"])){
+        $career_info = new Profilecotrl("");
+        $career_info->get_career_info($_SESSION["usersid"]);
+      }
+    ?>
     </div>
     <hr>
-    <div class="heading">people close to kennedy</div>
+    <div class="heading">people close to <?php
+      if(isset($_SESSION["usersid"])){
+        echo $_SESSION["firstname"];
+      }
+      ?> </div>
     <div class="friends-container">
-      <div class="friend-box">
-        <div class="friend-image">
-          <img src="IMAGES/client-2.jpg" alt="">
-        </div>
-        <div class="friend-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="edit-btn">
-          <a href="#" class="btn">Edit</a>
-          </div>
-      </div>
-      <div class="friend-box">
-        <div class="friend-image">
-          <img src="IMAGES/client-2.jpg" alt="">
-        </div>
-        <div class="friend-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="edit-btn">
-          <a href="#" class="btn">Edit</a>
-          </div>
-      </div>
-      <div class="friend-box">
-        <div class="friend-image">
-          <img src="IMAGES/client-1.jpg" alt="">
-        </div>
-        <div class="friend-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
-        <div class="edit-btn">
-          <a href="#" class="btn">Edit</a>
-          </div>
-      </div>
+    <?php
+      if(isset($_SESSION["usersid"])){
+        $friend_info = new Profilecotrl("");
+        $friend_info->get_friend_info($_SESSION["usersid"]);
+      }
+    ?>
     </div>
     <hr>
   </section>

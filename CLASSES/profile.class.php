@@ -59,4 +59,86 @@ class Profile extends Dbh
 
     $stmt->execute();
   }
+
+  public function getPhotos($id)
+  {
+    $sql = "SELECT * FROM profilegallery WHERE usersid = :id;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":id", $id);
+
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return $results;
+  }
+  public function get_info($id)
+  {
+    $sql = "SELECT * FROM profileinfo WHERE usersid = :id;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":id", $id);
+
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      $results = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    return $results;
+  }
+
+  public function get_hobbies($id)
+  {
+    $sql = "SELECT * FROM hobbies WHERE usersid = :id;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":id", $id);
+
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $results;
+  }
+
+  public function get_careers($id)
+  {
+    $sql = "SELECT * FROM careers WHERE usersid = :id;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":id", $id);
+
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $results;
+  }
+
+  function get_friends($id)
+  {
+    $sql = "SELECT * FROM friends WHERE usersid = :id;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":id", $id);
+
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    return $results;
+  }
 }

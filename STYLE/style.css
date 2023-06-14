@@ -260,10 +260,6 @@ hr{
   gap: 20rem;
   align-items: center;
 }
-.profile-bio-image{
-  /* width: 40rem;
-  height: 40rem; */
-}
 .profile-bio-image img{
   width: 100%;
   border-radius: 0 2rem 0 2rem;

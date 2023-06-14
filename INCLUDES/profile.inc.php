@@ -20,12 +20,12 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   // The career information
   $career_name = $_POST["career-name"];
   $career_more = $_POST["career-more"];
-  $career_photo = $_POST["career-photo"];
+  $career_photo = $_FILES["career-photo"];
 
   // The friend information
-  $friend_name = $_POST["career-name"];
-  $friend_more = $_POST["career-more"];
-  $friend_photo = $_POST["career-photo"];
+  $friend_name = $_POST["friend-name"];
+  $friend_more = $_POST["relation-more"];
+  $friend_photo = $_FILES["friend-photo"];
 
   require_once("../CLASSES/dbh.class.php");
   require_once("../CLASSES/profile.class.php");

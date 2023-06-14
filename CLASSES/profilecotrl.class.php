@@ -56,9 +56,9 @@ class Profilecotrl extends Profile
 
   public function insert_hobbies($hobby_name, $hobby_more)
   {
-    if($this->emptyInput() === false){
+    if($this->emptyInputHobby($hobby_name, $hobby_more) === false){
       // echo 'empty input'
-      header("Location: ../profile_input.php?error=emptyinputs");
+      header("Location: ../profile_input.php?error=emptyinputshobby");
       exit();
     }
     // Login the current user to the database
@@ -102,9 +102,9 @@ class Profilecotrl extends Profile
   
   public function insert_careers($career_name, $career_more)
   {
-    if($this->emptyInput() === false){
+    if($this->emptyInputCareer($career_name, $career_more) === false){
       // echo 'empty input'
-      header("Location: ../profile_input.php?error=emptyinputs");
+      header("Location: ../profile_input.php?error=emptyinputscareer");
       exit();
     }
     // Login the current user to the database
@@ -148,9 +148,9 @@ class Profilecotrl extends Profile
 
   public function insert_friends($friend_name, $friend_more)
   {
-    if($this->emptyInput() === false){
+    if($this->emptyInputFriend($friend_name, $friend_more) === false){
       // echo 'empty input'
-      header("Location: ../profile_input.php?error=emptyinputs");
+      header("Location: ../profile_input.php?error=emptyinputsfriends");
       exit();
     }
     // Login the current user to the database
@@ -210,4 +210,150 @@ class Profilecotrl extends Profile
 
   }
 
+  public function emptyInputHobby($hobby_name, $hobby_more)
+  {
+    $result = true;
+
+    if(empty($this->file) || empty($hobby_name) || empty($hobby_more)){
+
+      $result = false;
+
+    } else {
+
+      $result = true;
+
+    }
+
+    return $result;
+
+  }
+  public function emptyInputCareer($career_name, $career_more)
+  {
+    $result = true;
+
+    if(empty($this->file) || empty($career_name) || empty($career_more)){
+
+      $result = false;
+
+    } else {
+
+      $result = true;
+
+    }
+
+    return $result;
+
+  }
+  public function emptyInputFriend($friend_name, $friend_more)
+  {
+    $result = true;
+
+    if(empty($this->file) || empty($friend_name) || empty($friend_more)){
+
+      $result = false;
+
+    } else {
+
+      $result = true;
+
+    }
+
+    return $result;
+
+  }
+
+  // Getting all the photos for this particular user from the database
+  public function get_pictures($id)
+  {
+    $results = $this->getPhotos($id);
+
+      $image = "";
+
+       $image = "<div class=\"profile-swiper\">
+         <img src=\"UPLOADS/{$results[0]["imagefullname"]}\" alt=\"\" class=\"active\">
+         <img src=\"UPLOADS/{$results[1]["imagefullname"]}\" alt=\"\">
+         <img src=\"UPLOADS/{$results[2]["imagefullname"]}\" alt=\"\">
+        </div>";
+
+   echo $image;
+  }
+
+  public function get_profile_information($id)
+  {
+    $results = $this->get_info($id);
+
+    $profile_info = "";
+
+    $profile_info = "<div class=\"profile-bio-content\">
+                      <div class=\"profile-title\">{$_SESSION["firstname"]} in brief</div>
+                      <p><b>Full name:</b>{$_SESSION["firstname"]} {$_SESSION["lastname"]}</p>
+                      <p><b>Nick name:</b>{$results["nickname"]}</p>
+                      <p><b>Hobbies:</b>{$results["hobbies"]}</p>
+                      <p><b>Career:</b>{$results["career"]}</p>
+                      <p><b>College:</b>{$results["college"]}</p>
+                      <p><b>Highschool:</b>{$results["highschool"]}</p>
+                    </div>";
+
+                    echo $profile_info;
+  }
+
+  public function get_hobby_info($id)
+  {
+    $results = $this->get_hobbies($id);
+
+    foreach($results as $result){  
+
+        echo "<div>
+                <div class=\"box\">
+                  <div class=\"name\">{$result["hobbyname"]}</div>
+                  <div class=\"content\">{$result["hobbymore"]}</div>
+                  <div class=\"image\">
+                    <img src=\"UPLOADS/{$result["hobbyphoto"]}\" alt=\"\">
+                  </div>
+                </div>
+                <div class=\"edit-btn\">
+                  <a href=\"\" class=\"btn\">Edit</a>
+                </div>
+              </div>";
+        }
+  }
+
+  public function get_career_info($id)
+  {
+    $results = $this->get_careers($id);
+
+    foreach($results as $result){  
+
+      echo "<div>
+              <div class=\"box\">
+                <div class=\"name\">{$result["careername"]}</div>
+                <div class=\"content\">{$result["careermore"]}</div>
+                <div class=\"image\">
+                  <img src=\"UPLOADS/{$result["careerphoto"]}\" alt=\"\">
+                </div>
+              </div>
+              <div class=\"edit-btn\">
+                <a href=\"\" class=\"btn\">Edit</a>
+              </div>
+            </div>";
+      }
+  }
+  public function get_friend_info($id)
+  {
+    $results = $this->get_friends($id);
+
+    foreach($results as $result){  
+
+      echo "<div class=\"friend-box\">
+              <div class=\"friend-image\">
+                <img src=\"UPLOADS/{$result["friendphoto"]}\" alt=\"\">
+              </div>
+              <div class=\"friend-name\">{$result["friendname"]}</div>
+              <div class=\"friend-content\">{$result["friendmore"]}</div>
+              <div class=\"edit-btn\">
+                <a href=\"\" class=\"btn\">Edit</a>
+              </div>
+            </div>";
+      }
+  }
 }

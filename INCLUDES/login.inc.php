@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   // Collet the user form data
   $user_name = $_POST["uid"];
@@ -13,7 +12,7 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $login = new Logincotrl($user_name, $password);
   //Running the error handlers and the user signup
   $login->login_user();
-  // Going back to the profile page
-  header("Location: ../profile_input.php");
+  // if the login the session contains a variable from the login process
+  header("Location: ../profile.php");
   exit();
 }

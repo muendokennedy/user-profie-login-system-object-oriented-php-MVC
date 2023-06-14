@@ -32,6 +32,7 @@ class Login extends Dbh
       } else {
         // start a session
         session_start();
+        $_SESSION["usersid"] = $result["id"];
         $_SESSION["firstname"] = $result["firstname"];
         $_SESSION["lastname"] = $result["lastname"];
 
