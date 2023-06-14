@@ -30,6 +30,6 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   
   // mail($mail_to, $subject, $txt, $sender);
   
-  header("Location: ../login.php");
+  header("Location: ../profile_input.php");
   exit();
 }

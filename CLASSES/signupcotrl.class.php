@@ -52,6 +52,8 @@ class Signupcotrl extends Signup
     }
     // Add the current user to the database
     $this->setUser($this->fname, $this->lname, $this->email, $this->user_name, $this->pwd, $this->code, $this->status);
+    // Run the check user method again in order to obtain the id field
+    $result = $this->confirm_User();
   }
   public function emptyInput()
   {
@@ -136,5 +138,13 @@ class Signupcotrl extends Signup
     return $result;
 
   }
-
+  public function confirm_User()
+  {
+    $result = $this->confirmUser($this->user_name, $this->email);
+    
+      if($result != null){
+        session_start();
+        $_SESSION["incoming_user_id"] = $result["id"];
+      }
+ }
 }

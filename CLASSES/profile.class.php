@@ -1,7 +1,7 @@
 <?php
 class Profile extends Dbh
 {
-  protected function check_photo($name)
+  protected function check_photo($name, $id)
   {
     $sql = "SELECT * FROM profilegallery;";
 
@@ -13,49 +13,52 @@ class Profile extends Dbh
 
     $image_order = $row_count + 1;
 
-    $this->set_photo($name, $image_order);
+    $this->set_photo($name, $image_order, $id);
 
   }
-  protected function set_photo($name, $order)
+  protected function set_photo($name, $order, $id)
   {
-    $sql = "INSERT INTO profilegallery(imagefullname, imageorder) VALUES(:name, :order);";
+    $sql = "INSERT INTO profilegallery(imagefullname, imageorder, usersid) VALUES(:name, :order, :id);";
 
     $stmt = $this->connect()->prepare($sql);
 
     $stmt->bindParam(":name", $name);
     $stmt->bindParam(":order", $order);
+    $stmt->bindParam(":id", $id);
 
     $stmt->execute();
 
   }
-  public function set_hobbies($hobby_name, $hobby_more, $name)
+  public function set_hobbies($hobby_name, $hobby_more, $name, $id)
   {
-    $sql = "INSERT INTO hobbies(hobbyname, hobbymore, hobbyphoto) VALUES(:name, :more, :photo);";
+    $sql = "INSERT INTO hobbies(hobbyname, hobbymore, hobbyphoto, usersid) VALUES(:name, :more, :photo, :id);";
     $stmt = $this->connect()->prepare($sql);
     $stmt->bindParam(":name", $hobby_name);
     $stmt->bindParam(":more", $hobby_more);
     $stmt->bindParam(":photo", $name);
+    $stmt->bindParam(":id", $id);
 
     $stmt->execute();
   }
-  public function set_careers($career_name, $career_more, $name)
+  public function set_careers($career_name, $career_more, $name, $id)
   {
-    $sql = "INSERT INTO careers(careername, careermore, careerphoto	
-    ) VALUES(:name, :more, :photo);";
+    $sql = "INSERT INTO careers(careername, careermore, careerphoto, usersid) VALUES(:name, :more, :photo, :id);";
     $stmt = $this->connect()->prepare($sql);
     $stmt->bindParam(":name", $career_name);
     $stmt->bindParam(":more", $career_more);
     $stmt->bindParam(":photo", $name);
+    $stmt->bindParam(":id", $id);
 
     $stmt->execute();
   }
-  public function set_friends($friend_name, $friend_more, $name)
+  public function set_friends($friend_name, $friend_more, $name, $id)
   {
-    $sql = "INSERT INTO friends(friendname, friendmore, friendphoto) VALUES(:name, :more, :photo);";
+    $sql = "INSERT INTO friends(friendname, friendmore, friendphoto, usersid) VALUES(:name, :more, :photo, :id);";
     $stmt = $this->connect()->prepare($sql);
     $stmt->bindParam(":name", $friend_name);
     $stmt->bindParam(":more", $friend_more);
     $stmt->bindParam(":photo", $name);
+    $stmt->bindParam(":id", $id);
 
     $stmt->execute();
   }

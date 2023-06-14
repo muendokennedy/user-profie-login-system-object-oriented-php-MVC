@@ -46,5 +46,24 @@ class Signup extends Dbh
 
     return $result_check;
   }
+  protected function confirmUser($user_name, $email)
+  {
+    $sql = "SELECT * FROM users WHERE username = :username OR email = :email;";
+    $stmt = $this->connect()->prepare($sql);
+    $stmt->bindParam(":username", $user_name);
+    $stmt->bindParam(":email", $email);
+    $stmt->execute();
+   
+
+    $result = "";
+
+    if($stmt->rowCount() > 0){
+      $result =  $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    $stmt = null;
+
+    return $result;
+  }
 
 }

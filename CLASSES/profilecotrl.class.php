@@ -8,7 +8,7 @@ class Profilecotrl extends Profile
     $this->file = $file;
   }
 
-  public function insert_picture()
+  public function insert_picture($id)
   {
     if($this->emptyInput() === false){
       // echo 'empty input'
@@ -36,7 +36,7 @@ class Profilecotrl extends Profile
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 
-          $this->check_photo($image_fullname);
+          $this->check_photo($image_fullname, $id);
 
           move_uploaded_file($file_temp_name, $file_destination);
 
@@ -54,7 +54,7 @@ class Profilecotrl extends Profile
     }
   }
 
-  public function insert_hobbies($hobby_name, $hobby_more)
+  public function insert_hobbies($hobby_name, $hobby_more, $id)
   {
     if($this->emptyInputHobby($hobby_name, $hobby_more) === false){
       // echo 'empty input'
@@ -82,7 +82,7 @@ class Profilecotrl extends Profile
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 
-            $this->set_hobbies($hobby_name, $hobby_more, $image_fullname);
+            $this->set_hobbies($hobby_name, $hobby_more, $image_fullname, $id);
 
             move_uploaded_file($file_temp_name, $file_destination);
 
@@ -100,7 +100,7 @@ class Profilecotrl extends Profile
     }
   }
   
-  public function insert_careers($career_name, $career_more)
+  public function insert_careers($career_name, $career_more, $id)
   {
     if($this->emptyInputCareer($career_name, $career_more) === false){
       // echo 'empty input'
@@ -128,7 +128,7 @@ class Profilecotrl extends Profile
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 
-            $this->set_careers($career_name, $career_more, $image_fullname);
+            $this->set_careers($career_name, $career_more, $image_fullname, $id);
 
             move_uploaded_file($file_temp_name, $file_destination);
 
@@ -146,7 +146,7 @@ class Profilecotrl extends Profile
     }
   }
 
-  public function insert_friends($friend_name, $friend_more)
+  public function insert_friends($friend_name, $friend_more, $id)
   {
     if($this->emptyInputFriend($friend_name, $friend_more) === false){
       // echo 'empty input'
@@ -174,7 +174,7 @@ class Profilecotrl extends Profile
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 
-            $this->set_friends($friend_name, $friend_more, $image_fullname);
+            $this->set_friends($friend_name, $friend_more, $image_fullname, $id);
 
             move_uploaded_file($file_temp_name, $file_destination);
 

@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,6 +58,7 @@
           <div class="input-row">
           <div class="input-box">
             <input type="file" name="third-pic" id="third-pic" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["incoming_user_id"]; ?>" required>
             <label for="third-pic">Select third profile pic:</label>
           </div>
           <div class="input-box">
@@ -76,6 +83,7 @@
           </div>
           <div class="input-box profile-input-box">
             <textarea name="highschool" id="highschool" required></textarea>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["incoming_user_id"]; ?>" required>
             <label for="highschool">Describe your highschool:</label>
           </div>
           </div>
@@ -92,6 +100,7 @@
           </div>
           <div class="input-box">
             <input type="file" name="hobby-photo" id="hobby-photo" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["incoming_user_id"]; ?>" required>
             <label for="hobby-photo">Select a memory photo:</label>
           </div>
       </div>
@@ -107,6 +116,7 @@
           </div>
           <div class="input-box">
             <input type="file" name="career-photo" id="career-photo" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["incoming_user_id"]; ?>" required>
             <label for="career-photo">Select a memory photo:</label>
           </div>
       </div>
@@ -122,6 +132,7 @@
           </div>
           <div class="input-box">
             <input type="file" name="friend-photo" id="friend-photo" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["incoming_user_id"]; ?>" required>
             <label for="friend-photo">Select a memory photo:</label>
           </div>
       </div>
