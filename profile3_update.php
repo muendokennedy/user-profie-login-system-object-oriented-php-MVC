@@ -48,7 +48,8 @@ session_start();
           </div>
           <div class="input-box">
             <input type="file" name="career-photo" id="career-photo" required>
-            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["incoming_user_id"]; ?>" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"]; ?>" required>
+            <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"]; ?>" required>
             <label for="career-photo">Select a memory photo:</label>
           </div>
       </div>

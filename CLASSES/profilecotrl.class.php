@@ -268,7 +268,7 @@ class Profilecotrl extends Profile
     $results = $this->getPhotos($id);
 
       $image = "";
-
+      
        $image = "<div class=\"profile-swiper\">
          <img src=\"UPLOADS/{$results[0]["imagefullname"]}\" alt=\"\" class=\"active\">
          <img src=\"UPLOADS/{$results[1]["imagefullname"]}\" alt=\"\">
@@ -312,7 +312,7 @@ class Profilecotrl extends Profile
                   </div>
                 </div>
                 <div class=\"edit-btn\">
-                  <a href=\"\" class=\"btn\">Edit</a>
+                  <a href=\"profile2_update.php?usersid={$_SESSION["usersid"]}&id={$result["id"]}\" class=\"btn\">Edit</a>
                 </div>
               </div>";
         }
@@ -333,7 +333,7 @@ class Profilecotrl extends Profile
                 </div>
               </div>
               <div class=\"edit-btn\">
-                <a href=\"\" class=\"btn\">Edit</a>
+                <a href=\"profile3_update.php?usersid={$_SESSION["usersid"]}&id={$result["id"]}\" class=\"btn\">Edit</a>
               </div>
             </div>";
       }
@@ -351,7 +351,8 @@ class Profilecotrl extends Profile
               <div class=\"friend-name\">{$result["friendname"]}</div>
               <div class=\"friend-content\">{$result["friendmore"]}</div>
               <div class=\"edit-btn\">
-                <a href=\"\" class=\"btn\">Edit</a>
+                <a href=\"profile4_update.php?usersid={$_SESSION["usersid"]}&id={$result["id"]}\" class=\"btn\">Edit</a>
+              </div>
               </div>
             </div>";
       }

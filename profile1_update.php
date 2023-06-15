@@ -1,9 +1,14 @@
 <?php
 
-session_start();
+require_once("CLASSES/dbh.class.php");
+require_once("CLASSES/update.class.php");
+require_once("CLASSES/updatecotrl.class.php");
+
+$check_for_update = new Updatecotrl("");
+
+$data = $check_for_update->check_for_update($_GET["usersid"]);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,20 +41,20 @@ session_start();
       <hr>
     </div>
     <div class="error-block">All fields are required</div>
-    <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+    <form action="INCLUDES/update.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
       <div class="step-form">
           <div class="signup-title">Your profile</div>
           <div class="input-box">
-            <input type="file" name="first-pic" id="first-pic" required>
+            <input type="file" name="first-pic" id="first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
             <label for="first-pic">Select profile pic</label>
           </div>
           <div class="input-box">
-            <input type="file" name="second-pic" id="second-pic" required>
+            <input type="file" name="second-pic" id="second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
             <label for="second-pic">Select second profile pic:</label>
           </div>
           <div class="input-box">
-            <input type="file" name="third-pic" id="third-pic" required>
-            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["incoming_user_id"]; ?>" required>
+            <input type="file" name="third-pic" id="third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
             <label for="third-pic">Select third profile pic:</label>
           </div>
           </div>

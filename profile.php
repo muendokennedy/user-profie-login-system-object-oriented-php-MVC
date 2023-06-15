@@ -56,7 +56,11 @@ require_once("CLASSES/profilecotrl.class.php");
       
     </div>
     <div class="edit-btn">
-    <a href="#" class="btn">Edit</a>
+    <a href="profile1_update.php?usersid=<?php
+      if(isset($_SESSION["usersid"])){
+        echo $_SESSION["usersid"];
+      }
+      ?>" class="btn">Edit</a>
     </div>
     <hr>
     <div class="heading">what <?php
