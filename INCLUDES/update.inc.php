@@ -25,4 +25,22 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   exit();
 
+} elseif(isset($_POST["update-hobby"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+    // The hobby update information
+    $hobby_name = $_POST["hobby-name"];
+    $hobby_more = $_POST["hobby-more"];
+    $hobby_photo = $_FILES["hobby-photo"];
+    $user_hobby_id = $_POST["user-id"];
+    $user_item_id = $_POST["item-id"];
+  
+    require_once("../CLASSES/dbh.class.php");
+    require_once("../CLASSES/update.class.php");
+    require_once("../CLASSES/updatecotrl.class.php");
+
+    $update_hobby = new Updatecotrl($hobby_photo);
+  
+    $update_hobby->insert_hobby_update($hobby_name, $hobby_more, $user_hobby_id, $user_item_id);
+
+    header("Location: ../profile.php?update=success");
+    exit();
 }

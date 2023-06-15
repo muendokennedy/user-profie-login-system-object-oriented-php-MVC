@@ -353,7 +353,6 @@ class Profilecotrl extends Profile
               <div class=\"edit-btn\">
                 <a href=\"profile4_update.php?usersid={$_SESSION["usersid"]}&id={$result["id"]}\" class=\"btn\">Edit</a>
               </div>
-              </div>
             </div>";
       }
   }

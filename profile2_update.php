@@ -1,9 +1,14 @@
 <?php
 
-session_start();
+require_once("CLASSES/dbh.class.php");
+require_once("CLASSES/update.class.php");
+require_once("CLASSES/updatecotrl.class.php");
+
+$check_for_hobby_update = new Updatecotrl("");
+
+$data = $check_for_hobby_update->check_for_hobby_update($_GET["usersid"],$_GET["id"]);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,26 +41,26 @@ session_start();
       <hr>
     </div>
     <div class="error-block">All fields are required</div>
-    <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+    <form action="INCLUDES/update.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
         <div class="step-form">
           <div class="signup-title">More about your hobbies</div>
           <div class="input-box">
-            <input type="text" name="hobby-name" id="hobby-name" required>
+            <input type="text" name="hobby-name" id="hobby-name" value="<?php echo $data["hobbyname"] ?? "";?>" required>
             <label for="hobby-name">Enter the hobby name:</label>
           </div>
           <div class="input-box profile-input-box">
-            <textarea name="hobby-more" id="hobby-more" required></textarea>
+            <textarea name="hobby-more" id="hobby-more" required><?php echo $data["hobbymore"] ?? "";?></textarea>
             <label for="hobby-more">Describe the hobby briefly:</label>
           </div>
           <div class="input-box">
-            <input type="file" name="hobby-photo" id="hobby-photo" required>
-            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"]; ?>" required>
-            <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"]; ?>" required>
+            <input type="file" name="hobby-photo" id="hobby-photo" value="<?php echo $data["hobbyphoto"] ?? "";?>" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
+            <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"] ?? ""; ?>" required>
             <label for="hobby-photo">Select a memory photo:</label>
           </div>
       </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next" name="submit">Submit</button>
+        <button type="submit" class="btn next" name="update-hobby">Submit</button>
       </div>
   </form>
     <hr>
