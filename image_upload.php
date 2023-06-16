@@ -1,6 +1,12 @@
 <?php
-
 session_start();
+// require_once("CLASSES/dbh.class.php");
+// require_once("CLASSES/update.class.php");
+// require_once("CLASSES/updatecotrl.class.php");
+
+// $check_for_hobby_update = new Updatecotrl("");
+
+// $data = $check_for_hobby_update->check_for_hobby_update($_GET["usersid"],$_GET["id"]);
 
 ?>
 <!DOCTYPE html>
@@ -15,12 +21,12 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
   <title>Personara profile system</title>
 </head>
-<div class="blurred-part">
+<body>
   <!-- The navigation bar -->
   <div class="navigation-bar">
     <div class="logo">personara</div>
     <nav>
-      <a href="index.php">home</a>
+    <a href="index.php">home</a>
       <a href="contact.php">contact</a>
       <?php if(isset($_SESSION["usersid"])):?>
       <a href="gallery.php">gallery</a>
@@ -36,79 +42,26 @@ session_start();
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">about personara</div>
+    <div class="heading">make your gallery</div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">your memories</div>
-    <div class="leisure-box box-container">
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
+    <div class="error-block">All fields are required</div>
+    <form action="INCLUDES/upload.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+          <div class="signup-title">Make your gallery by uploading more memories</div>
+          <div class="input-box">
+            <input type="text" name="memory-name" id="memory-name" required>
+            <label for="memory-name">Enter the memory name:</label>
+          </div>
+          <div class="input-box">
+            <input type="file" name="memory-photo" id="memory-photo" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_SESSION["usersid"] ?? ""; ?>" required>
+            <label for="memory-photo">Select a memory photo:</label>
+          </div>
+      <div class="input-box profile-navigation-button-container">
+        <button type="submit" class="btn next" name="submit">Upload memory</button>
       </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">programming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">writing</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">designing</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-      </div>
-      </div>
-    </div>
+  </form>
     <hr>
   </section>
   <footer>
@@ -149,17 +102,7 @@ session_start();
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
-</div>
-  <div class="manage-moodle">
-    <div class="moodle-msg">Do want to delete or update this post? once deleted, it cannot be recovered</div>
-    <div class="moodle-btn-container">
-      <span class="btn cancel">Cancel</span>
-      <a href="#" class="btn">Download</a>
-      <a href="image_upload.php" class="btn">Add</a>
-      <a href="#" class="btn">Delete</a>
-    </div>
-  </div>
-  <script src="JS/menu.js"></script>
-  <script src="JS/gallery.js"></script>
+  <script src="JS/menu.js"></script> 
+  <script src="JS/profile_input.js?<?php echo time(); ?>"></script>
 </body>
 </html>

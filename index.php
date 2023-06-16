@@ -17,9 +17,15 @@
     <nav>
       <div class="close"><span class="fa-solid fa-xmark">Close</span></div>
       <a href="index.php">home</a>
+      <a href="contact.php">contact</a>
+      <?php if(isset($_SESSION["usersid"])):?>
+      <a href="gallery.php">gallery</a>
+      <a href="INCLUDES/logout.inc.php">logout</a>
+      <?php else: ?>
       <a href="signup.php">signup</a>
       <a href="login.php">login</a>
-      <a href="contact.php">contact</a>
+      <?php endif; ?>
+    </nav>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
