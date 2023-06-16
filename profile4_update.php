@@ -1,9 +1,14 @@
 <?php
 
-session_start();
+require_once("CLASSES/dbh.class.php");
+require_once("CLASSES/update.class.php");
+require_once("CLASSES/updatecotrl.class.php");
+
+$check_for_friend_update = new Updatecotrl("");
+
+$data = $check_for_friend_update->check_for_friend_update($_GET["usersid"],$_GET["id"]);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,26 +41,26 @@ session_start();
       <hr>
     </div>
     <div class="error-block">All fields are required</div>
-    <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+    <form action="INCLUDES/update.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
       <div class="step-form">
           <div class="signup-title">Talk about your friends</div>
           <div class="input-box">
-            <input type="text" name="friend-name" id="friend-name" required>
+            <input type="text" name="friend-name" id="friend-name" value="<?php echo $data["friendname"] ?? "";?>" required>
             <label for="friend-name">Enter the friend name:</label>
           </div>
           <div class="input-box profile-input-box">
-            <textarea name="relation-more" id="relation-more" required></textarea>
+            <textarea name="relation-more" id="relation-more" required><?php echo $data["friendmore"] ?? "";?></textarea>
             <label for="relation-more">Describe the relationship:</label>
           </div>
           <div class="input-box">
-            <input type="file" name="friend-photo" id="friend-photo" required>
+            <input type="file" name="friend-photo" id="friend-photo" value="<?php echo $data["friendphoto"] ?? "";?>" required>
             <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"]; ?>" required>
             <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"]; ?>" required>
             <label for="friend-photo">Select a memory photo:</label>
           </div>
       </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next" name="submit">Submit</button>
+        <button type="submit" class="btn next" name="update-friend">Submit</button>
       </div>
   </form>
     <hr>

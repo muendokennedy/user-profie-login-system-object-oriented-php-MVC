@@ -1,9 +1,14 @@
 <?php
 
-session_start();
+require_once("CLASSES/dbh.class.php");
+require_once("CLASSES/update.class.php");
+require_once("CLASSES/updatecotrl.class.php");
+
+$check_for_career_update = new Updatecotrl("");
+
+$data = $check_for_career_update->check_for_career_update($_GET["usersid"],$_GET["id"]);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,25 +41,25 @@ session_start();
       <hr>
     </div>
     <div class="error-block">All fields are required</div>
-    <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+    <form action="INCLUDES/update.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
           <div class="signup-title">More about your career life</div>
           <div class="input-box">
-            <input type="text" name="career-name" id="career-name" required>
+            <input type="text" name="career-name" id="career-name" value="<?php echo $data["careername"] ?? "";?>" required>
             <label for="career-name">Enter the career name:</label>
           </div>
           <div class="input-box profile-input-box">
-            <textarea name="career-more" id="career-more" required></textarea>
+            <textarea name="career-more" id="career-more" required><?php echo $data["careermore"] ?? "";?></textarea>
             <label for="career-more">Describe the career briefly:</label>
           </div>
           <div class="input-box">
-            <input type="file" name="career-photo" id="career-photo" required>
-            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"]; ?>" required>
-            <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"]; ?>" required>
+            <input type="file" name="career-photo" id="career-photo" value="<?php echo $data["careerphoto"] ?? "";?>" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
+            <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"] ?? ""; ?>" required>
             <label for="career-photo">Select a memory photo:</label>
           </div>
       </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next"  name="submit">Submit</button>
+        <button type="submit" class="btn next"  name="update-career">Submit</button>
       </div>
   </form>
     <hr>
