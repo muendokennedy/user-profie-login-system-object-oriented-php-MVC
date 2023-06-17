@@ -52,6 +52,7 @@ $data = $check_for_career_update->check_for_career_update($_GET["usersid"],$_GET
             <label for="career-more">Describe the career briefly:</label>
           </div>
           <div class="input-box">
+            <input type="hidden" name="old-photo" id="old-photo" value="<?php echo $data["careerphoto"] ?? "";?>" required>
             <input type="file" name="career-photo" id="career-photo" value="<?php echo $data["careerphoto"] ?? "";?>" required>
             <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
             <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"] ?? ""; ?>" required>

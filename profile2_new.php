@@ -2,12 +2,7 @@
 
 session_start();
 
-require_once("CLASSES/dbh.class.php");
-require_once("CLASSES/profile.class.php");
-require_once("CLASSES/profilecotrl.class.php");
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,75 +36,33 @@ require_once("CLASSES/profilecotrl.class.php");
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">about personara</div>
+    <div class="heading">Add to your profile</div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">about <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?></div>
-    <div class="profile-bio-container">
-      <?php
-      if(isset($_SESSION["usersid"])){
-        $images = new Profilecotrl("");
-        $images->get_pictures($_SESSION["usersid"]);
-        $profile_info = new Profilecotrl("");
-        $profile_info->get_profile_information($_SESSION["usersid"]);
-      }
-      ?>
-      
-    </div>
-    <div class="edit-btn">
-    <a href="profile1_update.php?usersid=<?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["usersid"];
-      }
-      ?>" class="btn">Edit</a>
-    </div>
-    <hr>
-    <div class="heading">what <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?> likes doing for leasure</div>
-    <div class="leisure-box box-container">
-    <?php
-      if(isset($_SESSION["usersid"])){
-        $hobby_info = new Profilecotrl("");
-        $hobby_info->get_hobby_info($_SESSION["usersid"]);
-      }
-      ?>
-    </div>
-    <hr>
-    <div class="heading">what <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?> does in career life</div>
-    <div class="leisure-box box-container">
-    <?php
-      if(isset($_SESSION["usersid"])){
-        $career_info = new Profilecotrl("");
-        $career_info->get_career_info($_SESSION["usersid"]);
-      }
-    ?>
-    </div>
-    <hr>
-    <div class="heading">people close to <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?> </div>
-    <div class="friends-container">
-    <?php
-      if(isset($_SESSION["usersid"])){
-        $friend_info = new Profilecotrl("");
-        $friend_info->get_friend_info($_SESSION["usersid"]);
-      }
-    ?>
-    </div>
+    <div class="error-block">All fields are required</div>
+    <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+        <div class="step-form">
+          <div class="signup-title">Add hobbies</div>
+          <div class="input-box">
+            <input type="text" name="hobby-name" id="hobby-name" required>
+            <label for="hobby-name">Enter the hobby name:</label>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="hobby-more" id="hobby-more" required></textarea>
+            <label for="hobby-more">Describe the hobby briefly:</label>
+          </div>
+          <div class="input-box">
+            <input type="file" name="hobby-photo" id="hobby-photo" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
+            <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"] ?? ""; ?>" required>
+            <label for="hobby-photo">Select a memory photo:</label>
+          </div>
+      </div>
+      <div class="input-box profile-navigation-button-container">
+        <button type="submit" class="btn next" name="upload-new-hobby">Submit</button>
+      </div>
+  </form>
     <hr>
   </section>
   <footer>
@@ -150,7 +103,7 @@ require_once("CLASSES/profilecotrl.class.php");
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
-  <script src="JS/menu.js"></script>
-  <script src="JS/profile_swiper.js"></script>
+  <script src="JS/menu.js"></script> 
+  <script src="JS/profile_input.js?<?php echo time(); ?>"></script>
 </body>
 </html>

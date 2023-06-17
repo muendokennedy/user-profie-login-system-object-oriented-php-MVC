@@ -2,6 +2,12 @@
 
 session_start();
 
+require_once("CLASSES/dbh.class.php");
+require_once("CLASSES/gallery.class.php");
+require_once("CLASSES/gallerycotrl.class.php");
+
+$display_gallery = new Gallerycotrl("");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +29,7 @@ session_start();
       <a href="index.php">home</a>
       <a href="contact.php">contact</a>
       <?php if(isset($_SESSION["usersid"])):?>
+      <a href="profile.php">profile</a>
       <a href="gallery.php">gallery</a>
       <a href="INCLUDES/logout.inc.php">logout</a>
       <?php else: ?>
@@ -40,74 +47,16 @@ session_start();
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">your memories</div>
+    <div class="heading">memories for <?php echo $_SESSION["firstname"] ?? "";?></div>
     <div class="leisure-box box-container">
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">swimming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">programming</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">writing</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-        </div>
-      </div>
-      <div>
-      <div class="box">
-        <div class="name">designing</div>
-        <div class="image">
-          <img src="IMAGES/home-1.jpg" alt="">
-        </div>
-      </div>
-      <div class="edit-btn">
-        <button class="btn" onclick="showMoodle();">manage</button>
-      </div>
-      </div>
+      <?php
+      
+      echo ($display_gallery->gallery_display($_SESSION["usersid"])) ?? "<div><p>No files to display</p>            
+      <div class=\"edit-btn\">
+      <button class=\"btn add-button\">manage</button>
+      </div></div>";
+
+      ?>
     </div>
     <hr>
   </section>
@@ -150,16 +99,23 @@ session_start();
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
 </div>
-  <div class="manage-moodle">
+  <div class="manage-moodle update-btn">
     <div class="moodle-msg">Do want to delete or update this post? once deleted, it cannot be recovered</div>
     <div class="moodle-btn-container">
       <span class="btn cancel">Cancel</span>
       <a href="#" class="btn">Download</a>
       <a href="image_upload.php" class="btn">Add</a>
-      <a href="#" class="btn">Delete</a>
+      <a  class="btn delete">Delete</a>
+    </div>
+  </div>
+  <div class="manage-moodle add-btn">
+    <div class="moodle-msg">Add memories to your gallery</div>
+    <div class="moodle-btn-container">
+      <span class="btn add-cancel">Cancel</span>
+      <a href="image_upload.php" class="btn">Add</a>
     </div>
   </div>
   <script src="JS/menu.js"></script>
-  <script src="JS/gallery.js"></script>
+  <script src="JS/gallery.js?<?php echo time(); ?>"></script>
 </body>
 </html>

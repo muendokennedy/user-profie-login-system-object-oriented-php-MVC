@@ -67,6 +67,12 @@ class Updatecotrl extends Update
 
     return $results;
   }
+  public function check_hobbies($user_id)
+  {
+    $results = $this->checkHobbies($user_id);
+
+    return $results;
+  }
   
   // Insert updated hobby
   public function insert_hobby_update($hobby_name, $hobby_more, $user_hobby_id, $user_item_id)

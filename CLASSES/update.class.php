@@ -69,6 +69,25 @@ class Update extends Dbh
     }
     return $result;
   }
+  // check all the hobbies from one particular user
+  public function checkHobbies($user_id)
+  {
+    $sql = "SELECT * FROM hobbies WHERE usersid = :usersid;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":usersid", $user_id);
+
+    $stmt->execute();
+
+    $result = "";
+
+    if($stmt->rowCount() > 0){
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    return $result;
+  }
+  
   public function updateHobby($hobby_name, $hobby_more, $name, $user_hobby_id, $user_item_id)
   {
     $sql = "UPDATE hobbies SET hobbyname = :hobbyname, hobbymore = :hobbymore, hobbyphoto = :hobbyphoto WHERE usersid = :userid AND id = :id;";

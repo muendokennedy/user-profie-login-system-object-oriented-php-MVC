@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +24,7 @@
       <a href="index.php">home</a>
       <a href="contact.php">contact</a>
       <?php if(isset($_SESSION["usersid"])):?>
+      <a href="profile.php">profile</a>
       <a href="gallery.php">gallery</a>
       <a href="INCLUDES/logout.inc.php">logout</a>
       <?php else: ?>

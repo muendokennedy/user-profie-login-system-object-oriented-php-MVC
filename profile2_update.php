@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once("CLASSES/dbh.class.php");
 require_once("CLASSES/update.class.php");
@@ -7,6 +8,11 @@ require_once("CLASSES/updatecotrl.class.php");
 $check_for_hobby_update = new Updatecotrl("");
 
 $data = $check_for_hobby_update->check_for_hobby_update($_GET["usersid"],$_GET["id"]);
+
+$num_hobbies = $_SESSION["hobby_count"];
+
+$user_id = $_GET["usersid"];
+$item_id = $_GET["id"];
 
 ?>
 <!DOCTYPE html>
@@ -27,9 +33,15 @@ $data = $check_for_hobby_update->check_for_hobby_update($_GET["usersid"],$_GET["
     <div class="logo">personara</div>
     <nav>
       <a href="index.php">home</a>
+      <a href="contact.php">contact</a>
+      <?php if(isset($_SESSION["usersid"])):?>
+        <a href="profile.php">profile</a>
+      <a href="gallery.php">gallery</a>
+      <a href="INCLUDES/logout.inc.php">logout</a>
+      <?php else: ?>
       <a href="signup.php">signup</a>
       <a href="login.php">login</a>
-      <a href="contact.php">contact</a>
+      <?php endif; ?>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
@@ -54,13 +66,16 @@ $data = $check_for_hobby_update->check_for_hobby_update($_GET["usersid"],$_GET["
           </div>
           <div class="input-box">
             <input type="file" name="hobby-photo" id="hobby-photo" value="<?php echo $data["hobbyphoto"] ?? "";?>" required>
+            <input type="hidden" name="old-photo" id="old-photo" value="<?php echo $data["hobbyphoto"] ?? "";?>" required>
             <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
             <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"] ?? ""; ?>" required>
             <label for="hobby-photo">Select a memory photo:</label>
           </div>
       </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next" name="update-hobby">Submit</button>
+        <button type="submit" class="btn next" name="update-hobby">Update</button>
+        <?php echo '<a class="btn" href="profile2_new.php?usersid='.$_GET["usersid"]. '&id=' .$_GET["id"]. '">Add new</a>'; ?>
+        <?php echo ($num_hobbies > 3) ? '<a class="btn" href="INCLUDES/delete_gallery.php?userid='.$user_id.'&id='.$item_id . '&name=' . $data["hobbyphoto"] . '&resource=hobbies">Delete this?</a>' : ""; ?>
       </div>
   </form>
     <hr>

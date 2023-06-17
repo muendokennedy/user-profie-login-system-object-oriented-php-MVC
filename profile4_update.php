@@ -53,6 +53,7 @@ $data = $check_for_friend_update->check_for_friend_update($_GET["usersid"],$_GET
             <label for="relation-more">Describe the relationship:</label>
           </div>
           <div class="input-box">
+            <input type="hidden" name="old-photo" id="old-photo" value="<?php echo $data["friendphoto"] ?? "";?>" required>
             <input type="file" name="friend-photo" id="friend-photo" value="<?php echo $data["friendphoto"] ?? "";?>" required>
             <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"]; ?>" required>
             <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"]; ?>" required>

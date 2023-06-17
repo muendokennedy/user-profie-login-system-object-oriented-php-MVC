@@ -45,14 +45,17 @@ $data = $check_for_update->check_for_update($_GET["usersid"]);
       <div class="step-form">
           <div class="signup-title">Your profile</div>
           <div class="input-box">
+            <input type="file" name="old-first-pic" id="old-first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
             <input type="file" name="first-pic" id="first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
             <label for="first-pic">Select profile pic</label>
           </div>
           <div class="input-box">
+            <input type="hidden" name="old-second-pic" id="old-second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
             <input type="file" name="second-pic" id="second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
             <label for="second-pic">Select second profile pic:</label>
           </div>
           <div class="input-box">
+            <input type="hidden" name="old-third-pic" id="old-third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
             <input type="file" name="third-pic" id="third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
             <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
             <label for="third-pic">Select third profile pic:</label>

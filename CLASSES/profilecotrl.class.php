@@ -301,6 +301,8 @@ class Profilecotrl extends Profile
   {
     $results = $this->get_hobbies($id);
 
+    $num_hobbies = count($results);
+
     foreach($results as $result){  
 
         echo "<div>
@@ -316,6 +318,7 @@ class Profilecotrl extends Profile
                 </div>
               </div>";
         }
+        $_SESSION["hobby_count"] = $num_hobbies;
   }
 
   public function get_career_info($id)

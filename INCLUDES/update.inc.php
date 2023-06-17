@@ -30,12 +30,24 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     $hobby_name = $_POST["hobby-name"];
     $hobby_more = $_POST["hobby-more"];
     $hobby_photo = $_FILES["hobby-photo"];
+    $old_photo = $_POST["old-photo"];
     $user_hobby_id = $_POST["user-id"];
     $user_item_id = $_POST["item-id"];
+
+    if($hobby_photo["name"] !== $old_photo){
+
+      $filename = "../UPLOADS/" . $old_photo;
+
+      unlink($filename);
+
+    }
+
   
     require_once("../CLASSES/dbh.class.php");
     require_once("../CLASSES/update.class.php");
     require_once("../CLASSES/updatecotrl.class.php");
+
+    
 
     $update_hobby = new Updatecotrl($hobby_photo);
   
@@ -48,9 +60,19 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   // The career update information
   $career_name = $_POST["career-name"];
   $career_more = $_POST["career-more"];
+  $old_photo = $_POST["old-photo"];
   $career_photo = $_FILES["career-photo"];
   $user_career_id = $_POST["user-id"];
   $user_item_id = $_POST["item-id"];
+
+  
+  if($career_photo["name"] !== $old_photo){
+
+    $filename = "../UPLOADS/" . $old_photo;
+
+    unlink($filename);
+
+  }
 
   require_once("../CLASSES/dbh.class.php");
   require_once("../CLASSES/update.class.php");
@@ -66,9 +88,19 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   // The friend update information
   $friend_name = $_POST["friend-name"];
   $friend_more = $_POST["relation-more"];
+  $old_photo = $_POST["old-photo"];
   $friend_photo = $_FILES["friend-photo"];
   $user_friend_id = $_POST["user-id"];
   $user_item_id = $_POST["item-id"];
+
+  
+  if($friend_photo["name"] !== $old_photo){
+
+    $filename = "../UPLOADS/" . $old_photo;
+
+    unlink($filename);
+
+  }
 
   require_once("../CLASSES/dbh.class.php");
   require_once("../CLASSES/update.class.php");
@@ -81,3 +113,4 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   header("Location: ../profile.php?update=success");
   exit();
 }
+

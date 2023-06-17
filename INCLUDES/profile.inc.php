@@ -60,4 +60,20 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   header("Location: ../login.php?upload=successloginnow");
   exit();
 
+} elseif(isset($_POST["upload-new-hobby"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+
+  $hobby_name = $_POST["hobby-name"];
+  $hobby_more = $_POST["hobby-more"];
+  $hobby_photo = $_FILES["hobby-photo"];
+  $user_id = $_POST["user-id"];
+
+  require_once("../CLASSES/dbh.class.php");
+  require_once("../CLASSES/profile.class.php");
+  require_once("../CLASSES/profilecotrl.class.php");
+
+  $hobby_info = new Profilecotrl($hobby_photo);
+  $hobby_info->insert_hobbies($hobby_name, $hobby_more, $user_id);
+
+  header("Location: ../profile.php?upload=success");
+  exit();
 }
