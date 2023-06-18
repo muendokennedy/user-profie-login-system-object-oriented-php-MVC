@@ -10,7 +10,7 @@ const editBtn = document.querySelector(".edit-btn button");
 
 const blurredPart = document.querySelector(".blurred-part");
 
-const cancelBtn = document.querySelector(".update-btn .moodle-btn-container cancel");
+const cancelBtn = document.querySelector(".update-btn .moodle-btn-container .cancel");
 
 let deleteLink = moodle.querySelector(".delete");
 
@@ -32,8 +32,10 @@ deleteLink.onclick = (e) => {
   e.target.href = deleteContent;
 }
 
-addBtn.onclick = () => {
-  addMoodle.style.display = "block";
+if(addBtn){
+  addBtn.onclick = () => {
+    addMoodle.style.display = "block";
+  }  
 }
 
 addCancel.onclick = () => {

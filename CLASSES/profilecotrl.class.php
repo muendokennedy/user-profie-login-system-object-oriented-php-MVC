@@ -32,7 +32,7 @@ class Profilecotrl extends Profile
 
         if($file_size < 50000000){
 
-          $image_fullname = "profile-" . $file_extension[0] . "." . $fileactual_ext;
+          $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 
@@ -78,7 +78,7 @@ class Profilecotrl extends Profile
 
         if($file_size < 50000000){
 
-          $image_fullname = "hobby-" . $file_extension[0] . "." . $fileactual_ext;
+          $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 
@@ -124,7 +124,7 @@ class Profilecotrl extends Profile
 
         if($file_size < 50000000){
 
-          $image_fullname = "hobby-" . $file_extension[0] . "." . $fileactual_ext;
+          $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 
@@ -170,7 +170,7 @@ class Profilecotrl extends Profile
 
         if($file_size < 50000000){
 
-          $image_fullname = "hobby-" . $file_extension[0] . "." . $fileactual_ext;
+          $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
           $file_destination = "../UPLOADS/" . $image_fullname;
 

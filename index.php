@@ -46,9 +46,9 @@ session_start();
       <div class="topics heading">popular topics</div>
       <div class="mini-topic">Career life</div>
       <div class="topic-box-container box-container">
-        <div class="topic-box box">
-          <div class="topic-name name">Engineering</div>
-          <div class="topic-content content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
+        <div class="topic-box">
+          <div class="topic-name">Engineering</div>
+          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
           <div class="topic-image image">
             <img src="IMAGES/home-1.jpg" alt="">
           </div>
@@ -93,6 +93,7 @@ session_start();
         </div>
       </div>
     </div>
+    <?php if(!isset($_SESSION["usersid"])):?>
     <div class="started">
       <div class="started-header heading">getting started</div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.</div>
@@ -102,6 +103,7 @@ session_start();
         <a class="login-request-btn btn" href="login.php">login</a>
       </div>
     </div>
+    <?php endif; ?>
     <hr>
   </section>
   <footer>

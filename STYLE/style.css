@@ -615,10 +615,22 @@ footer .copyright-text{
     margin: 1rem 0;
     padding: 1rem 0;
   }
+  .name{
+    font-size: 1.5rem;
+  }
+  .edit-btn{
+    margin: 2rem 0;
+  }
+  .edit-btn button{
+    font-size: 1.5rem;
+  }
   .started .signup-login-request-container{
     font-size: 1.4rem;
     margin: 0 auto;
     gap: .5rem;
+  }
+  .box-container {
+    gap: 1rem;
   }
   .started .signup-login-request-container .btn {
     font-size: 1.4rem;
@@ -628,11 +640,19 @@ footer .copyright-text{
     font-size: 1.4rem;
     padding: .5rem 1.5rem;
   }
+  .heading {
+    margin: .8rem 0;
+    padding: .8rem 0;
+    font-size: 1.6rem;
+  }
+  .btn {
+    font-size: 1.5rem;
+  }
   footer .copyright-text {
     font-size: 1.2rem;
   }
   .sign-up .signup-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 500;
     padding-bottom: 1rem;
     text-align: center;
@@ -688,10 +708,12 @@ footer .copyright-text{
     width: 100%;
     padding: 1.5rem;
   }
-  .profile-navigation-button-container button{
-    padding: .2rem 1.5rem;
+  .profile-navigation-button-container button,.profile-navigation-button-container a{
+    padding: .5rem .6rem;
     font-size: 1.4rem;
-    width: unset;
+    width: auto;
+    text-align: center;
+    align-self: center;
   }
   .form-progress-indicator span {
     width: 3rem;

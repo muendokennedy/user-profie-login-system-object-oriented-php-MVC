@@ -39,7 +39,7 @@ class Updatecotrl extends Update
   
           if($file_size < 50000000){
   
-            $image_fullname = "profile-" . $file_extension[0] . "." . $fileactual_ext;
+            $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
   
             $file_destination = "../UPLOADS/" . $image_fullname;
 
@@ -103,7 +103,7 @@ class Updatecotrl extends Update
         
         if($file_size < 50000000){
           
-          $image_fullname = "profile-" . $file_extension[0] . "." . $fileactual_ext;
+          $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
           
           $file_destination = "../UPLOADS/" . $image_fullname;
           
@@ -156,7 +156,7 @@ class Updatecotrl extends Update
         
         if($file_size < 50000000){
           
-          $image_fullname = "profile-" . $file_extension[0] . "." . $fileactual_ext;
+          $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
           
           $file_destination = "../UPLOADS/" . $image_fullname;
           
@@ -202,7 +202,7 @@ class Updatecotrl extends Update
         
         if($file_size < 50000000){
           
-          $image_fullname = "profile-" . $file_extension[0] . "." . $fileactual_ext;
+          $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
           
           $file_destination = "../UPLOADS/" . $image_fullname;
           
