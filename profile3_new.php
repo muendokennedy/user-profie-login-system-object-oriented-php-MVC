@@ -1,13 +1,6 @@
 <?php
+
 session_start();
-
-require_once("CLASSES/dbh.class.php");
-require_once("CLASSES/update.class.php");
-require_once("CLASSES/updatecotrl.class.php");
-
-$check_for_friend_update = new Updatecotrl("");
-
-$data = $check_for_friend_update->check_for_friend_update($_GET["usersid"],$_GET["id"]);
 
 ?>
 <!DOCTYPE html>
@@ -43,32 +36,30 @@ $data = $check_for_friend_update->check_for_friend_update($_GET["usersid"],$_GET
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">update your profile <?php echo $_SESSION["firstname"] ?? "";?></div>
+    <div class="heading">Add to your profile <?php echo $_SESSION["firstname"] ?? "";?></div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
     <div class="error-block">All fields are required</div>
-    <form action="INCLUDES/update.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
-      <div class="step-form">
-          <div class="signup-title">Talk about your friends</div>
+    <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+        <div class="step-form">
+          <div class="signup-title">Add careers</div>
           <div class="input-box">
-            <input type="text" name="friend-name" id="friend-name" value="<?php echo $data["friendname"] ?? "";?>" required>
-            <label for="friend-name">Enter the friend name:</label>
+            <input type="text" name="career-name" id="career-name" required>
+            <label for="career-name">Enter the career name:</label>
           </div>
           <div class="input-box profile-input-box">
-            <textarea name="relation-more" id="relation-more" required><?php echo $data["friendmore"] ?? "";?></textarea>
-            <label for="relation-more">Describe the relationship:</label>
+            <textarea name="career-more" id="career-more" required></textarea>
+            <label for="career-more">Describe the career briefly:</label>
           </div>
           <div class="input-box">
-            <input type="hidden" name="old-photo" id="old-photo" value="<?php echo $data["friendphoto"] ?? "";?>" required>
-            <input type="file" name="friend-photo" id="friend-photo" value="<?php echo $data["friendphoto"] ?? "";?>" required>
-            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"]; ?>" required>
-            <input type="hidden" name="item-id" id="item-id" value="<?php echo $_GET["id"]; ?>" required>
-            <label for="friend-photo">Select a memory photo:</label>
+            <input type="file" name="career-photo" id="career-photo" required>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
+            <label for="career-photo">Select a memory photo:</label>
           </div>
       </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next" name="update-friend">Update</button>
+        <button type="submit" class="btn next" name="upload-new-career">Submit</button>
       </div>
   </form>
     <hr>

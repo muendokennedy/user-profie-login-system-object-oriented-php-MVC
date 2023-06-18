@@ -269,11 +269,16 @@ class Profilecotrl extends Profile
 
       $image = "";
       
-       $image = "<div class=\"profile-swiper\">
-         <img src=\"UPLOADS/{$results[0]["imagefullname"]}\" alt=\"\" class=\"active\">
-         <img src=\"UPLOADS/{$results[1]["imagefullname"]}\" alt=\"\">
-         <img src=\"UPLOADS/{$results[2]["imagefullname"]}\" alt=\"\">
-        </div>";
+        $image = "<div>
+        <div class=\"profile-swiper\">
+          <img src=\"UPLOADS/{$results[0]["imagefullname"]}\" alt=\"\" class=\"active\">
+          <img src=\"UPLOADS/{$results[1]["imagefullname"]}\" alt=\"\">
+          <img src=\"UPLOADS/{$results[2]["imagefullname"]}\" alt=\"\">
+         </div>
+         <div class=\"edit-btn\">
+         <a href=\"profile1_update.php?usersid={$id}\" class=\"btn\">Edit</a>
+         </div>
+         </div>";
 
    echo $image;
   }

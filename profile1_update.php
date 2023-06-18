@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once("CLASSES/dbh.class.php");
 require_once("CLASSES/update.class.php");
@@ -27,16 +28,22 @@ $data = $check_for_update->check_for_update($_GET["usersid"]);
     <div class="logo">personara</div>
     <nav>
       <a href="index.php">home</a>
+      <a href="contact.php">contact</a>
+      <?php if(isset($_SESSION["usersid"])):?>
+        <a href="profile.php">profile</a>
+      <a href="gallery.php">gallery</a>
+      <a href="INCLUDES/logout.inc.php">logout</a>
+      <?php else: ?>
       <a href="signup.php">signup</a>
       <a href="login.php">login</a>
-      <a href="contact.php">contact</a>
+      <?php endif; ?>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">make your profile</div>
+    <div class="heading">update your profile <?php echo $_SESSION["firstname"] ?? "";?> </div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>

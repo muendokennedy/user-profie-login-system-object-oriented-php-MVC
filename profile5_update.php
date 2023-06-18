@@ -30,22 +30,27 @@ $data = $bio_info->check_for_bio_update($_GET["usersid"]);
     <div class="logo">personara</div>
     <nav>
       <a href="index.php">home</a>
+      <a href="contact.php">contact</a>
+      <?php if(isset($_SESSION["usersid"])):?>
+        <a href="profile.php">profile</a>
+      <a href="gallery.php">gallery</a>
+      <a href="INCLUDES/logout.inc.php">logout</a>
+      <?php else: ?>
       <a href="signup.php">signup</a>
       <a href="login.php">login</a>
-      <a href="contact.php">contact</a>
+      <?php endif; ?>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">Update your bio information</div>
+    <div class="heading">Update your bio information <?php echo $_SESSION["firstname"] ?? "";?></div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
     <div class="error-block">All fields are required</div>
     <form action="INCLUDES/update.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
-      <div class="step-form">
           <div class="signup-title">Your profile bio</div>
           <div class="input-box">
             <input type="text" name="nick-name" id="nick-name" value="<?php echo $data[0]["nickname"] ?? "";?>" required>
@@ -72,7 +77,6 @@ $data = $bio_info->check_for_bio_update($_GET["usersid"]);
             <label for="highschool">Describe your highschool:</label>
           </div>
           </div>
-      </div>
       <div class="input-box profile-navigation-button-container">
         <button type="submit" class="btn next" name="update-bio">Update</button>
       </div>

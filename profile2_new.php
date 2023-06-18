@@ -36,7 +36,7 @@ session_start();
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">Add to your profile</div>
+    <div class="heading">Add to your profile <?php echo $_SESSION["firstname"] ?? "";?></div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>

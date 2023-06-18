@@ -41,7 +41,7 @@ class Update extends Dbh
   // insert the update in the profileinfo table
   public function updateBio($nick_name, $hobby_desc, $career_desc, $college_desc, $highschool_desc,$id)
   {
-     $sql = "INSERT INTO profileinfo SET nickname = :nickname, hobbies = :hobbies, career = :career, college = :college, highschool = :highschool WHERE usersid = :id;";
+     $sql = "UPDATE profileinfo SET nickname = :nickname, hobbies = :hobbies, career = :career, college = :college, highschool = :highschool WHERE usersid = :id;";
 
      $stmt = $this->connect()->prepare($sql);
 
@@ -53,7 +53,7 @@ class Update extends Dbh
      $stmt->bindParam(":id", $id);
 
      $stmt->execute();
-     
+
   }
   protected function updatePhoto($name, $user_id, $item_id)
   {
