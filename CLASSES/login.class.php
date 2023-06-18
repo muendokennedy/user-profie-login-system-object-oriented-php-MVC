@@ -4,7 +4,7 @@ require_once("dbh.class.php");
 
 class Login extends Dbh
 {
-  protected function confirmUser($user_name, $pwd)
+  protected function confirmUser($user_name, $pwd, $remember)
   {
     $sql = "SELECT * FROM users WHERE email = :email OR username = :username;";
 
@@ -35,6 +35,20 @@ class Login extends Dbh
         $_SESSION["usersid"] = $result["id"];
         $_SESSION["firstname"] = $result["firstname"];
         $_SESSION["lastname"] = $result["lastname"];
+
+        // set cookie
+        if(!empty($remember)){
+          setcookie("rememberuid", $user_name, time() + (60 * 60 * 24 * 30), "/");
+          setcookie("rememberpwd", $pwd, time() + (60 * 60 * 24 * 30), "/");
+        } else {
+          // Remove any cookie variable that is currently existing if the user did check remember me
+          if(isset($_COOKIE["rememberuid"])){
+            setcookie("rememberuid", "", time() - (60 * 60), "/");
+          }
+          if(isset($_COOKIE["rememberpwd"])){
+            setcookie("rememberpwd", "", time() - (60 * 60), "/");
+          }
+        }
 
       }
     }

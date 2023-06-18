@@ -471,7 +471,19 @@ hr{
 .contact-form{
   display: block;
 }
-
+/* Remember input styling */
+.rememberme{
+  display: flex;
+  align-items: center;
+}
+.rememberme input[type="checkbox"]{
+  height: 2rem;
+  width: 2rem;
+}
+.rememberme label{
+  font-size: 1.6rem;
+  margin-left: 1.5rem;
+}
 
 /* The footer section */
 footer{
@@ -698,6 +710,14 @@ footer .copyright-text{
   .moodle-btn-container .btn{
     font-size: 1.2rem;
     padding: .4rem 1rem;
+  }
+  .rememberme input[type="checkbox"]{
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  .rememberme label{
+    font-size: 1.3rem;
+    margin-left: 1rem;
   }
 }
 @media only screen and (max-width: 400px){

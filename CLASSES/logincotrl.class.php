@@ -10,7 +10,7 @@ class Logincotrl extends Login
     $this->user_name = $user_name;
     $this->pwd = $pwd;
   }
-  public function login_user()
+  public function login_user($remember)
   {
     if(!$this->emptyInput()){
       // echo 'empty input'
@@ -18,7 +18,7 @@ class Logincotrl extends Login
       exit();
     }
     // Login the current user to the database
-    $this->confirmUser($this->user_name, $this->pwd);
+    $this->confirmUser($this->user_name, $this->pwd, $remember);
   }
   public function emptyInput()
   {

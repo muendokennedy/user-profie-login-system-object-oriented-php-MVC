@@ -32,15 +32,19 @@
     <div class="heading">login to your account</div>
     <div class="sign-up">
       <form action="INCLUDES/login.inc.php" method="POST">
-        <div class="signup-title">Create account</div>
+        <div class="signup-title">Login</div>
         <div class="input-box">
-          <input type="text" name="uid" id="uid" required>
+          <input type="text" name="uid" id="uid" value="<?php if(isset($_COOKIE["rememberuid"])){ echo $_COOKIE["rememberuid"]; }?>" required>
           <label for="uid">Enter your username or email:</label>
         </div>
         <div class="input-box">
-          <input type="password" name="pwd" id="pwd" required>
+          <input type="password" name="pwd" id="pwd" value="<?php if(isset($_COOKIE["rememberpwd"])){ echo $_COOKIE["rememberpwd"]; }?>" required>
           <label for="pwd">Enter your password:</label>
           <span class="show-btn">SHOW</span>
+        </div>
+        <div class="rememberme">
+          <input type="checkbox" name="remember" id="remember" <?php if(isset($_COOKIE["rememberpwd"])) {?> checked <?php } ?>>
+          <label for="remember">Remember me</label>
         </div>
         <div class="input-box">
           <input type="submit" name="submit" value="login" class="btn">
