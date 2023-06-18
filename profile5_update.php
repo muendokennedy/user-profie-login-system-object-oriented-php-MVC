@@ -1,14 +1,17 @@
 <?php
 
+session_start();
+
 require_once("CLASSES/dbh.class.php");
 require_once("CLASSES/update.class.php");
 require_once("CLASSES/updatecotrl.class.php");
 
-$check_for_update = new Updatecotrl("");
+$bio_info = new Updatecotrl("");
 
-$data = $check_for_update->check_for_update($_GET["usersid"]);
+$data = $bio_info->check_for_bio_update($_GET["usersid"]);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,34 +39,42 @@ $data = $check_for_update->check_for_update($_GET["usersid"]);
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">make your profile</div>
+    <div class="heading">Update your bio information</div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
     <div class="error-block">All fields are required</div>
     <form action="INCLUDES/update.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
       <div class="step-form">
-          <div class="signup-title">Your profile</div>
+          <div class="signup-title">Your profile bio</div>
           <div class="input-box">
-            <input type="hidden" name="old-first-pic" id="old-first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
-            <input type="file" name="first-pic" id="first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
-            <label for="first-pic">Select profile pic</label>
+            <input type="text" name="nick-name" id="nick-name" value="<?php echo $data[0]["nickname"] ?? "";?>" required>
+            <label for="nick-name">Enter nickname:</label>
           </div>
-          <div class="input-box">
-            <input type="hidden" name="old-second-pic" id="old-second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
-            <input type="file" name="second-pic" id="second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
-            <label for="second-pic">Select second profile pic:</label>
+          <div class="input-row">
+          <div class="input-box profile-input-box">
+            <textarea name="hobbies" id="hobbies" required><?php echo $data[0]["nickname"] ?? "";?></textarea>
+            <label for="hobbies">Describe your hobbies:</label>
           </div>
-          <div class="input-box">
-            <input type="hidden" name="old-third-pic" id="old-third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
-            <input type="file" name="third-pic" id="third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
-            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
-            <label for="third-pic">Select third profile pic:</label>
+          <div class="input-box profile-input-box">
+            <textarea name="career" id="career" required><?php echo $data[0]["hobbies"] ?? "";?></textarea>
+            <label for="career">Describe your career:</label>
           </div>
           </div>
-        </div>
+          <div class="input-row">
+          <div class="input-box profile-input-box">
+            <textarea name="college" id="college" required><?php echo $data[0]["career"] ?? "";?></textarea>
+            <label for="college">Describe your college:</label>
+          </div>
+          <div class="input-box profile-input-box">
+            <textarea name="highschool" id="highschool" required><?php echo $data[0]["highschool"] ?? "";?></textarea>
+            <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"]; ?>" required>
+            <label for="highschool">Describe your highschool:</label>
+          </div>
+          </div>
+      </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next" name="submit">Submit</button>
+        <button type="submit" class="btn next" name="update-bio">Update</button>
       </div>
   </form>
     <hr>

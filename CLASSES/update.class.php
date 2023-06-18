@@ -19,7 +19,42 @@ class Update extends Dbh
     }
     return $result;
   }
+
+  public function checkBioUpdate($id)
+  {
+    $sql = "SELECT * FROM profileinfo WHERE usersid = :id;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":id", $id);
+
+    $stmt->execute();
+
+    $result = "";
+
+    if($stmt->rowCount() > 0){
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    return $result;
+  }
   
+  // insert the update in the profileinfo table
+  public function updateBio($nick_name, $hobby_desc, $career_desc, $college_desc, $highschool_desc,$id)
+  {
+     $sql = "INSERT INTO profileinfo SET nickname = :nickname, hobbies = :hobbies, career = :career, college = :college, highschool = :highschool WHERE usersid = :id;";
+
+     $stmt = $this->connect()->prepare($sql);
+
+     $stmt->bindParam(":nickname", $nick_name);
+     $stmt->bindParam(":hobbies", $hobby_desc);
+     $stmt->bindParam(":career", $career_desc);
+     $stmt->bindParam(":college", $college_desc);
+     $stmt->bindParam(":highschool", $highschool_desc);
+     $stmt->bindParam(":id", $id);
+
+     $stmt->execute();
+     
+  }
   protected function updatePhoto($name, $user_id, $item_id)
   {
     $sql = "SELECT * FROM profilegallery;";
@@ -59,24 +94,6 @@ class Update extends Dbh
 
     $stmt->bindParam(":usersid", $user_id);
     $stmt->bindParam(":id", $item_id);
-
-    $stmt->execute();
-
-    $result = "";
-
-    if($stmt->rowCount() > 0){
-      $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-    return $result;
-  }
-  // check all the hobbies from one particular user
-  public function checkHobbies($user_id)
-  {
-    $sql = "SELECT * FROM hobbies WHERE usersid = :usersid;";
-
-    $stmt = $this->connect()->prepare($sql);
-
-    $stmt->bindParam(":usersid", $user_id);
 
     $stmt->execute();
 

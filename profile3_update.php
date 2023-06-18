@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once("CLASSES/dbh.class.php");
 require_once("CLASSES/update.class.php");
 require_once("CLASSES/updatecotrl.class.php");
@@ -7,6 +9,11 @@ require_once("CLASSES/updatecotrl.class.php");
 $check_for_career_update = new Updatecotrl("");
 
 $data = $check_for_career_update->check_for_career_update($_GET["usersid"],$_GET["id"]);
+
+$num_careers = $_SESSION["career_count"];
+
+$user_id = $_GET["usersid"];
+$item_id = $_GET["id"];
 
 ?>
 <!DOCTYPE html>
@@ -60,7 +67,9 @@ $data = $check_for_career_update->check_for_career_update($_GET["usersid"],$_GET
           </div>
       </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next"  name="update-career">Submit</button>
+      <button type="submit" class="btn next" name="update-career">Update</button>
+      <?php echo '<a class="btn" href="profile3_new.php?usersid='.$_GET["usersid"]. '&id=' .$_GET["id"]. '">Add new</a>'; ?>
+      <?php echo ($num_careers > 3) ? '<a class="btn" href="INCLUDES/delete_gallery.php?userid='.$user_id.'&id='.$item_id . '&name=' . $data["careerphoto"] . '&resource=careers">Delete this?</a>' : ""; ?>
       </div>
   </form>
     <hr>

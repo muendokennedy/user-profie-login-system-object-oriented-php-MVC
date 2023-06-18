@@ -2,9 +2,34 @@
 if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   $first_pic = $_FILES["first-pic"];
+  $old_first_pic = $_POST["old-first-pic"];
   $second_pic = $_FILES["second-pic"];
+  $old_second_pic = $_POST["old-second-pic"];
   $third_pic = $_FILES["third-pic"];
+  $old_third_pic = $_POST["old-third-pic"];
   $user_id = $_POST["user-id"];
+
+  if($first_pic["name"] !== $old_first_pic){
+
+    $filename = "../UPLOADS/" . $old_first_pic;
+
+    unlink($filename);
+
+  }
+  if($second_pic["name"] !== $old_second_pic){
+
+    $filename = "../UPLOADS/" . $old_second_pic;
+
+    unlink($filename);
+
+  }
+  if($third_pic["name"] !== $old_third_pic){
+
+    $filename = "../UPLOADS/" . $old_third_pic;
+
+    unlink($filename);
+
+  }
 
   require_once("../CLASSES/dbh.class.php");
   require_once("../CLASSES/update.class.php");
@@ -112,5 +137,24 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   header("Location: ../profile.php?update=success");
   exit();
+}elseif(isset($_POST["update-bio"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+    // Profile information
+    $nick_name = $_POST["nick-name"];
+    $hobby_desc = $_POST["hobbies"];
+    $career_desc = $_POST["career"];
+    $college_desc = $_POST["college"];
+    $highschool_desc = $_POST["highschool"];
+    $user_id = $_POST["user-id"];
+
+    require_once("../CLASSES/dbh.class.php");
+    require_once("../CLASSES/update.class.php");
+    require_once("../CLASSES/updatecotrl.class.php");
+
+    $update_bio = new Updatecotrl("");
+
+    $update_bio->insert_bio_update($nick_name, $hobby_desc, $career_desc, $college_desc, $highschool_desc,$user_id);
+
+    header("Location: ../profile.php?update=success");
+    exit();
 }
 

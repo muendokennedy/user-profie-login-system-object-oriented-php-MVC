@@ -76,4 +76,20 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   header("Location: ../profile.php?upload=success");
   exit();
+}elseif(isset($_POST["upload-new-career"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+
+  $career_name = $_POST["career-name"];
+  $career_more = $_POST["career-more"];
+  $career_photo = $_FILES["career-photo"];
+  $user_id = $_POST["user-id"];
+
+  require_once("../CLASSES/dbh.class.php");
+  require_once("../CLASSES/profile.class.php");
+  require_once("../CLASSES/profilecotrl.class.php");
+
+  $career_info = new Profilecotrl($career_photo);
+  $career_info->insert_hobbies($career_more, $career_more, $user_id);
+
+  header("Location: ../profile.php?upload=success");
+  exit();
 }

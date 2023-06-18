@@ -61,7 +61,7 @@ $data = $check_for_friend_update->check_for_friend_update($_GET["usersid"],$_GET
           </div>
       </div>
       <div class="input-box profile-navigation-button-container">
-        <button type="submit" class="btn next" name="update-friend">Submit</button>
+        <button type="submit" class="btn next" name="update-friend">Update</button>
       </div>
   </form>
     <hr>

@@ -292,6 +292,9 @@ class Profilecotrl extends Profile
                       <p><b>Career:</b>{$results["career"]}</p>
                       <p><b>College:</b>{$results["college"]}</p>
                       <p><b>Highschool:</b>{$results["highschool"]}</p>
+                      <div class=\"edit-btn\">
+                      <a href=\"profile5_update.php?usersid={$_SESSION["usersid"]}\" class=\"btn\">Edit</a>
+                    </div>
                     </div>";
 
                     echo $profile_info;
@@ -325,6 +328,8 @@ class Profilecotrl extends Profile
   {
     $results = $this->get_careers($id);
 
+    $num_career = count($results);
+
     foreach($results as $result){  
 
       echo "<div>
@@ -340,6 +345,7 @@ class Profilecotrl extends Profile
               </div>
             </div>";
       }
+      $_SESSION["career_count"] = $num_career;
   }
   public function get_friend_info($id)
   {

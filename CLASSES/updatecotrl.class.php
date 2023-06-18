@@ -60,20 +60,24 @@ class Updatecotrl extends Update
         exit();
       }
     }
+  // Check the bio profile info for update
+  public function check_for_bio_update($user_id)
+  {
+    $results = $this->checkBioUpdate($user_id);
 
+    return $results;
+  }
+  // Insert the updated bio information
+  public function insert_bio_update($nick_name, $hobby_desc, $career_desc, $college_desc, $highschool_desc,$user_id)
+  {
+    $this->updateBio($nick_name, $hobby_desc, $career_desc, $college_desc, $highschool_desc,$user_id);
+  }
   public function check_for_hobby_update($user_id, $item_id)
   {
     $results = $this->checkHobbyUpdate($user_id, $item_id);                                  
 
     return $results;
-  }
-  public function check_hobbies($user_id)
-  {
-    $results = $this->checkHobbies($user_id);
-
-    return $results;
-  }
-  
+  }  
   // Insert updated hobby
   public function insert_hobby_update($hobby_name, $hobby_more, $user_hobby_id, $user_item_id)
   {

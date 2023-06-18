@@ -97,9 +97,9 @@ session_start();
       <div class="started-header heading">getting started</div>
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.</div>
       <div class="signup-login-request-container">
-        <a class="signup-request-btn btn">signup</a>
+        <a class="signup-request-btn btn" href="signup.php">signup</a>
         <p>Or already have an account?</p>
-        <a class="login-request-btn btn">login</a>
+        <a class="login-request-btn btn" href="login.php">login</a>
       </div>
     </div>
     <hr>
