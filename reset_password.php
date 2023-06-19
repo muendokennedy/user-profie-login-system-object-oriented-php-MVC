@@ -35,11 +35,14 @@
     $validator = $_GET["validator"];
 
     if(empty($selector) && empty($validator)){
+
       header("Location: ../reset_password.php?reset=invalidrequest");
+
       exit();
+
     } else {
 
-      if(ctype_xdigit($selector) != false && ctype_xdigit($validator)){
+      if(ctype_xdigit($selector) != false && ctype_xdigit($validator) != false){
       ?>
         <div class="heading">Create a new password</div>
         <div class="sign-up">

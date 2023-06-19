@@ -1,43 +1,23 @@
 <?php
-
 if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
-  // Anthenticate the code
-  // check if code input is empty
+  session_start();
 
-  $selector = bin2hex(random_bytes(8));
+  $code = $_POST["V_code"];
 
-  $token = random_bytes(32);
+  $auth = new Activationcotrl();
 
-  $url = "www.kennedy.com/PROFILE SYSTEM/reset_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
+  $result = $auth->authenticate($_SESSION["reset-email"], $code);
 
-  $expires = date("U") + 1800;
+  // start a tokenezed session
+  if($result){
 
-  // db connection
+    $url = $auth->session_token($_SESSION["reset-email"]);
+  }
 
-  require_once("db.inc.php");
+  // send email to the user for the email reset link
 
-  $user_email = $_POST["email"];
-
-  $sql = "DELETE FROM pwdreset WHERE resetemail = :resetemail;";
-
-  // run the query using prepared statements
-
-  $sql = "INSERT INTO pwdreset(resetemail, resetSelector, resetToken, resetExpires) VALUES(:resetemail, :resetselector, :resettoken, :resetexpires);";
-
-  // prepare a PDO prepared statement
-
-  $hashedToken = password_hash($token, PASSWORD_DEFAULT);
-
-  // bind parameters using pdo and execute
-
-  $stmt = null;
-
-  $conn = null;
-
-  // send this email url to the user 
-
-  $to = $user_email;
+  $to = $_SESSION["reset-email"];
 
   $subject = "Reset your password for PERSONARA";
 
@@ -53,11 +33,13 @@ if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   
   $headers .= "Content-Type: text/html\r\n";
 
-  mail($user_email, $subject, $message, $headers);
+  mail($to, $subject, $message, $headers);
 
-  header("Location: ../reset_password.php?reset=successcheckemail");
+  session_start();
+  session_unset();
+  session_destroy();
+
+  header("Location: ../verify_code.php?reset=successcheckemail");
 
   exit();
-
-
 }
