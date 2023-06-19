@@ -43,7 +43,7 @@
       ?>
         <div class="heading">Create a new password</div>
         <div class="sign-up">
-          <form action="" method="POST" autocomplete="off">
+          <form action="INCLUDES/reset-password.inc.php" method="POST" autocomplete="off">
             <div class="signup-title">Reset password</div>
             <div class="input-box">
               <input type="hidden" name="selector" id="selector" value="<?php echo $selector; ?>" required>
@@ -56,7 +56,7 @@
               <label for="pwd-repeat">Repeat the new password:</label>
             </div>
             <div class="input-box">
-              <input type="submit" name="submit" value="send" class="btn">
+              <input type="submit" name="reset-password-submit" value="send" class="btn">
             </div>
           </form>
         </div>

@@ -30,16 +30,15 @@
     </div>
     <div class="heading">verify your account</div>
     <div class="sign-up">
-      <form action="#" method="POST" autocomplete="off">
+      <form action="INCLUDES/reset-password.inc.php" method="POST" autocomplete="off">
         <div class="signup-title">Email verification</div>
         <div class="input-box">
           <input type="text" name="V_code" id="V_code" required>
           <label for="V_code">Enter the verification code:</label>
         </div>
         <div class="input-box">
-          <input type="submit" name="submit" value="send code" class="btn">
+          <input type="submit" name="reset-code-submit" value="send code" class="btn">
         </div>
-        <!-- <p class="forgot-pwd"><a href="#">Resend</a></p> -->
       </form>
     </div>
     <hr>
