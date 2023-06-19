@@ -1,12 +1,5 @@
 <?php
 session_start();
-// require_once("CLASSES/dbh.class.php");
-// require_once("CLASSES/update.class.php");
-// require_once("CLASSES/updatecotrl.class.php");
-
-// $check_for_hobby_update = new Updatecotrl("");
-
-// $data = $check_for_hobby_update->check_for_hobby_update($_GET["usersid"],$_GET["id"]);
 
 ?>
 <!DOCTYPE html>

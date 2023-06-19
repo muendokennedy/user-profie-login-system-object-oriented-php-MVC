@@ -31,9 +31,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   }
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/update.class.php");
-  require_once("../CLASSES/updatecotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   $check_for_update = new Updatecotrl("");
 
@@ -68,9 +68,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
   
-    require_once("../CLASSES/dbh.class.php");
-    require_once("../CLASSES/update.class.php");
-    require_once("../CLASSES/updatecotrl.class.php");
+    require_once("../AUTOLOADER/loader.php");
+
+    Loader::load_class("../CLASSES");
 
     
 
@@ -99,9 +99,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   }
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/update.class.php");
-  require_once("../CLASSES/updatecotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   $update_career = new Updatecotrl($career_photo);
 
@@ -127,9 +127,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   }
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/update.class.php");
-  require_once("../CLASSES/updatecotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   $update_friend = new Updatecotrl($friend_photo);
 
@@ -146,9 +146,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
     $highschool_desc = $_POST["highschool"];
     $user_id = $_POST["user-id"];
 
-    require_once("../CLASSES/dbh.class.php");
-    require_once("../CLASSES/update.class.php");
-    require_once("../CLASSES/updatecotrl.class.php");
+    require_once("../AUTOLOADER/loader.php");
+
+    Loader::load_class("../CLASSES");
 
     $update_bio = new Updatecotrl("");
 

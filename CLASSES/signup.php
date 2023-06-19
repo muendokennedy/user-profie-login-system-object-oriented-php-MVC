@@ -1,7 +1,4 @@
 <?php
-
-require_once("dbh.class.php");
-
 class Signup extends Dbh
 {
   protected function setUser($fname, $lname, $email, $user_name, $pwd, $code, $status)

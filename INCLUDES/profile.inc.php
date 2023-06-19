@@ -32,11 +32,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $friend_photo = $_FILES["friend-photo"];
   $user_id = $_POST["user-id"];
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/profile.class.php");
-  require_once("../CLASSES/profilecotrl.class.php");
-  require_once("../CLASSES/profileinfo.class.php");
-  require_once("../CLASSES/profileinfocotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   $profile = new Profilecotrl($first_pic);
   $profile->insert_picture($user_id);
@@ -67,9 +65,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $hobby_photo = $_FILES["hobby-photo"];
   $user_id = $_POST["user-id"];
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/profile.class.php");
-  require_once("../CLASSES/profilecotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   $hobby_info = new Profilecotrl($hobby_photo);
   $hobby_info->insert_hobbies($hobby_name, $hobby_more, $user_id);
@@ -83,9 +81,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $career_photo = $_FILES["career-photo"];
   $user_id = $_POST["user-id"];
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/profile.class.php");
-  require_once("../CLASSES/profilecotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   $career_info = new Profilecotrl($career_photo);
   $career_info->insert_careers($career_name, $career_more, $user_id);

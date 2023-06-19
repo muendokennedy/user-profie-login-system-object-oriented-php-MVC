@@ -1,7 +1,4 @@
 <?php
-
-require_once("dbh.class.php");
-
 class Login extends Dbh
 {
   protected function confirmUser($user_name, $pwd, $remember)

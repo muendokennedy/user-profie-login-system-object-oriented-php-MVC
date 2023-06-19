@@ -5,9 +5,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $password = $_POST["pwd"];
   $remember = $_POST["remember"] ?? "";
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/login.class.php");
-  require_once("../CLASSES/logincotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   // Instantiate the login controller class
   $login = new Logincotrl($user_name, $password);

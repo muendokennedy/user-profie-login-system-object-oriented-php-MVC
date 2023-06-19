@@ -12,9 +12,9 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $code = rand(11121, 99990);
   $status = "unactivated";
 
-  require_once("../CLASSES/dbh.class.php");
-  require_once("../CLASSES/signup.class.php");
-  require_once("../CLASSES/signupcotrl.class.php");
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
 
   // Instantiate the signup controller class
   $signup = new Signupcotrl($first_name, $last_name, $email, $user_name, $password, $password_repeat, $code, $status);

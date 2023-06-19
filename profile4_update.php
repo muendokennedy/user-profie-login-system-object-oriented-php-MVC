@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require_once("CLASSES/dbh.class.php");
-require_once("CLASSES/update.class.php");
-require_once("CLASSES/updatecotrl.class.php");
+require_once("AUTOLOADER/loader.php");
+
+Loader::load_class("CLASSES");
 
 $check_for_friend_update = new Updatecotrl("");
 

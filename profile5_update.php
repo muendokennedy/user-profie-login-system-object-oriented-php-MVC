@@ -2,9 +2,10 @@
 
 session_start();
 
-require_once("CLASSES/dbh.class.php");
-require_once("CLASSES/update.class.php");
-require_once("CLASSES/updatecotrl.class.php");
+require_once("AUTOLOADER/loader.php");
+
+Loader::load_class("CLASSES");
+
 
 $bio_info = new Updatecotrl("");
 
@@ -58,17 +59,17 @@ $data = $bio_info->check_for_bio_update($_GET["usersid"]);
           </div>
           <div class="input-row">
           <div class="input-box profile-input-box">
-            <textarea name="hobbies" id="hobbies" required><?php echo $data[0]["nickname"] ?? "";?></textarea>
+            <textarea name="hobbies" id="hobbies" required><?php echo $data[0]["hobbies"] ?? "";?></textarea>
             <label for="hobbies">Describe your hobbies:</label>
           </div>
           <div class="input-box profile-input-box">
-            <textarea name="career" id="career" required><?php echo $data[0]["hobbies"] ?? "";?></textarea>
+            <textarea name="career" id="career" required><?php echo $data[0]["career"] ?? "";?></textarea>
             <label for="career">Describe your career:</label>
           </div>
           </div>
           <div class="input-row">
           <div class="input-box profile-input-box">
-            <textarea name="college" id="college" required><?php echo $data[0]["career"] ?? "";?></textarea>
+            <textarea name="college" id="college" required><?php echo $data[0]["college"] ?? "";?></textarea>
             <label for="college">Describe your college:</label>
           </div>
           <div class="input-box profile-input-box">

@@ -2,9 +2,9 @@
 
 session_start();
 
-require_once("CLASSES/dbh.class.php");
-require_once("CLASSES/gallery.class.php");
-require_once("CLASSES/gallerycotrl.class.php");
+require_once("AUTOLOADER/loader.php");
+
+Loader::load_class("CLASSES");
 
 $display_gallery = new Gallerycotrl("");
 

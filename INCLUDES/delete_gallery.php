@@ -1,8 +1,9 @@
 <?php
 
-require_once("../CLASSES/dbh.class.php");
-require_once("../CLASSES/delete.class.php");
-require_once("../CLASSES/deletecotrl.class.php");
+
+require_once("../AUTOLOADER/loader.php");
+
+Loader::load_class("../CLASSES");
 
 // Delete the filename from the database
 $delete_gallery_item = new DeleteCotrl($_GET["userid"], $_GET["id"]);

@@ -2,9 +2,11 @@
 
 session_start();
 
-require_once("CLASSES/dbh.class.php");
-require_once("CLASSES/profile.class.php");
-require_once("CLASSES/profilecotrl.class.php");
+require_once("AUTOLOADER/loader.php");
+
+Loader::load_class("CLASSES");
+
+$images = new Profilecotrl("");
 
 ?>
 
@@ -53,7 +55,6 @@ require_once("CLASSES/profilecotrl.class.php");
     <div class="profile-bio-container">
       <?php
       if(isset($_SESSION["usersid"])){
-        $images = new Profilecotrl("");
         $images->get_pictures($_SESSION["usersid"]);
         $profile_info = new Profilecotrl("");
         $profile_info->get_profile_information($_SESSION["usersid"]);
