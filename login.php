@@ -49,7 +49,7 @@
         <div class="input-box">
           <input type="submit" name="submit" value="login" class="btn">
         </div>
-        <p class="forgot-pwd"><a href="#">Forgot password</a></p>
+        <p class="forgot-pwd"><a href="verify_email.php">Forgot password</a></p>
         <div class="link-container">
           <p>Don't have an account?</p>
           <p><a href="signup.html">sign up</a></p>

@@ -28,23 +28,42 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">Create a new password</div>
-    <div class="sign-up">
-      <form action="#" method="POST" autocomplete="off">
-        <div class="signup-title">Reset password</div>
-        <div class="input-box">
-          <input type="password" name="pwd" id="pwd" required>
-          <label for="pwd">Enter the new password:</label>
+
+    <?php
+    
+    $selector = $_GET["selector"];
+    $validator = $_GET["validator"];
+
+    if(empty($selector) && empty($validator)){
+      header("Location: ../reset_password.php?reset=invalidrequest");
+      exit();
+    } else {
+
+      if(ctype_xdigit($selector) != false && ctype_xdigit($validator)){
+      ?>
+        <div class="heading">Create a new password</div>
+        <div class="sign-up">
+          <form action="" method="POST" autocomplete="off">
+            <div class="signup-title">Reset password</div>
+            <div class="input-box">
+              <input type="hidden" name="selector" id="selector" value="<?php echo $selector; ?>" required>
+              <input type="hidden" name="validator" id="validator" value="<?php echo $validator; ?>" required>
+              <input type="password" name="pwd" id="pwd" required>
+              <label for="pwd">Enter the new password:</label>
+            </div>
+            <div class="input-box">
+              <input type="password" name="pwd-repeat" id="pwd-repeat" required>
+              <label for="pwd-repeat">Repeat the new password:</label>
+            </div>
+            <div class="input-box">
+              <input type="submit" name="submit" value="send" class="btn">
+            </div>
+          </form>
         </div>
-        <div class="input-box">
-          <input type="password" name="pwd-repeat" id="pwd-repeat" required>
-          <label for="pwd-repeat">Repeat the new password:</label>
-        </div>
-        <div class="input-box">
-          <input type="submit" name="submit" value="send" class="btn">
-        </div>
-      </form>
-    </div>
+      <?php
+      }
+    }
+    ?>
     <hr>
   </section>
   <footer>

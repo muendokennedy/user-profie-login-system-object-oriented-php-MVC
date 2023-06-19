@@ -39,7 +39,7 @@
         <div class="input-box">
           <input type="submit" name="submit" value="send code" class="btn">
         </div>
-        <p class="forgot-pwd"><a href="#">Resend</a></p>
+        <!-- <p class="forgot-pwd"><a href="#">Resend</a></p> -->
       </form>
     </div>
     <hr>
