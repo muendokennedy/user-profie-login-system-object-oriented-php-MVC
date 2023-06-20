@@ -10,7 +10,6 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $subject = $_POST["subject"];
   $message = $_POST["message"];
 
-
   require_once("../AUTOLOADER/loader.php");
 
   Loader::load_class("../CLASSES");

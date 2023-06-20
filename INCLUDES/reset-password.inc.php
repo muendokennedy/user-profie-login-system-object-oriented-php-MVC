@@ -16,6 +16,10 @@ if(isset($_POST["reset-password-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
 
   // Process new password
 
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
+
   $new_pwd = new Activationcotrl();
 
   $new_pwd->process_pwd($selector, $validator, $password);

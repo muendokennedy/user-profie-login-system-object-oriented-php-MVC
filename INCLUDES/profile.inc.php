@@ -55,7 +55,7 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $friend_info = new Profilecotrl($friend_photo);
   $friend_info->insert_friends($friend_name, $friend_more, $user_id);
 
-  header("Location: ../login.php?upload=successloginnow");
+  header("Location: ../verify_email_first.php?upload=successnowactivate");
   exit();
 
 } elseif(isset($_POST["upload-new-hobby"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
@@ -88,6 +88,7 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $career_info = new Profilecotrl($career_photo);
   $career_info->insert_careers($career_name, $career_more, $user_id);
 
-  header("Location: ../verify_email_first.php?upload=successnowactivate");
+  header("Location: ../profile.php?upload=success");
   exit();
+
 }

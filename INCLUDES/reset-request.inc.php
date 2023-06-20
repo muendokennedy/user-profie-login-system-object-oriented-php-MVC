@@ -35,6 +35,7 @@ if(isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"
   
   $headers .= "Content-Type: text/html\r\n";
 
+
   mail($user_email, $subject, $message, $headers);
 
   header("Location: ../verify_code.php?msg=checkemail");

@@ -55,8 +55,9 @@
               <label for="pwd">Enter the new password:</label>
             </div>
             <div class="input-box">
-              <input type="password" name="pwd-repeat" id="pwd-repeat" required>
-              <label for="pwd-repeat">Repeat the new password:</label>
+              <input type="password" name="pwd-repeat" id="confirm-pwd" required>
+              <label for="confirm-pwd">Repeat the new password:</label>
+              <span class="show-btn">SHOW</span>
             </div>
             <div class="input-box">
               <input type="submit" name="reset-password-submit" value="send" class="btn">
@@ -107,6 +108,7 @@
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
+  <script src="JS/menu.js"></script>
   <script src="JS/signup.js"></script>
 </body>
 </html>

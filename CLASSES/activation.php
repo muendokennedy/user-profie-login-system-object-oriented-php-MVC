@@ -68,13 +68,25 @@ class Activation extends Dbh
 
   public function recordSession($email, $selector, $token, $expires)
   {
-     $sql = "DELETE * FROM pwdreset WHERE resetemail = :resetemail;";
+     $sql = "SELECT * FROM pwdreset WHERE resetemail = :resetemail;";
 
      $stmt = $this->connect()->prepare($sql);
 
      $stmt->bindParam(":resetemail", $email);
 
      $stmt->execute();
+
+     if($stmt->rowCount() > 0){
+
+      $sql = "DELETE FROM pwdreset WHERE resetemail = :resetemail;";
+
+      $stmt = $this->connect()->prepare($sql);
+ 
+      $stmt->bindParam(":resetemail", $email);
+ 
+      $stmt->execute();
+      
+    }
    
      $sql = "INSERT INTO pwdreset(resetemail, resetSelector, resetToken, resetExpires) VALUES(:resetemail, :resetselector, :resettoken, :resetexpires);";
 
@@ -94,7 +106,7 @@ class Activation extends Dbh
   public function checkTokens($selector, $date)
   {
 
-    $sql = "SELECT * FROM pwdreset WHERE resetSelector = :selector AND resetExpires >= :expires;";
+    $sql = "SELECT * FROM pwdreset WHERE resetSelector = :selector AND resetExpires > :expires;";
 
     $stmt = $this->connect()->prepare($sql);
 
@@ -113,11 +125,11 @@ class Activation extends Dbh
 
   public function updatePassword($pwd, $email)
   {
-    $sql = "SELECT * FROM users email = :email;";
+    $sql = "SELECT * FROM users WHERE email = :email;";
 
     $stmt = $this->connect()->prepare($sql);
 
-    $stmt->bindParam(":email", $selector);
+    $stmt->bindParam(":email", $email);
 
     $stmt->execute();
 
@@ -134,7 +146,7 @@ class Activation extends Dbh
 
       $stmt->execute();
 
-      $sql = "DELETE * FROM pwdreset WHERE resetemail	= :email;";
+      $sql = "DELETE FROM pwdreset WHERE resetemail	= :email;";
 
       $stmt = $this->connect()->prepare($sql);
 

@@ -33,16 +33,12 @@ class Activationcotrl extends Activation
       exit();
 
     }
-    if($this->invalidcode($code) === false){
 
-      header("Location: ../verify_code_first.php?error=invalidcode");
-      exit();
+    $result = $this->fetchCode($user_email);
 
-    }
+    $db_code = $result["code"];
 
-    $db_code = $this->fetchCode($user_email);
-
-    if($db_code !== $code){
+    if($db_code != $code){
 
       header("Location: ../verify_code_first.php?error=invalidcode");
       exit();
@@ -54,23 +50,6 @@ class Activationcotrl extends Activation
     $status = "active";
 
     $this->updateActivation($final_code, $status, $user_email);
-
-  }
-  public function invalidcode($code)
-  {
-    $result = true;
-
-    if(!preg_match("/^[0-9]*$/", $code)){
-
-      $result = false;
-
-    }else {
-
-      $result = true;
-
-    }
-
-    return $result;
 
   }
   public function emailCheck($email)
@@ -117,16 +96,10 @@ class Activationcotrl extends Activation
       exit();
       
     }
-    if($this->invalidcode($code) === false){
-
-      header("Location: ../verify_code.php?error=invalidcode");
-      exit();
-      
-    }
 
     $result = $this->fetchCode($email);
 
-    if($code !== $result["code"]){
+    if($code != $result["code"]){
       header("Location: ../verify_code.php?error=invalidcode");
       exit();
     }
@@ -149,7 +122,7 @@ class Activationcotrl extends Activation
 
     $token = random_bytes(32);
   
-    $url = "www.kennedy.com/PROFILE SYSTEM/reset_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
+    $url = "www.personaraprofileken.000webhostapp.com/reset_password.php?selector=" . $selector . "&validator=" . bin2hex($token);
   
     $expires = date("U") + 1800;
 
@@ -171,7 +144,7 @@ class Activationcotrl extends Activation
 
     $token_check = password_verify($token_bin, $result["resetToken"]);
 
-    if($token_check){
+    if($token_check === true){
 
       $token_email = $result["resetemail"];
 

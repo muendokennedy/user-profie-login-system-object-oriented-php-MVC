@@ -5,6 +5,10 @@ if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   $code = $_POST["V_code"];
 
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
+
   $auth = new Activationcotrl();
 
   $result = $auth->authenticate($_SESSION["reset-email"], $code);
@@ -33,13 +37,14 @@ if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   
   $headers .= "Content-Type: text/html\r\n";
 
+
   mail($to, $subject, $message, $headers);
 
-  session_start();
   session_unset();
   session_destroy();
-
+  
   header("Location: ../verify_code.php?reset=successcheckemail");
+
 
   exit();
 
@@ -51,12 +56,16 @@ if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   $code = $_POST["V_code"];
 
+  require_once("../AUTOLOADER/loader.php");
+
+  Loader::load_class("../CLASSES");
+
   $activate = new Activationcotrl();
 
   $activate->activation_process($code,  $_SESSION["activation-email"]);
 
   // redirect the user to the login page
-  session_start();
+
   session_unset();
   session_destroy();
 
