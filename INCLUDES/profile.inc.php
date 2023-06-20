@@ -88,6 +88,6 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $career_info = new Profilecotrl($career_photo);
   $career_info->insert_careers($career_name, $career_more, $user_id);
 
-  header("Location: ../profile.php?upload=success");
+  header("Location: ../verify_email_first.php?upload=successnowactivate");
   exit();
 }

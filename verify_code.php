@@ -35,7 +35,7 @@ session_start();
     </div>
     <div class="heading">verify your account</div>
     <div class="sign-up">
-      <form action="INCLUDES/reset-password.inc.php" method="POST" autocomplete="off">
+      <form action="INCLUDES/reset-process.inc.php" method="POST" autocomplete="off">
         <div class="signup-title">Email verification</div>
         <div class="input-box">
           <input type="text" name="V_code" id="V_code" required>

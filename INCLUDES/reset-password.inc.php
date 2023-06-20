@@ -20,8 +20,4 @@ if(isset($_POST["reset-password-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
 
   $new_pwd->process_pwd($selector, $validator, $password);
 
-  // Bind the parameters
-
-  // fetch the resultset from the database in form of associative array
-
 }

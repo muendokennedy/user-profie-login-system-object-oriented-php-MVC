@@ -1,6 +1,94 @@
 <?php
 class Activationcotrl extends Activation
 {
+  // Activate account after new signup
+
+  public function activate_account($user_email){
+
+    if($this->emptyinput_check($user_email) === false){
+
+      header("Location: ../verify_email_first.php?error=emptyinputs");
+      exit();
+
+    }
+    if($this->emailCheck($user_email) === false){
+
+      header("Location: ../verify_email_first.php?error=invalidemail");
+      exit();
+
+    }
+
+    $result = $this->fetchCode($user_email);
+
+    return $result["code"];
+
+  }
+  // process activation
+
+  public function activation_process($code, $user_email)
+  {
+    if($this->emptyinput_check($code) === false){
+
+      header("Location: ../verify_code_first.php?error=emptyinputs");
+      exit();
+
+    }
+    if($this->invalidcode($code) === false){
+
+      header("Location: ../verify_code_first.php?error=invalidcode");
+      exit();
+
+    }
+
+    $db_code = $this->fetchCode($user_email);
+
+    if($db_code !== $code){
+
+      header("Location: ../verify_code_first.php?error=invalidcode");
+      exit();
+
+    }
+
+    $final_code = 0;
+
+    $status = "active";
+
+    $this->updateActivation($final_code, $status, $user_email);
+
+  }
+  public function invalidcode($code)
+  {
+    $result = true;
+
+    if(!preg_match("/^[0-9]*$/", $code)){
+
+      $result = false;
+
+    }else {
+
+      $result = true;
+
+    }
+
+    return $result;
+
+  }
+  public function emailCheck($email)
+  {
+    $result = true;
+
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+
+      $result = false;
+
+    } else {
+      $result = true;
+    }
+
+    return $result;
+
+  }
+
   public function generate_session($email)
   {
     if($this->emptyinput_check($email) === false){
@@ -29,6 +117,12 @@ class Activationcotrl extends Activation
       exit();
       
     }
+    if($this->invalidcode($code) === false){
+
+      header("Location: ../verify_code.php?error=invalidcode");
+      exit();
+      
+    }
 
     $result = $this->fetchCode($email);
 
@@ -38,7 +132,11 @@ class Activationcotrl extends Activation
     }
     // update the activation status in the database
 
-    $this->updateActivation($email);
+    $final_code = 0;
+
+    $status = "active";
+
+    $this->updateActivation($final_code, $status, $email);
     
     return true;
   }

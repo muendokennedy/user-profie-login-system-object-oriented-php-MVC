@@ -48,6 +48,22 @@ class Activation extends Dbh
     return $row;
   }
 
+  // activate account 
+
+  public function updateActivation($code, $status, $email)
+  {
+     $sql = "UPDATE users SET code = :code, status = :status WHERE email = :email;";
+
+     $stmt = $this->connect()->prepare($sql);
+
+     $stmt->bindParam(":code", $code);
+     $stmt->bindParam(":status", $status);
+     $stmt->bindParam(":email", $email);
+
+     $stmt->execute();
+     
+  }
+
   // Record the tokenized session
 
   public function recordSession($email, $selector, $token, $expires)

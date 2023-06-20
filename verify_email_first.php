@@ -20,7 +20,6 @@
       <a href="login.php">login</a>
       <a href="contact.php">contact</a>
     </nav>
-    <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
   </div>
   <section class="home">
@@ -29,38 +28,19 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">talk to personara</div>
-    <div class="error-block">All fields are required</div>
-    <form action="INCLUDES/contact.inc.php" method="POST"  autocomplete="off" class="form-container sign-up contact-form">
-          <div class="signup-title">Talk to us</div>
-          <div class="input-row">
-          <div class="input-box">
-            <input type="text" name="fname" id="fname" required>
-            <label for="fname">Enter your first name:</label>
-          </div>
-          <div class="input-box">
-            <input type="text" name="lname" id="lname" required>
-            <label for="lname">Enter your last name:</label>
-          </div>
-          </div>
-          <div class="input-row">
-            <div class="input-box">
-              <input type="text" name="email" id="email" required>
-              <label for="email">Enter your email:</label>
-            </div>
-          <div class="input-box">
-            <input type="text" name="subject" id="subject" required>
-            <label for="subject">Enter your subject:</label>
-          </div>
-          </div>
-          <div class="input-box profile-input-box">
-            <textarea name="message" id="message" required></textarea>
-            <label for="message">Enter your message:</label>
-          </div>
-          <div class="input-box profile-navigation-button-container">
-            <button type="submit" class="btn" name="submit">Send Message</button>
-          </div>
-        </form>
+    <div class="heading">verify your account</div>
+    <div class="sign-up">
+      <form action="INCLUDES/reset-request.inc.php" method="POST" autocomplete="off">
+        <div class="signup-title">Email verification</div>
+        <div class="input-box">
+          <input type="text" name="v_email" id="v_email" required>
+          <label for="v_email">Enter your email:</label>
+        </div>
+        <div class="input-box">
+          <input type="submit" name="activation-request-submit" value="send email" class="btn">
+        </div>
+      </form>
+    </div>
     <hr>
   </section>
   <footer>
@@ -101,6 +81,6 @@
     <hr>
     <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
   </footer>
-  <script src="JS/menu.js"></script>
+  <script src="JS/signup.js"></script>
 </body>
 </html>

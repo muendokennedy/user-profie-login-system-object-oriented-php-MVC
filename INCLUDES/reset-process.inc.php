@@ -42,4 +42,27 @@ if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   header("Location: ../verify_code.php?reset=successcheckemail");
 
   exit();
+
+} elseif(isset($_POST["activation-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+
+  session_start();
+
+  $_SESSION["activation-email"];
+
+  $code = $_POST["V_code"];
+
+  $activate = new Activationcotrl();
+
+  $activate->activation_process($code,  $_SESSION["activation-email"]);
+
+  // redirect the user to the login page
+  session_start();
+  session_unset();
+  session_destroy();
+
+  header("Location: ../login.php?activation=successloginnow");
+
+  exit();
+
+
 }
