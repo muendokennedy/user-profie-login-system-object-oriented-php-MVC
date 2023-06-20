@@ -28,6 +28,15 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">Plese fill all the inputs</div>
+    <?php elseif($_GET["error"] == "invalidcode"):?>
+    <div class="error-block-1">You entered an invalid code</div>
+    <?php elseif($_GET["error"] == "incorrectemail"):?>
+    <div class="error-block-1">You entered an incorrect email</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="heading">verify your account</div>
     <div class="sign-up">
       <form action="INCLUDES/reset-request.inc.php" method="POST" autocomplete="off">

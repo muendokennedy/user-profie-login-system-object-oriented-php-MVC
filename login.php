@@ -29,6 +29,20 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">All fields are required</div>
+    <?php elseif($_GET["error"] == "invalidusernameemalorpassword"):?>
+    <div class="error-block-1">You entered invalid username or password</div>
+    <?php elseif($_GET["error"] == "wrongpwd"):?>
+    <div class="error-block-1">You entered a wrong password</div>
+    <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($_GET["msg"])):?>
+    <?php if($_GET["msg"] == "successpwdreset"):?>
+    <div class="success-block">password reset successfully, login with the new password</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="heading">login to your account</div>
     <div class="sign-up">
       <form action="INCLUDES/login.inc.php" method="POST">

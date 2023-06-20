@@ -11,7 +11,11 @@ class Activation extends Dbh
     $stmt->bindParam(":status", $status);
     $stmt->bindParam(":email", $email);
 
-    $stmt->execute();
+
+    if(!$stmt->execute()){
+    header("Location: ../verify_email.php?error=incorrectemail");
+    exit();
+    }
 
     // Fetch the code 
 
@@ -43,9 +47,14 @@ class Activation extends Dbh
 
      if($stmt->rowCount() > 0){
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    }
 
-    return $row;
+      return $row;
+    }else{
+
+    header("Location: ../verify_email_first.php?error=incorrectemail");
+    exit();
+    
+    }
   }
 
   // activate account 

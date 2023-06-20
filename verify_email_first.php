@@ -28,10 +28,24 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">verify your account</div>
+    <?php if(isset($_GET["upload"])):?>
+    <?php if($_GET["upload"] == "successnowactivate"):?>
+    <div class="success-block">Account created successfully, now enter email to activate account</div>
+    <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">Plese fill all the inputs</div>
+    <?php elseif($_GET["error"] == "invalidemail"):?>
+    <div class="error-block-1">You entered invalid email</div>
+    <?php elseif($_GET["error"] == "incorrectemail"):?>
+    <div class="error-block-1">You entered an incorrect email</div>
+    <?php endif;?>
+    <?php endif;?>
+    <div class="heading">Activate your account</div>
     <div class="sign-up">
       <form action="INCLUDES/reset-request.inc.php" method="POST" autocomplete="off">
-        <div class="signup-title">Email verification</div>
+        <div class="signup-title">Account activation</div>
         <div class="input-box">
           <input type="text" name="v_email" id="v_email" required>
           <label for="v_email">Enter your email:</label>

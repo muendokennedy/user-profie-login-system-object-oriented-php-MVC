@@ -443,6 +443,28 @@ hr{
   border: .1rem solid #FF0011;
   display: none;
 }
+.error-block-1{
+  background: #FBD1D1;
+  color: #FF0011;
+  text-align: center;
+  padding: 1.4rem 0;
+  font-size: 1.6rem;
+  width: 50rem;
+  margin: 0 auto;
+  border-radius: 0 2rem 0 2rem;
+  border: .1rem solid #FF0011;
+}
+.success-block{
+  background: #C5FFE4;
+  color: #00CF6E;
+  text-align: center;
+  padding: 1.4rem 0;
+  font-size: 1.6rem;
+  width: 50rem;
+  margin: 0 auto;
+  border-radius: 0 2rem 0 2rem;
+  border: .1rem solid #00CF6E;
+}
 /* Styling of the gallery page */
 .edit-btn button{
   border: none;
@@ -554,6 +576,9 @@ footer .copyright-text{
   .profile{
     width: 100%;
   }
+  .error-block, .error-block-1, .success-block{
+    width: 80%;
+  }
 }
 @media only screen and (max-width: 768px) {
   .sign-up {
@@ -579,6 +604,11 @@ footer .copyright-text{
   }
   .manage-moodle .moodle-msg{
     font-size: 1.2rem;
+  }
+  .error-block, .error-block-1, .success-block{
+    width: 98%;
+    font-size: 1.3rem;
+    padding: 1.2rem 0;
   }
 }
 @media only screen and (max-width: 600px) {

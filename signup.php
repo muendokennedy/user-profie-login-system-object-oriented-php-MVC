@@ -29,6 +29,19 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">All fields are required</div>
+    <?php elseif($_GET["error"] == "invaliduid"):?>
+    <div class="error-block-1">You entered invalid username</div>
+    <?php elseif($_GET["error"] == "invalidemail"):?>
+    <div class="error-block-1">You entered invalid email</div>
+    <?php elseif($_GET["error"] == "passwordsdontmatch"):?>
+    <div class="error-block-1">The passwords don't match</div>
+    <?php elseif($_GET["error"] == "uidexists"):?>
+    <div class="error-block-1">The username already exists</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="heading">create account</div>
     <div class="sign-up">
       <form action="INCLUDES/signup.inc.php" method="POST" autocomplete="off">

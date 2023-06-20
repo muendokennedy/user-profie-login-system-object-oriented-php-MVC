@@ -33,13 +33,25 @@ session_start();
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
-    <div class="heading">verify your account</div>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">Plese fill all the inputs</div>
+    <?php elseif($_GET["error"] == "invalidcode"):?>
+    <div class="error-block-1">You entered an invalid code</div>
+    <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($_GET["msg"])):?>
+    <?php if($_GET["msg"] == "checkemail"):?>
+    <div class="success-block">check your email for activation code</div>
+    <?php endif;?>
+    <?php endif;?>
+    <div class="heading">Activate your account</div>
     <div class="sign-up">
       <form action="INCLUDES/reset-process.inc.php" method="POST" autocomplete="off">
-        <div class="signup-title">Email verification</div>
+        <div class="signup-title">Account activation</div>
         <div class="input-box">
           <input type="text" name="V_code" id="V_code" required>
-          <label for="V_code">Enter the verification code:</label>
+          <label for="V_code">Enter the activation code:</label>
         </div>
         <div class="input-box">
           <input type="submit" name="activation-code-submit" value="send code" class="btn">

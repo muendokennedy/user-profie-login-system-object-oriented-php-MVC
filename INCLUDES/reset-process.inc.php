@@ -37,7 +37,6 @@ if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   
   $headers .= "Content-Type: text/html\r\n";
 
-
   mail($to, $subject, $message, $headers);
 
   session_unset();

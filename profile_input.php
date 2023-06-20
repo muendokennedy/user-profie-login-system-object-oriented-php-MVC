@@ -41,6 +41,23 @@ session_start();
       <span class="third indicator-btn"></span>
       <span class="fourth indicator-btn"></span>
     </div>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">All fields are required</div>
+    <?php elseif($_GET["error"] == "largefile"):?>
+    <div class="error-block-1">File selected is too large</div>
+    <?php elseif($_GET["error"] == "uploaderror"):?>
+    <div class="error-block-1">There was an upload error</div>
+    <?php elseif($_GET["error"] == "incorrectfiletype"):?>
+    <div class="error-block-1">Please select only jpg, jpeg or png files</div>
+    <?php elseif($_GET["error"] == "emptyinputshobby"):?>
+    <div class="error-block-1">Please fill all hobby inputs</div>
+    <?php elseif($_GET["error"] == "emptyinputscareer"):?>
+    <div class="error-block-1">Please fill all career inputs</div>
+    <?php elseif($_GET["error"] == "emptyinputsfriends"):?>
+    <div class="error-block-1">Please fill all friend inputs</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="error-block">All fields are required</div>
     <form action="INCLUDES/profile.inc.php" method="POST"  autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
       <div class="step-form">
