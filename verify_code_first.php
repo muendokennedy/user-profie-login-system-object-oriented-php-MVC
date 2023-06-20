@@ -42,7 +42,7 @@ session_start();
     <?php endif;?>
     <?php if(isset($_GET["msg"])):?>
     <?php if($_GET["msg"] == "checkemail"):?>
-    <div class="success-block">check your email for activation code</div>
+    <div class="success-block">Check your email for activation code</div>
     <?php endif;?>
     <?php endif;?>
     <div class="heading">Activate your account</div>

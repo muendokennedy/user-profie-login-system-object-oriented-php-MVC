@@ -41,6 +41,11 @@ if(isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   session_unset();
   session_destroy();
+
+  echo '<pre>';
+  var_dump($url);
+  echo '</pre>';
+  exit;
   
   header("Location: ../verify_code.php?reset=successcheckemail");
 

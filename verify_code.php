@@ -42,6 +42,16 @@ session_start();
     <div class="error-block-1">You entered an incorrect email</div>
     <?php endif;?>
     <?php endif;?>
+    <?php if(isset($_GET["reset"])):?>
+    <?php if($_GET["reset"] == "successcheckemail"):?>
+    <div class="success-block">A link to reset your password has been sent to your email, please check your email and click the link</div>
+    <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($_GET["msg"])):?>
+    <?php if($_GET["msg"] == "checkemail"):?>
+    <div class="success-block">An account verification code has been sent to your email, please enter the code here</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="heading">verify your account</div>
     <div class="sign-up">
       <form action="INCLUDES/reset-process.inc.php" method="POST" autocomplete="off">

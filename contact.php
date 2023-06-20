@@ -29,8 +29,18 @@
       <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "none"):?>
+    <div class="success-block">The message has been sent successfully</div>
+    <?php elseif($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">Plese fill all the inputs</div>
+    <?php elseif($_GET["error"] == "invalidemail"):?>
+    <div class="error-block-1">You entered invalid email</div>
+    <?php elseif($_GET["error"] == "notsend"):?>
+    <div class="error-block-1">An error encountered while sending the email, please try again</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="heading">talk to personara</div>
-    <div class="error-block">All fields are required</div>
     <form action="INCLUDES/contact.inc.php" method="POST"  autocomplete="off" class="form-container sign-up contact-form">
           <div class="signup-title">Talk to us</div>
           <div class="input-row">

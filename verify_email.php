@@ -31,8 +31,8 @@
     <?php if(isset($_GET["error"])):?>
     <?php if($_GET["error"] == "emptyinputs"):?>
     <div class="error-block-1">Plese fill all the inputs</div>
-    <?php elseif($_GET["error"] == "invalidcode"):?>
-    <div class="error-block-1">You entered an invalid code</div>
+    <?php elseif($_GET["error"] == "invalidemail"):?>
+    <div class="error-block-1">You entered an invalid email</div>
     <?php elseif($_GET["error"] == "incorrectemail"):?>
     <div class="error-block-1">You entered an incorrect email</div>
     <?php endif;?>

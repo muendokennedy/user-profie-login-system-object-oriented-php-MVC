@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["reset-password-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_POST["reset-password-submit"])){
 
   $selector = $_POST["selector"];
   $validator = $_POST["validator"];
@@ -7,10 +7,12 @@ if(isset($_POST["reset-password-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
   $password_repeat = $_POST["pwd-repeat"];
 
   if(empty($password) || empty($password_repeat)){
-    header("Location ../reset_password.php?selector=" . $selector . "&validator=" . $validator . "&error=emptyinputs");
+    header("Location: ../reset_password.php?selector=". $selector. "&validator=". $validator ."&error=emptyinputs");
     exit();
-  } elseif($password != $password_repeat){
-    header("Location ../reset_password.php?selector=" . $selector . "&validator=" . $validator . "&error=passwordsdontmatch");
+  } 
+  
+  if($password != $password_repeat){
+    header("Location: ../reset_password.php?selector=". $selector. "&validator=". $validator ."&error=passwordsdontmatch");
     exit();
   }
 

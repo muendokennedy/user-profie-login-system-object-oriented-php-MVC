@@ -40,7 +40,12 @@
     <?php endif;?>
     <?php if(isset($_GET["msg"])):?>
     <?php if($_GET["msg"] == "successpwdreset"):?>
-    <div class="success-block">password reset successfully, login with the new password</div>
+    <div class="success-block">Password reset successfully, login with the new password</div>
+    <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($_GET["activation"])):?>
+    <?php if($_GET["activation"] == "successloginnow"):?>
+    <div class="success-block">Your account has been activated successfully you can login below</div>
     <?php endif;?>
     <?php endif;?>
     <div class="heading">login to your account</div>

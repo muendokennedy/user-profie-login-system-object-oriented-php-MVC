@@ -76,6 +76,12 @@ class Activationcotrl extends Activation
       exit();
 
     }
+    if($this->emailCheck($email) === false){
+
+      header("Location: ../verify_email.php?error=invalidemail");
+      exit();
+
+    }
      $code = rand(11121, 99990);
 
      $status = "unactivated";
@@ -168,5 +174,6 @@ class Activationcotrl extends Activation
   
        }
     }
+    
   }
 
