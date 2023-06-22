@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   $first_pic = $_FILES["first-pic"];
   $second_pic = $_FILES["second-pic"];
@@ -32,9 +32,14 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $friend_photo = $_FILES["friend-photo"];
   $user_id = $_POST["user-id"];
 
-  require_once("../AUTOLOADER/loader.php");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/profile.php");
+  require_once("../CLASSES/profilecotrl.php");
 
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/profileinfo.php");
+  require_once("../CLASSES/profileinfocotrl.php");
+
 
   $profile = new Profilecotrl($first_pic);
   $profile->insert_picture($user_id);
@@ -57,38 +62,36 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   header("Location: ../verify_email_first.php?upload=successnowactivate");
   exit();
-
-} elseif(isset($_POST["upload-new-hobby"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+} elseif (isset($_POST["upload-new-hobby"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   $hobby_name = $_POST["hobby-name"];
   $hobby_more = $_POST["hobby-more"];
   $hobby_photo = $_FILES["hobby-photo"];
   $user_id = $_POST["user-id"];
 
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/profile.php");
+  require_once("../CLASSES/profilecotrl.php");
 
   $hobby_info = new Profilecotrl($hobby_photo);
   $hobby_info->insert_hobbies($hobby_name, $hobby_more, $user_id);
 
   header("Location: ../profile.php?upload=success");
   exit();
-}elseif(isset($_POST["upload-new-career"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+} elseif (isset($_POST["upload-new-career"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   $career_name = $_POST["career-name"];
   $career_more = $_POST["career-more"];
   $career_photo = $_FILES["career-photo"];
   $user_id = $_POST["user-id"];
 
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/profile.php");
+  require_once("../CLASSES/profilecotrl.php");
 
   $career_info = new Profilecotrl($career_photo);
   $career_info->insert_careers($career_name, $career_more, $user_id);
 
   header("Location: ../profile.php?upload=success");
   exit();
-
 }

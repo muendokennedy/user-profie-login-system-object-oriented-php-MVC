@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   $first_pic = $_FILES["first-pic"];
   $old_first_pic = $_POST["old-first-pic"];
@@ -9,31 +9,27 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $old_third_pic = $_POST["old-third-pic"];
   $user_id = $_POST["user-id"];
 
-  if($first_pic["name"] !== $old_first_pic){
+  if ($first_pic["name"] !== $old_first_pic) {
 
     $filename = "../UPLOADS/" . $old_first_pic;
 
     unlink($filename);
-
   }
-  if($second_pic["name"] !== $old_second_pic){
+  if ($second_pic["name"] !== $old_second_pic) {
 
     $filename = "../UPLOADS/" . $old_second_pic;
 
     unlink($filename);
-
   }
-  if($third_pic["name"] !== $old_third_pic){
+  if ($third_pic["name"] !== $old_third_pic) {
 
     $filename = "../UPLOADS/" . $old_third_pic;
 
     unlink($filename);
-
   }
-
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/update.php");
+  require_once("../CLASSES/updatecotrl.php");
 
   $check_for_update = new Updatecotrl("");
 
@@ -49,39 +45,36 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   header("Location: ../profile.php?update=success");
 
   exit();
+} elseif (isset($_POST["update-hobby"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+  // The hobby update information
+  $hobby_name = $_POST["hobby-name"];
+  $hobby_more = $_POST["hobby-more"];
+  $hobby_photo = $_FILES["hobby-photo"];
+  $old_photo = $_POST["old-photo"];
+  $user_hobby_id = $_POST["user-id"];
+  $user_item_id = $_POST["item-id"];
 
-} elseif(isset($_POST["update-hobby"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
-    // The hobby update information
-    $hobby_name = $_POST["hobby-name"];
-    $hobby_more = $_POST["hobby-more"];
-    $hobby_photo = $_FILES["hobby-photo"];
-    $old_photo = $_POST["old-photo"];
-    $user_hobby_id = $_POST["user-id"];
-    $user_item_id = $_POST["item-id"];
+  if ($hobby_photo["name"] !== $old_photo) {
 
-    if($hobby_photo["name"] !== $old_photo){
+    $filename = "../UPLOADS/" . $old_photo;
 
-      $filename = "../UPLOADS/" . $old_photo;
+    unlink($filename);
+  }
 
-      unlink($filename);
 
-    }
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/update.php");
+  require_once("../CLASSES/updatecotrl.php");
 
-  
-    require_once("../AUTOLOADER/loader.php");
 
-    Loader::load_class("../CLASSES");
 
-    
+  $update_hobby = new Updatecotrl($hobby_photo);
 
-    $update_hobby = new Updatecotrl($hobby_photo);
-  
-    $update_hobby->insert_hobby_update($hobby_name, $hobby_more, $user_hobby_id, $user_item_id);
+  $update_hobby->insert_hobby_update($hobby_name, $hobby_more, $user_hobby_id, $user_item_id);
 
-    header("Location: ../profile.php?update=success");
-    exit();
-
-} elseif(isset($_POST["update-career"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+  header("Location: ../profile.php?update=success");
+  exit();
+} elseif (isset($_POST["update-career"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   // The career update information
   $career_name = $_POST["career-name"];
   $career_more = $_POST["career-more"];
@@ -90,18 +83,17 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $user_career_id = $_POST["user-id"];
   $user_item_id = $_POST["item-id"];
 
-  
-  if($career_photo["name"] !== $old_photo){
+
+  if ($career_photo["name"] !== $old_photo) {
 
     $filename = "../UPLOADS/" . $old_photo;
 
     unlink($filename);
-
   }
 
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/update.php");
+  require_once("../CLASSES/updatecotrl.php");
 
   $update_career = new Updatecotrl($career_photo);
 
@@ -109,7 +101,7 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   header("Location: ../profile.php?update=success");
   exit();
-} elseif(isset($_POST["update-friend"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+} elseif (isset($_POST["update-friend"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   // The friend update information
   $friend_name = $_POST["friend-name"];
   $friend_more = $_POST["relation-more"];
@@ -118,18 +110,17 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $user_friend_id = $_POST["user-id"];
   $user_item_id = $_POST["item-id"];
 
-  
-  if($friend_photo["name"] !== $old_photo){
+
+  if ($friend_photo["name"] !== $old_photo) {
 
     $filename = "../UPLOADS/" . $old_photo;
 
     unlink($filename);
-
   }
 
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/update.php");
+  require_once("../CLASSES/updatecotrl.php");
 
   $update_friend = new Updatecotrl($friend_photo);
 
@@ -137,24 +128,23 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   header("Location: ../profile.php?update=success");
   exit();
-}elseif(isset($_POST["update-bio"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
-    // Profile information
-    $nick_name = $_POST["nick-name"];
-    $hobby_desc = $_POST["hobbies"];
-    $career_desc = $_POST["career"];
-    $college_desc = $_POST["college"];
-    $highschool_desc = $_POST["highschool"];
-    $user_id = $_POST["user-id"];
+} elseif (isset($_POST["update-bio"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+  // Profile information
+  $nick_name = $_POST["nick-name"];
+  $hobby_desc = $_POST["hobbies"];
+  $career_desc = $_POST["career"];
+  $college_desc = $_POST["college"];
+  $highschool_desc = $_POST["highschool"];
+  $user_id = $_POST["user-id"];
 
-    require_once("../AUTOLOADER/loader.php");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/update.php");
+  require_once("../CLASSES/updatecotrl.php");
 
-    Loader::load_class("../CLASSES");
+  $update_bio = new Updatecotrl("");
 
-    $update_bio = new Updatecotrl("");
+  $update_bio->insert_bio_update($nick_name, $hobby_desc, $career_desc, $college_desc, $highschool_desc, $user_id);
 
-    $update_bio->insert_bio_update($nick_name, $hobby_desc, $career_desc, $college_desc, $highschool_desc,$user_id);
-
-    header("Location: ../profile.php?update=success");
-    exit();
+  header("Location: ../profile.php?update=success");
+  exit();
 }
-

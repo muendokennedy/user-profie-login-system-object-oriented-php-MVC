@@ -1,14 +1,15 @@
 <?php
-if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   // collect the gallery form information
   $memory_name = $_POST["memory-name"];
   $memory_photo = $_FILES["memory-photo"];
   $user_id = $_POST["user-id"];
 
-    
-  require_once("../AUTOLOADER/loader.php");
 
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/gallery.php");
+  require_once("../CLASSES/gallerycotrl.php");
+
   $gallery_upload = new Gallerycotrl($memory_photo);
 
   $gallery_upload->upload_gallery($memory_name, $user_id);
@@ -16,5 +17,4 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   header("Location: ../gallery.php?upload=success");
 
   exit();
-
 }

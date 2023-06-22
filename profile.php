@@ -2,9 +2,9 @@
 
 session_start();
 
-require_once("AUTOLOADER/loader.php");
-
-Loader::load_class("CLASSES");
+require_once("CLASSES/dbh.php");
+require_once("CLASSES/profile.php");
+require_once("CLASSES/profilecotrl.php");
 
 $images = new Profilecotrl("");
 
@@ -12,6 +12,7 @@ $images = new Profilecotrl("");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,9 +20,10 @@ $images = new Profilecotrl("");
   <!-- The custom CSS link -->
   <link rel="stylesheet" href="STYLE/style.css?<?php echo time(); ?>">
   <!-- The font-awesome CDN link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
   <title>Personara profile system</title>
 </head>
+
 <body>
   <!-- The navigation bar -->
   <div class="navigation-bar">
@@ -29,13 +31,13 @@ $images = new Profilecotrl("");
     <nav>
       <a href="index.php">home</a>
       <a href="contact.php">contact</a>
-      <?php if(isset($_SESSION["usersid"])):?>
+      <?php if (isset($_SESSION["usersid"])) : ?>
         <a href="profile.php">profile</a>
-      <a href="gallery.php">gallery</a>
-      <a href="INCLUDES/logout.inc.php">logout</a>
-      <?php else: ?>
-      <a href="signup.php">signup</a>
-      <a href="login.php">login</a>
+        <a href="gallery.php">gallery</a>
+        <a href="INCLUDES/logout.inc.php">logout</a>
+      <?php else : ?>
+        <a href="signup.php">signup</a>
+        <a href="login.php">login</a>
       <?php endif; ?>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
@@ -43,34 +45,37 @@ $images = new Profilecotrl("");
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">about personara</div>
-      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
+      <div class="heading">about personara</div>
+      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero
+        quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate
+        suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.
+        Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
     <div class="heading">about <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?></div>
+                                if (isset($_SESSION["usersid"])) {
+                                  echo $_SESSION["firstname"];
+                                }
+                                ?></div>
     <div class="profile-bio-container">
       <?php
-      if(isset($_SESSION["usersid"])){
+      if (isset($_SESSION["usersid"])) {
         $images->get_pictures($_SESSION["usersid"]);
         $profile_info = new Profilecotrl("");
         $profile_info->get_profile_information($_SESSION["usersid"]);
       }
       ?>
-      
+
     </div>
     <hr>
     <div class="heading">what <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?> likes doing for leasure</div>
+                              if (isset($_SESSION["usersid"])) {
+                                echo $_SESSION["firstname"];
+                              }
+                              ?> likes doing for leasure</div>
     <div class="leisure-box box-container">
-    <?php
-      if(isset($_SESSION["usersid"])){
+      <?php
+      if (isset($_SESSION["usersid"])) {
         $hobby_info = new Profilecotrl("");
         $hobby_info->get_hobby_info($_SESSION["usersid"]);
       }
@@ -78,31 +83,31 @@ $images = new Profilecotrl("");
     </div>
     <hr>
     <div class="heading">what <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?> does in career life</div>
+                              if (isset($_SESSION["usersid"])) {
+                                echo $_SESSION["firstname"];
+                              }
+                              ?> does in career life</div>
     <div class="leisure-box box-container">
-    <?php
-      if(isset($_SESSION["usersid"])){
+      <?php
+      if (isset($_SESSION["usersid"])) {
         $career_info = new Profilecotrl("");
         $career_info->get_career_info($_SESSION["usersid"]);
       }
-    ?>
+      ?>
     </div>
     <hr>
     <div class="heading">people close to <?php
-      if(isset($_SESSION["usersid"])){
-        echo $_SESSION["firstname"];
-      }
-      ?> </div>
+                                          if (isset($_SESSION["usersid"])) {
+                                            echo $_SESSION["firstname"];
+                                          }
+                                          ?> </div>
     <div class="friends-container">
-    <?php
-      if(isset($_SESSION["usersid"])){
+      <?php
+      if (isset($_SESSION["usersid"])) {
         $friend_info = new Profilecotrl("");
         $friend_info->get_friend_info($_SESSION["usersid"]);
       }
-    ?>
+      ?>
     </div>
     <hr>
   </section>
@@ -142,9 +147,11 @@ $images = new Profilecotrl("");
       </div>
     </div>
     <hr>
-    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
+    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved
+    </div>
   </footer>
   <script src="JS/menu.js"></script>
   <script src="JS/profile_swiper.js"></script>
 </body>
+
 </html>

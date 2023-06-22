@@ -1,9 +1,7 @@
 <?php
-
-
-require_once("../AUTOLOADER/loader.php");
-
-Loader::load_class("../CLASSES");
+require_once("../CLASSES/dbh.php");
+require_once("../CLASSES/delete.php");
+require_once("../CLASSES/deletecotrl.php");
 
 // Delete the filename from the database
 $delete_gallery_item = new DeleteCotrl($_GET["userid"], $_GET["id"]);
@@ -14,7 +12,7 @@ $filename = "../UPLOADS/" . $_GET["name"];
 
 unlink($filename);
 
-if($_GET["resource"] == "gallery"){
+if ($_GET["resource"] == "gallery") {
   header("Location: ../gallery.php?msg=successdelete");
   exit();
 }

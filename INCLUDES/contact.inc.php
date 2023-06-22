@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Collect the form data
 
@@ -10,9 +10,7 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
   $subject = $_POST["subject"];
   $message = $_POST["message"];
 
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/contactcotrl.php");
 
   $contact = new Contactcotrl($firstname, $lastname, $email, $subject, $message);
 
@@ -24,19 +22,18 @@ if(isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
 
   $email_subject = $subject;
 
-  $email_message = "<p> Hello I am ". $firstname ." ". $lastname. "<p>";
+  $email_message = "<p> Hello I am " . $firstname . " " . $lastname . "<p>";
 
   $email_message .= "<p>" . $message . "</p>";
 
-  $headers = "From: ". $firstname ." ". $lastname. "<". $email . ">\r\n";
-  
+  $headers = "From: " . $firstname . " " . $lastname . "<" . $email . ">\r\n";
+
   $headers .= "Content-Type: text/html\r\n";
 
-  if(!mail($email_to, $email_subject, $email_message, $headers)){
+  if (!mail($email_to, $email_subject, $email_message, $headers)) {
 
     header("Location: ../contact.php?error=notsend");
     exit();
-
   }
 
   header("Location: ../contact.php?error=none");

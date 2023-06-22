@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   // start a session which will store the users email till the end of the reset process
   session_start();
 
@@ -9,14 +9,14 @@ if(isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"
 
   $_SESSION["reset-email"] = $user_email;
 
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/activation.php");
+  require_once("../CLASSES/activationcotrl.php");
 
   $activation_session = new Activationcotrl();
 
   // Also check whethe the email is empty from this class
-  
+
   $new_code = $activation_session->generate_session($user_email);
 
   // send mail to the user to enter the code
@@ -32,7 +32,7 @@ if(isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"
   $headers = "From: PERSONARA <kennedymunyao999@gmail.com>\r\n";
 
   $headers .= "Reply To: kennedymunyao999@gmail.com\r\n";
-  
+
   $headers .= "Content-Type: text/html\r\n";
 
 
@@ -41,8 +41,7 @@ if(isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"
   header("Location: ../verify_code.php?msg=checkemail");
 
   exit();
-
-} elseif(isset($_POST["activation-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"){
+} elseif (isset($_POST["activation-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   session_start();
 
@@ -50,9 +49,9 @@ if(isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"
 
   $_SESSION["activation-email"] = $user_email;
 
-  require_once("../AUTOLOADER/loader.php");
-
-  Loader::load_class("../CLASSES");
+  require_once("../CLASSES/dbh.php");
+  require_once("../CLASSES/activation.php");
+  require_once("../CLASSES/activationcotrl.php");
 
   // get to the database fetch the current code and sent it this user
   $user_active = new Activationcotrl();
@@ -72,7 +71,7 @@ if(isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST"
   $headers = "From: PERSONARA <kennedymunyao999@gmail.com>\r\n";
 
   $headers .= "Reply To: kennedymunyao999@gmail.com\r\n";
-  
+
   $headers .= "Content-Type: text/html\r\n";
 
   mail($user_email, $subject, $message, $headers);

@@ -152,9 +152,13 @@ class Activationcotrl extends Activation
 
     if($token_check === true){
 
-      $token_email = $result["resetemail"];
+      $token_email = 
+      $result["resetemail"];
+
 
     }
+
+
 
     // Check the user and update password
 
@@ -165,7 +169,7 @@ class Activationcotrl extends Activation
     exit();
 
     }
-
+    
     public function emptyinput_check($input)
     {
        if(empty($input)){
@@ -176,4 +180,3 @@ class Activationcotrl extends Activation
     }
     
   }
-

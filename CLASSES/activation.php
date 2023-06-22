@@ -3,7 +3,20 @@ class Activation extends Dbh
 {
   public function inactivateUser($email, $code, $status)
   {
-     $sql = "UPDATE users SET code = :code, status = :status WHERE email = :email;";
+    $sql = "SELECT * FROM users WHERE email = :email;";
+
+    $stmt = $this->connect()->prepare($sql);
+
+    $stmt->bindParam(":email", $email);
+
+    $stmt->execute();
+
+    if ($stmt->rowCount() == 0) {
+      header("Location: ../verify_email.php?error=incorrectemail");
+      exit();
+    }
+
+    $sql = "UPDATE users SET code = :code, status = :status WHERE email = :email;";
 
     $stmt = $this->connect()->prepare($sql);
 
@@ -11,11 +24,7 @@ class Activation extends Dbh
     $stmt->bindParam(":status", $status);
     $stmt->bindParam(":email", $email);
 
-
-    if(!$stmt->execute()){
-    header("Location: ../verify_email.php?error=incorrectemail");
-    exit();
-    }
+    $stmt->execute();
 
     // Fetch the code 
 
@@ -27,33 +36,31 @@ class Activation extends Dbh
 
     $stmt->execute();
 
-    if($stmt->rowCount() > 0){
+    if ($stmt->rowCount() > 0) {
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     return $row;
-
   }
 
   public function fetchCode($email)
   {
-     $sql = "SELECT * FROM users WHERE email = :email;";
+    $sql = "SELECT * FROM users WHERE email = :email;";
 
-     $stmt = $this->connect()->prepare($sql);
+    $stmt = $this->connect()->prepare($sql);
 
-     $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":email", $email);
 
-     $stmt->execute();
+    $stmt->execute();
 
-     if($stmt->rowCount() > 0){
+    if ($stmt->rowCount() > 0) {
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
       return $row;
-    }else{
+    } else {
 
-    header("Location: ../verify_email_first.php?error=incorrectemail");
-    exit();
-    
+      header("Location: ../verify_email_first.php?error=incorrectemail");
+      exit();
     }
   }
 
@@ -61,55 +68,52 @@ class Activation extends Dbh
 
   public function updateActivation($code, $status, $email)
   {
-     $sql = "UPDATE users SET code = :code, status = :status WHERE email = :email;";
+    $sql = "UPDATE users SET code = :code, status = :status WHERE email = :email;";
 
-     $stmt = $this->connect()->prepare($sql);
+    $stmt = $this->connect()->prepare($sql);
 
-     $stmt->bindParam(":code", $code);
-     $stmt->bindParam(":status", $status);
-     $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":code", $code);
+    $stmt->bindParam(":status", $status);
+    $stmt->bindParam(":email", $email);
 
-     $stmt->execute();
-     
+    $stmt->execute();
   }
 
   // Record the tokenized session
 
   public function recordSession($email, $selector, $token, $expires)
   {
-     $sql = "SELECT * FROM pwdreset WHERE resetemail = :resetemail;";
+    $sql = "SELECT * FROM pwdreset WHERE resetemail = :resetemail;";
 
-     $stmt = $this->connect()->prepare($sql);
+    $stmt = $this->connect()->prepare($sql);
 
-     $stmt->bindParam(":resetemail", $email);
+    $stmt->bindParam(":resetemail", $email);
 
-     $stmt->execute();
+    $stmt->execute();
 
-     if($stmt->rowCount() > 0){
+    if ($stmt->rowCount() > 0) {
 
       $sql = "DELETE FROM pwdreset WHERE resetemail = :resetemail;";
 
       $stmt = $this->connect()->prepare($sql);
- 
+
       $stmt->bindParam(":resetemail", $email);
- 
+
       $stmt->execute();
-      
     }
-   
-     $sql = "INSERT INTO pwdreset(resetemail, resetSelector, resetToken, resetExpires) VALUES(:resetemail, :resetselector, :resettoken, :resetexpires);";
 
-     $stmt = $this->connect()->prepare($sql);
+    $sql = "INSERT INTO pwdreset(resetemail, resetSelector, resetToken, resetExpires) VALUES(:resetemail, :resetselector, :resettoken, :resetexpires);";
 
-     $hashedToken = password_hash($token, PASSWORD_DEFAULT);
+    $stmt = $this->connect()->prepare($sql);
 
-     $stmt->bindParam(":resetemail", $email);
-     $stmt->bindParam(":resetselector", $selector);
-     $stmt->bindParam(":resettoken", $hashedToken);
-     $stmt->bindParam(":resetexpires", $expires);
+    $hashedToken = password_hash($token, PASSWORD_DEFAULT);
 
-     $stmt->execute();
+    $stmt->bindParam(":resetemail", $email);
+    $stmt->bindParam(":resetselector", $selector);
+    $stmt->bindParam(":resettoken", $hashedToken);
+    $stmt->bindParam(":resetexpires", $expires);
 
+    $stmt->execute();
   }
 
   public function checkTokens($selector, $date)
@@ -124,12 +128,11 @@ class Activation extends Dbh
 
     $stmt->execute();
 
-    if($stmt->rowCount() > 0){
+    if ($stmt->rowCount() > 0) {
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     return $row;
-     
   }
 
   public function updatePassword($pwd, $email)
@@ -142,10 +145,10 @@ class Activation extends Dbh
 
     $stmt->execute();
 
-    if($stmt->rowCount() > 0){
+    if ($stmt->rowCount() > 0) {
 
       $sql = "UPDATE users SET password = :pwd WHERE email = :email;";
-      
+
       $stmt = $this->connect()->prepare($sql);
 
       $newPwd_hashed = password_hash($pwd, PASSWORD_DEFAULT);
@@ -163,6 +166,5 @@ class Activation extends Dbh
 
       $stmt->execute();
     }
-
   }
 }
