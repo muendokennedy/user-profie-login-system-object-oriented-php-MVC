@@ -3,6 +3,8 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
+require_once("../header.php");
+
 if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Load Composer's autoloader
@@ -30,11 +32,11 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
 
   $subject = "Verify your PERSONARA account";
 
-  $message = "<p>We received a password reset request from this email. The code to verify your account is below. If you did not make this request you can ignore this email.</p>";
+  $message = "<p class='email-text'>We received a password reset request from this email. The code to verify your account is below. If you did not make this request you can ignore this email.</p>";
 
-  $message .= "<p>Your account vefification code: </p>";
+  $message .= "<p class='email-text'>Your account vefification code: </p>";
 
-  $message .= "<h3>" . $new_code . "</h3>";
+  $message .= "<h3 class='email-code'>" . $new_code . "</h3>";
 
   $mail = new PHPMailer(true);
 
@@ -59,6 +61,8 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
     $mail->Body    = $message;
 
     $mail->send();
+
+    require_once("../body_end.php");
 
   header("Location: ../verify_code.php?msg=checkemail");
 
@@ -95,11 +99,11 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
 
   $subject = "Activate your PERSONARA account";
 
-  $message = "<p>We received an account activation request from this email. The code to activate your account is below. If you did not make this request you can ignore this email.</p>";
+  $message = "<p class='email-text'>We received an account activation request from this email. The code to activate your account is below. If you did not make this request you can ignore this email.</p>";
 
-  $message .= "<p>Your account activation code: </p>";
+  $message .= "<p class='email-text'>Your account activation code: </p>";
 
-  $message .= "<h3>" . $code . "</h3>";
+  $message .= "<h3 class='email-code'>" . $code . "</h3>";
 
   $mail = new PHPMailer(true);
 
@@ -124,6 +128,8 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
     $mail->Body    = $message;
 
     $mail->send();
+
+    require_once("../body_end.php");
 
     header("Location: ../verify_code_first.php?msg=checkemail");
 

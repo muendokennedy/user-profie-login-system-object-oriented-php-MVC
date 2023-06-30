@@ -1,10 +1,13 @@
 <?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+require_once("../header.php");
 
+if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+  
 //Load Composer's autoloader
 require '../vendor/autoload.php';
   
@@ -29,9 +32,11 @@ require '../vendor/autoload.php';
 
   $email_subject = $subject;
 
-  $email_message = "<p> Hello I am " . $firstname . " " . $lastname . "<p>";
+  $email_message = "<p class='email-text'> Hello I am " . $firstname . " " . $lastname . "<p>";
 
-  $email_message .= "<p>" . $message . "</p>";
+  $email_message .= "<p class='email-text'>" . $message . "</p>";
+
+  
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -54,10 +59,12 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->CharSet = 'UTF-8';
-    $mail->Subject = $subject;
+    $mail->Subject = $email_subject;
     $mail->Body    = $email_message;
 
     $mail->send();
+
+    require_once("../body_end.php");
 
     header("Location: ../contact.php?error=none");
     exit();
