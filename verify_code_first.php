@@ -38,6 +38,8 @@ session_start();
     <div class="error-block-1">Plese fill all the inputs</div>
     <?php elseif($_GET["error"] == "invalidcode"):?>
     <div class="error-block-1">You entered an invalid code</div>
+    <?php elseif($_GET["error"] == "notsend"):?>
+    <div class="error-block-1">An error was encountered while sending activation code to your email address</div>
     <?php endif;?>
     <?php endif;?>
     <?php if(isset($_GET["msg"])):?>

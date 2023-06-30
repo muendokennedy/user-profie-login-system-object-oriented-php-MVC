@@ -2,6 +2,11 @@
 
 session_start();
 
+if (!isset($_SESSION["usersid"])){
+  header("Location: /index.php");
+  exit;
+}
+
 require_once("CLASSES/dbh.php");
 require_once("CLASSES/profile.php");
 require_once("CLASSES/profilecotrl.php");
@@ -32,12 +37,12 @@ $images = new Profilecotrl("");
       <a href="index.php">home</a>
       <a href="contact.php">contact</a>
       <?php if (isset($_SESSION["usersid"])) : ?>
-        <a href="profile.php">profile</a>
-        <a href="gallery.php">gallery</a>
-        <a href="INCLUDES/logout.inc.php">logout</a>
+      <a href="profile.php">profile</a>
+      <a href="gallery.php">gallery</a>
+      <a href="INCLUDES/logout.inc.php">logout</a>
       <?php else : ?>
-        <a href="signup.php">signup</a>
-        <a href="login.php">login</a>
+      <a href="signup.php">signup</a>
+      <a href="login.php">login</a>
       <?php endif; ?>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>

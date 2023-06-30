@@ -1,7 +1,14 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 if (isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
-  session_start();
+  //Load Composer's autoloader
+require '../vendor/autoload.php';
+
+session_start();
 
   $code = $_POST["V_code"];
 
@@ -31,13 +38,30 @@ if (isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") 
 
   $message .= '<a href="' . $url . '">Set new password now</a></p>';
 
-  $headers = "From: PERSONARA <kennedymunyao999@gmail.com>\r\n";
+  $mail = new PHPMailer(true);
 
-  $headers .= "Reply To: kennedymunyao999@gmail.com\r\n";
+try {
+    //Server settings
+                   
+    $mail->isSMTP();      //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;              //Enable SMTP authentication
+    $mail->Username   = 'kennedymunyao999@gmail.com';  //SMTP username
+    $mail->Password   = 'affnhpssffjysxxk';         //SMTP password
+    $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
+    $mail->Port       = 587;       //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    
+    //Recipients
+    $mail->addAddress($to);     
+    $mail->addReplyTo($to, 'Personara');
+    
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->CharSet = 'UTF-8';
+    $mail->Subject = $subject;
+    $mail->Body    = $message;
 
-  $headers .= "Content-Type: text/html\r\n";
-
-  mail($to, $subject, $message, $headers);
+    $mail->send();
 
   session_unset();
   session_destroy();
@@ -49,8 +73,16 @@ if (isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") 
 
   header("Location: ../verify_code.php?reset=successcheckemail");
 
+  exit();
+
+} catch (Exception $e){
+
+  header("Location: ../verify_code.php?error=notsend");
 
   exit();
+}
+
+
 } elseif (isset($_POST["activation-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   session_start();
@@ -75,4 +107,5 @@ if (isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") 
   header("Location: ../login.php?activation=successloginnow");
 
   exit();
+
 }
