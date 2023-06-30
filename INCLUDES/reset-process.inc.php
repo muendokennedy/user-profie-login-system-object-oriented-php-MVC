@@ -3,8 +3,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require_once("../header.php");
-
 if (isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   //Load Composer's autoloader
@@ -34,11 +32,11 @@ session_start();
 
   $subject = "Reset your password for PERSONARA";
 
-  $message = "<p class='email-text'>We received a password reset request from this email. The link to reset your password is below. If you did not make this request you can ignore this email.</p>";
+  $message = "<p style='font-size: 16px; font-family: Verdana, sans-serif;'>We received a password reset request from this email. The link to reset your password is below. If you did not make this request you can ignore this email.</p>";
 
-  $message .= "<p class='email-text'>Here is your password reset link: <br>";
+  $message .= "<p style='font-size: 16px; font-family: Verdana, sans-serif;'>Here is your password reset link: <br>";
 
-  $message .= '<a class="email-link" href="' . $url . '">Set new password now</a></p>';
+  $message .= '<a style="font-size: 17px; font-family: Verdana, sans-serif; font-weight: bold; color: #ad48f0; padding: 4px;" href="' . $url . '">Set new password now</a></p>';
 
   
 
@@ -69,8 +67,6 @@ try {
 
   session_unset();
   session_destroy();
-
-  require_once("../body_end.php");
 
   // echo '<pre>';
   // var_dump($url);

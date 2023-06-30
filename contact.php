@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,10 @@
   <!-- The custom CSS link -->
   <link rel="stylesheet" href="STYLE/style.css?<?php echo time(); ?>">
   <!-- The font-awesome CDN link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
   <title>Personara profile system</title>
 </head>
+
 <body>
   <!-- The navigation bar -->
   <div class="navigation-bar">
@@ -25,8 +27,11 @@
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">about personara</div>
-      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
+      <div class="heading">about personara</div>
+      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero
+        quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate
+        suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.
+        Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
     <?php if(isset($_GET["error"])):?>
@@ -41,36 +46,36 @@
     <?php endif;?>
     <?php endif;?>
     <div class="heading">talk to personara</div>
-    <form action="INCLUDES/contact.inc.php" method="POST"  autocomplete="off" class="form-container sign-up contact-form">
-          <div class="signup-title">Talk to us</div>
-          <div class="input-row">
-          <div class="input-box">
-            <input type="text" name="fname" id="fname" required>
-            <label for="fname">Enter your first name:</label>
-          </div>
-          <div class="input-box">
-            <input type="text" name="lname" id="lname" required>
-            <label for="lname">Enter your last name:</label>
-          </div>
-          </div>
-          <div class="input-row">
-            <div class="input-box">
-              <input type="text" name="email" id="email" required>
-              <label for="email">Enter your email:</label>
-            </div>
-          <div class="input-box">
-            <input type="text" name="subject" id="subject" required>
-            <label for="subject">Enter your subject:</label>
-          </div>
-          </div>
-          <div class="input-box profile-input-box">
-            <textarea name="message" id="message" required></textarea>
-            <label for="message">Enter your message:</label>
-          </div>
-          <div class="input-box profile-navigation-button-container">
-            <button type="submit" class="btn" name="submit">Send Message</button>
-          </div>
-        </form>
+    <form action="INCLUDES/contact.inc.php" method="POST" autocomplete="on" class="form-container sign-up contact-form">
+      <div class="signup-title">Talk to us</div>
+      <div class="input-row">
+        <div class="input-box">
+          <input type="text" name="fname" id="fname" required>
+          <label for="fname">Enter your first name:</label>
+        </div>
+        <div class="input-box">
+          <input type="text" name="lname" id="lname" required>
+          <label for="lname">Enter your last name:</label>
+        </div>
+      </div>
+      <div class="input-row">
+        <div class="input-box">
+          <input type="text" name="email" id="email" required>
+          <label for="email">Enter your email:</label>
+        </div>
+        <div class="input-box">
+          <input type="text" name="subject" id="subject" required>
+          <label for="subject">Enter your subject:</label>
+        </div>
+      </div>
+      <div class="input-box profile-input-box">
+        <textarea name="message" id="message" required></textarea>
+        <label for="message">Enter your message:</label>
+      </div>
+      <div class="input-box profile-navigation-button-container">
+        <button type="submit" class="btn" name="submit">Send Message</button>
+      </div>
+    </form>
     <hr>
   </section>
   <footer>
@@ -109,8 +114,10 @@
       </div>
     </div>
     <hr>
-    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
+    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved
+    </div>
   </footer>
   <script src="JS/menu.js"></script>
 </body>
+
 </html>
