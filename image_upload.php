@@ -33,7 +33,7 @@ session_start();
       <?php endif; ?>
     </nav>
     </nav>
-    <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
+    <div class="menu"><span class="fa-solid fa-bars"></span></div>
     <!-- The body section -->
   </div>
   <section class="home">

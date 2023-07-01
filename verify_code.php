@@ -27,6 +27,7 @@ session_start();
       <a href="login.php">login</a>
       <a href="contact.php">contact</a>
     </nav>
+    <div class="menu"><span class="fa-solid fa-bars"></span></div>
     <!-- The body section -->
   </div>
   <section class="home">
@@ -118,6 +119,7 @@ session_start();
     </div>
   </footer>
   <script src="JS/signup.js"></script>
+  <script src="JS/menu.js"></script>
 </body>
 
 </html>

@@ -40,7 +40,7 @@ $data = $check_for_friend_update->check_for_friend_update($_GET["usersid"], $_GE
       <a href="login.php">login</a>
       <?php endif; ?>
     </nav>
-    <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
+    <div class="menu"><span class="fa-solid fa-bars"></span></div>
     <!-- The body section -->
   </div>
   <section class="home">

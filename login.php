@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,10 @@
   <!-- The custom CSS link -->
   <link rel="stylesheet" href="STYLE/style.css?<?php echo time(); ?>">
   <!-- The font-awesome CDN link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
   <title>Personara profile system</title>
 </head>
+
 <body>
   <!-- The navigation bar -->
   <div class="navigation-bar">
@@ -20,13 +22,16 @@
       <a href="login.php">login</a>
       <a href="contact.php">contact</a>
     </nav>
-    <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
+    <div class="menu"><span class="fa-solid fa-bars"></span></div>
     <!-- The body section -->
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">about personara</div>
-      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
+      <div class="heading">about personara</div>
+      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero
+        quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate
+        suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.
+        Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
     <?php if(isset($_GET["error"])):?>
@@ -53,16 +58,19 @@
       <form action="INCLUDES/login.inc.php" method="POST">
         <div class="signup-title">Login</div>
         <div class="input-box">
-          <input type="text" name="uid" id="uid" value="<?php if(isset($_COOKIE["rememberuid"])){ echo $_COOKIE["rememberuid"]; }?>" required>
+          <input type="text" name="uid" id="uid"
+            value="<?php if(isset($_COOKIE["rememberuid"])){ echo $_COOKIE["rememberuid"]; }?>" required>
           <label for="uid">Enter your username or email:</label>
         </div>
         <div class="input-box">
-          <input type="password" name="pwd" id="pwd" value="<?php if(isset($_COOKIE["rememberpwd"])){ echo $_COOKIE["rememberpwd"]; }?>" required>
+          <input type="password" name="pwd" id="pwd"
+            value="<?php if(isset($_COOKIE["rememberpwd"])){ echo $_COOKIE["rememberpwd"]; }?>" required>
           <label for="pwd">Enter your password:</label>
           <span class="show-btn">SHOW</span>
         </div>
         <div class="rememberme">
-          <input type="checkbox" name="remember" id="remember" <?php if(isset($_COOKIE["rememberpwd"])) {?> checked <?php } ?>>
+          <input type="checkbox" name="remember" id="remember" <?php if(isset($_COOKIE["rememberpwd"])) {?> checked
+            <?php } ?>>
           <label for="remember">Remember me</label>
         </div>
         <div class="input-box">
@@ -113,9 +121,11 @@
       </div>
     </div>
     <hr>
-    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
+    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved
+    </div>
   </footer>
   <script src="JS/menu.js"></script>
   <script src="JS/login.js"></script>
 </body>
+
 </html>
