@@ -25,7 +25,7 @@ if(isset($_REQUEST["filename"])){
     
   }else{
     http_response_code(404);
-    die;
+    die();
   }
   
 } else {

@@ -32,12 +32,12 @@ $data = $check_for_update->check_for_update($_GET["usersid"]);
       <a href="index.php">home</a>
       <a href="contact.php">contact</a>
       <?php if (isset($_SESSION["usersid"])) : ?>
-        <a href="profile.php">profile</a>
-        <a href="gallery.php">gallery</a>
-        <a href="INCLUDES/logout.inc.php">logout</a>
+      <a href="profile.php">profile</a>
+      <a href="gallery.php">gallery</a>
+      <a href="INCLUDES/logout.inc.php">logout</a>
       <?php else : ?>
-        <a href="signup.php">signup</a>
-        <a href="login.php">login</a>
+      <a href="signup.php">signup</a>
+      <a href="login.php">login</a>
       <?php endif; ?>
     </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
@@ -52,23 +52,47 @@ $data = $check_for_update->check_for_update($_GET["usersid"]);
         Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
+    <?php if(isset($_GET["error"])):?>
+    <?php if($_GET["error"] == "emptyinputs"):?>
+    <div class="error-block-1">All fields are required</div>
+    <?php elseif($_GET["error"] == "largefile"):?>
+    <div class="error-block-1">File selected is too large</div>
+    <?php elseif($_GET["error"] == "uploaderror"):?>
+    <div class="error-block-1">There was an upload error</div>
+    <?php elseif($_GET["error"] == "incorrectfiletype"):?>
+    <div class="error-block-1">Please select only jpg, jpeg or png files</div>
+    <?php elseif($_GET["error"] == "emptyinputshobby"):?>
+    <div class="error-block-1">Please fill all hobby inputs</div>
+    <?php elseif($_GET["error"] == "emptyinputscareer"):?>
+    <div class="error-block-1">Please fill all career inputs</div>
+    <?php elseif($_GET["error"] == "emptyinputsfriends"):?>
+    <div class="error-block-1">Please fill all friend inputs</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="error-block">All fields are required</div>
-    <form action="INCLUDES/update.inc.php" method="POST" autocomplete="off" class="form-container sign-up profile" enctype="multipart/form-data">
+    <form action="INCLUDES/update.inc.php" method="POST" autocomplete="off" class="form-container sign-up profile"
+      enctype="multipart/form-data">
       <div class="step-form">
         <div class="signup-title">Your profile</div>
         <div class="input-box">
-          <input type="hidden" name="old-first-pic" id="old-first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
-          <input type="file" name="first-pic" id="first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
+          <input type="hidden" name="old-first-pic" id="old-first-pic"
+            value="<?php echo $data[0]["imagefullname"] ?? ""; ?>" required>
+          <input type="file" name="first-pic" id="first-pic" value="<?php echo $data[0]["imagefullname"] ?? ""; ?>"
+            required>
           <label for="first-pic">Select profile pic</label>
         </div>
         <div class="input-box">
-          <input type="hidden" name="old-second-pic" id="old-second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
-          <input type="file" name="second-pic" id="second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
+          <input type="hidden" name="old-second-pic" id="old-second-pic"
+            value="<?php echo $data[1]["imagefullname"] ?? ""; ?>" required>
+          <input type="file" name="second-pic" id="second-pic" value="<?php echo $data[1]["imagefullname"] ?? ""; ?>"
+            required>
           <label for="second-pic">Select second profile pic:</label>
         </div>
         <div class="input-box">
-          <input type="hidden" name="old-third-pic" id="old-third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
-          <input type="file" name="third-pic" id="third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
+          <input type="hidden" name="old-third-pic" id="old-third-pic"
+            value="<?php echo $data[2]["imagefullname"] ?? ""; ?>" required>
+          <input type="file" name="third-pic" id="third-pic" value="<?php echo $data[2]["imagefullname"] ?? ""; ?>"
+            required>
           <input type="hidden" name="user-id" id="user-id" value="<?php echo $_GET["usersid"] ?? ""; ?>" required>
           <label for="third-pic">Select third profile pic:</label>
         </div>

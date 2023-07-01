@@ -57,6 +57,16 @@ $images = new Profilecotrl("");
         Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
+    <?php if(isset($_GET["upload"])):?>
+    <?php if($_GET["upload"] == "success"):?>
+    <div class="success-block">File uploaded successfully</div>
+    <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($_GET["update"])):?>
+    <?php if($_GET["update"] == "success"):?>
+    <div class="success-block">File updated successfully</div>
+    <?php endif;?>
+    <?php endif;?>
     <div class="heading">about <?php
                                 if (isset($_SESSION["usersid"])) {
                                   echo $_SESSION["firstname"];

@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST["reset-password-submit"])) {
+if (isset($_POST["reset-password-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   $selector = $_POST["selector"];
   $validator = $_POST["validator"];

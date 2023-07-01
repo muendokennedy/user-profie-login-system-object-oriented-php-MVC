@@ -5,6 +5,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,15 +13,15 @@ session_start();
   <!-- The custom CSS link -->
   <link rel="stylesheet" href="STYLE/style.css?<?php echo time(); ?>">
   <!-- The font-awesome CDN link -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
   <title>Personara profile system</title>
 </head>
+
 <body>
   <!-- The navigation bar -->
   <div class="navigation-bar">
     <div class="logo">personara</div>
     <nav>
-      <div class="close"><span class="fa-solid fa-xmark">Close</span></div>
       <a href="index.php">home</a>
       <a href="contact.php">contact</a>
       <?php if(isset($_SESSION["usersid"])):?>
@@ -32,14 +33,16 @@ session_start();
       <a href="login.php">login</a>
       <?php endif; ?>
     </nav>
-    </nav>
     <div class="menu"><span class="fa-solid fa-bars">Menu</span></div>
     <!-- The body section -->
   </div>
   <section class="home">
     <div class="header">
-    <div class="heading">about personara</div>
-      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio. Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
+      <div class="heading">about personara</div>
+      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero
+        quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate
+        suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.
+        Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
     <div class="topic">
@@ -48,23 +51,26 @@ session_start();
       <div class="topic-box-container box-container">
         <div class="topic-box">
           <div class="topic-name">Engineering</div>
-          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam</div>
+          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
+            repellendus aperiam</div>
           <div class="topic-image image">
             <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Programming</div>
-          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam,</div>
+          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
+            repellendus aperiam,</div>
           <div class="topic-image">
-          <img src="IMAGES/home-1.jpg" alt="">
+            <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Writing</div>
-          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam?</div>
+          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
+            repellendus aperiam?</div>
           <div class="topic-image">
-          <img src="IMAGES/home-1.jpg" alt="">
+            <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
       </div>
@@ -72,23 +78,26 @@ session_start();
       <div class="topic-box-container">
         <div class="topic-box">
           <div class="topic-name">Swimming</div>
-          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam, </div>
+          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
+            repellendus aperiam, </div>
           <div class="topic-image">
-          <img src="IMAGES/home-1.jpg" alt="">
+            <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Knitting</div>
-          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam, </div>
+          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
+            repellendus aperiam, </div>
           <div class="topic-image">
-          <img src="IMAGES/home-1.jpg" alt="">
+            <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
           <div class="topic-name">Singing</div>
-          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo repellendus aperiam,</div>
+          <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
+            repellendus aperiam,</div>
           <div class="topic-image">
-          <img src="IMAGES/home-1.jpg" alt="">
+            <img src="IMAGES/home-1.jpg" alt="">
           </div>
         </div>
       </div>
@@ -96,7 +105,10 @@ session_start();
     <?php if(!isset($_SESSION["usersid"])):?>
     <div class="started">
       <div class="started-header heading">getting started</div>
-      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.</div>
+      <div class="heading-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam odit cupiditate libero
+        quasi corporis sequi saepe eum. Eum, omnis. Accusantium dolorem eaque repellendus, asperiores cupiditate
+        suscipit perspiciatis eos dolorum recusandae ad doloremque hic, totam placeat laborum repudiandae, illo odio.
+      </div>
       <div class="signup-login-request-container">
         <a class="signup-request-btn btn" href="signup.php">signup</a>
         <p>Or already have an account?</p>
@@ -142,8 +154,10 @@ session_start();
       </div>
     </div>
     <hr>
-    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved</div>
+    <div class="copyright-text">This is the official website of personara | personara@gmail.com | Al rights reserved
+    </div>
   </footer>
   <script src="JS/menu.js"></script>
 </body>
+
 </html>
