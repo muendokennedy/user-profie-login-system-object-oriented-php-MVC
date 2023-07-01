@@ -2,6 +2,11 @@
 
 session_start();
 
+if (!isset($_SESSION["usersid"])){
+  header("Location: /index.php");
+  exit;
+}
+
 require_once("CLASSES/dbh.php");
 require_once("CLASSES/gallery.php");
 require_once("CLASSES/gallerycotrl.php");
