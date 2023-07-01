@@ -91,6 +91,7 @@ class Gallerycotrl extends Gallery
                 </div>
               </div>
               <div class=\"edit-btn\">
+                <input type=\"hidden\"  value=\"filename=".urlencode($result["memoryphoto"]). "\"/>
                 <button class=\"btn editorbutton\" value=\"userid={$result["usersid"]}&id={$result["id"]}&name={$result["memoryphoto"]}&resource=gallery\">manage</button>
                 </div>
               </div>";

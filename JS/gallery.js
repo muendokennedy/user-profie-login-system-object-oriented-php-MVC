@@ -14,9 +14,12 @@ const cancelBtn = document.querySelector(".update-btn .moodle-btn-container .can
 
 let deleteLink = moodle.querySelector(".delete");
 
+let downloadLink = moodle.querySelector(".download");
+
 let editorButtons = document.querySelectorAll(".editorbutton");
 
 deleteContent = "";
+downloadContent = "";
 
 
 editorButtons.forEach((button) =>{ 
@@ -25,11 +28,16 @@ editorButtons.forEach((button) =>{
     moodle.style.display = "block";
     blurredPart.style.opacity = "0.5";
     deleteContent = `INCLUDES/delete_gallery.php?${e.target.value}`;
+    downloadContent = `download.php?${e.target.previousElementSibling.value}`;
   })
 });
 
 deleteLink.onclick = (e) => {
   e.target.href = deleteContent;
+}
+
+downloadLink.onclick = (e) => {
+  e.target.href = downloadContent;
 }
 
 if(addBtn){

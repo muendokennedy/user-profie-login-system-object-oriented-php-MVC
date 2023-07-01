@@ -30,12 +30,12 @@ $display_gallery = new Gallerycotrl("");
       <a href="index.php">home</a>
       <a href="contact.php">contact</a>
       <?php if (isset($_SESSION["usersid"])) : ?>
-        <a href="profile.php">profile</a>
-        <a href="gallery.php">gallery</a>
-        <a href="INCLUDES/logout.inc.php">logout</a>
+      <a href="profile.php">profile</a>
+      <a href="gallery.php">gallery</a>
+      <a href="INCLUDES/logout.inc.php">logout</a>
       <?php else : ?>
-        <a href="signup.php">signup</a>
-        <a href="login.php">login</a>
+      <a href="signup.php">signup</a>
+      <a href="login.php">login</a>
       <?php endif; ?>
     </nav>
     </nav>
@@ -51,6 +51,19 @@ $display_gallery = new Gallerycotrl("");
         Ullam nisi doloremque nihil quos id. Ea saepe praesentium totam amet.</div>
       <hr>
     </div>
+    <?php if(isset($_GET["upload"])):?>
+    <?php if($_GET["upload"] == "success"):?>
+    <div class="success-block">File uploaded successfully</div>
+    <?php endif;?>
+    <?php endif;?>
+    <?php if(isset($_GET["msg"])):?>
+    <?php if($_GET["msg"] == "successdelete"):?>
+    <div class="success-block">File deleted successfully</div>
+    <?php endif;?>
+    <?php endif;?>
+
+
+
     <div class="heading">memories for <?php echo $_SESSION["firstname"] ?? ""; ?></div>
     <div class="leisure-box box-container">
       <?php
@@ -108,7 +121,7 @@ $display_gallery = new Gallerycotrl("");
   <div class="moodle-msg">Do want to delete or update this post? once deleted, it cannot be recovered</div>
   <div class="moodle-btn-container">
     <span class="btn cancel">Cancel</span>
-    <a href="#" class="btn">Download</a>
+    <a class="btn download">Download</a>
     <a href="image_upload.php" class="btn">Add</a>
     <a class="btn delete">Delete</a>
   </div>
