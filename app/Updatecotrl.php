@@ -1,5 +1,5 @@
 <?php
-
+namespace profile\app;
 class Updatecotrl extends Update
 {
   private $file;

@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Profileinfo extends Dbh{
 
   public function insertInfo($nickname, $hobbies, $career, $college, $highschool, $id)

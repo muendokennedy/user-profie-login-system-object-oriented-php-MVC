@@ -1,5 +1,5 @@
 <?php
-
+namespace profile\app;
 class Signupcotrl extends Signup
 {
 
@@ -53,7 +53,7 @@ class Signupcotrl extends Signup
     // Add the current user to the database
     $this->setUser($this->fname, $this->lname, $this->email, $this->user_name, $this->pwd, $this->code, $this->status);
     // Run the check user method again in order to obtain the id field
-    $result = $this->confirm_User();
+    $this->confirm_User();
   }
   public function emptyInput()
   {

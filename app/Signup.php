@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Signup extends Dbh
 {
   protected function setUser($fname, $lname, $email, $user_name, $pwd, $code, $status)
@@ -29,7 +30,7 @@ class Signup extends Dbh
     $stmt->bindParam(":email", $email);
     $stmt->execute();
 
-    $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->fetch(\PDO::FETCH_ASSOC);
 
     $row = $stmt->rowCount();
 
@@ -55,7 +56,7 @@ class Signup extends Dbh
     $result = "";
 
     if($stmt->rowCount() > 0){
-      $result =  $stmt->fetch(PDO::FETCH_ASSOC);
+      $result =  $stmt->fetch(\PDO::FETCH_ASSOC);
     }
     
     $stmt = null;

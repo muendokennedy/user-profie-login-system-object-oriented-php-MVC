@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Profile extends Dbh
 {
   protected function check_photo($name, $id)
@@ -74,7 +75,7 @@ class Profile extends Dbh
     $stmt->execute();
 
     if($stmt->rowCount() > 0){
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     return $results;
   }
@@ -89,7 +90,7 @@ class Profile extends Dbh
     $stmt->execute();
 
     if($stmt->rowCount() > 0){
-      $results = $stmt->fetch(PDO::FETCH_ASSOC);
+      $results = $stmt->fetch(\PDO::FETCH_ASSOC);
     }
     return $results;
   }
@@ -105,7 +106,7 @@ class Profile extends Dbh
     $stmt->execute();
 
     if($stmt->rowCount() > 0){
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     return $results;
@@ -122,7 +123,7 @@ class Profile extends Dbh
     $stmt->execute();
 
     if($stmt->rowCount() > 0){
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     return $results;
@@ -139,7 +140,7 @@ class Profile extends Dbh
     $stmt->execute();
 
     if($stmt->rowCount() > 0){
-      $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     return $results;

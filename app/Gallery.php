@@ -1,5 +1,5 @@
 <?php
-
+namespace profile\app;
 class Gallery extends Dbh
 {
   public function setGallery($memory_name, $name, $user_id)
@@ -29,7 +29,7 @@ class Gallery extends Dbh
     
     if($stmt->rowCount() > 0){
 
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     return $result;

@@ -1,5 +1,5 @@
 <?php
-
+namespace profile\app;
 class Gallerycotrl extends Gallery
 {
   private $file;

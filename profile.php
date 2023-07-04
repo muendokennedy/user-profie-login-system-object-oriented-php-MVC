@@ -1,4 +1,8 @@
 <?php
+use profile\app\Profilecotrl;
+
+    //Load Composer's autoloader
+    require './vendor/autoload.php';
 
 session_start();
 
@@ -6,10 +10,6 @@ if (!isset($_SESSION["usersid"])){
   header("Location: /index.php");
   exit;
 }
-
-require_once("CLASSES/dbh.php");
-require_once("CLASSES/profile.php");
-require_once("CLASSES/profilecotrl.php");
 
 $images = new Profilecotrl("");
 

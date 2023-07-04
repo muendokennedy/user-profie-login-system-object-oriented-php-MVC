@@ -1,11 +1,14 @@
 <?php
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use profile\app\Activationcotrl;
+
+    //Load Composer's autoloader
+    require '../vendor/autoload.php';
 
 if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
-    //Load Composer's autoloader
-  require '../vendor/autoload.php';
+
 
   // start a session which will store the users email till the end of the reset process
   session_start();
@@ -14,10 +17,6 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
   $user_email = $_POST["v_email"];
 
   $_SESSION["reset-email"] = $user_email;
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/activation.php");
-  require_once("../CLASSES/activationcotrl.php");
 
   $activation_session = new Activationcotrl();
 
@@ -63,7 +62,7 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
 
   exit();
 
-} catch (Exception $e){
+} catch (\Exception $e){
 
   header("Location: ../verify_code.php?error=notsendcode");
 
@@ -72,18 +71,12 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
 
 } elseif (isset($_POST["activation-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
-  //Load Composer's autoloader
-  require '../vendor/autoload.php';
 
   session_start();
 
   $user_email = $_POST["v_email"];
 
   $_SESSION["activation-email"] = $user_email;
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/activation.php");
-  require_once("../CLASSES/activationcotrl.php");
 
   // get to the database fetch the current code and sent it this user
   $user_active = new Activationcotrl();
@@ -129,7 +122,7 @@ if (isset($_POST["reset-request-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST
 
     exit();
 
-} catch (Exception $e){
+} catch (\Exception $e){
 
   header("Location: ../verify_code_first.php?error=notsend");
 

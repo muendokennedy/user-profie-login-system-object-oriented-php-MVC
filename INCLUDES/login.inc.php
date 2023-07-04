@@ -1,14 +1,13 @@
 <?php
+use profile\app\Logincotrl;
+  //Load Composer's autoloader
+  require '../vendor/autoload.php';
+  
 if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   // Collet the user form data
   $user_name = $_POST["uid"];
   $password = $_POST["pwd"];
   $remember = $_POST["remember"] ?? "";
-
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/login.php");
-  require_once("../CLASSES/logincotrl.php");
 
   // Instantiate the login controller class
   $login = new Logincotrl($user_name, $password);

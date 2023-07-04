@@ -2,19 +2,17 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use profile\app\Activationcotrl;
+
+  //Load Composer's autoloader
+  require '../vendor/autoload.php';
 
 if (isset($_POST["reset-code-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
-  //Load Composer's autoloader
-require '../vendor/autoload.php';
 
 session_start();
 
   $code = $_POST["V_code"];
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/activation.php");
-  require_once("../CLASSES/activationcotrl.php");
 
   $auth = new Activationcotrl();
 
@@ -77,7 +75,7 @@ try {
 
   exit();
 
-} catch (Exception $e){
+} catch (\Exception $e){
 
   header("Location: ../verify_code.php?error=notsend");
 
@@ -92,10 +90,6 @@ try {
   $_SESSION["activation-email"];
 
   $code = $_POST["V_code"];
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/activation.php");
-  require_once("../CLASSES/activationcotrl.php");
 
   $activate = new Activationcotrl();
 

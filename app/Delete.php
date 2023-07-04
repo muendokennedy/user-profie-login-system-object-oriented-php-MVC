@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Delete extends Dbh
 {
   public function deletePhoto($table, $user_id, $item_id)

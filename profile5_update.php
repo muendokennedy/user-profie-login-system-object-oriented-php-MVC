@@ -1,10 +1,10 @@
 <?php
+use profile\app\Updatecotrl;
 
 session_start();
 
-require_once("CLASSES/dbh.php");
-require_once("CLASSES/update.php");
-require_once("CLASSES/updatecotrl.php");
+    //Load Composer's autoloader
+    require './vendor/autoload.php';
 
 
 $bio_info = new Updatecotrl("");

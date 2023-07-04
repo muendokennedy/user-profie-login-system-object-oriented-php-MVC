@@ -1,4 +1,8 @@
 <?php
+use profile\app\Updatecotrl;
+    //Load Composer's autoloader
+    require '../vendor/autoload.php';
+    
 if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   $first_pic = $_FILES["first-pic"];
@@ -27,9 +31,6 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     unlink($filename);
   }
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/update.php");
-  require_once("../CLASSES/updatecotrl.php");
 
   $check_for_update = new Updatecotrl("");
 
@@ -61,13 +62,6 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     unlink($filename);
   }
 
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/update.php");
-  require_once("../CLASSES/updatecotrl.php");
-
-
-
   $update_hobby = new Updatecotrl($hobby_photo);
 
   $update_hobby->insert_hobby_update($hobby_name, $hobby_more, $user_hobby_id, $user_item_id);
@@ -90,10 +84,6 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     unlink($filename);
   }
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/update.php");
-  require_once("../CLASSES/updatecotrl.php");
 
   $update_career = new Updatecotrl($career_photo);
 
@@ -118,9 +108,6 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
     unlink($filename);
   }
 
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/update.php");
-  require_once("../CLASSES/updatecotrl.php");
 
   $update_friend = new Updatecotrl($friend_photo);
 
@@ -136,10 +123,6 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   $college_desc = $_POST["college"];
   $highschool_desc = $_POST["highschool"];
   $user_id = $_POST["user-id"];
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/update.php");
-  require_once("../CLASSES/updatecotrl.php");
 
   $update_bio = new Updatecotrl("");
 

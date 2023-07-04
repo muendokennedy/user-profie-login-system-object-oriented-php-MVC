@@ -1,5 +1,8 @@
 <?php
-
+use profile\app\Signupcotrl;
+    //Load Composer's autoloader
+    require '../vendor/autoload.php';
+    
 if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   // Collet the user form data
 
@@ -11,10 +14,6 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   $password_repeat = $_POST["confirm-pwd"];
   $code = rand(11121, 99990);
   $status = "unactivated";
-
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/signup.php");
-  require_once("../CLASSES/signupcotrl.php");
 
   // Instantiate the signup controller class
   $signup = new Signupcotrl($first_name, $last_name, $email, $user_name, $password, $password_repeat, $code, $status);

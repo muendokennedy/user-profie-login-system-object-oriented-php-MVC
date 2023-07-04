@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Activation extends Dbh
 {
   public function inactivateUser($email, $code, $status)
@@ -37,7 +38,7 @@ class Activation extends Dbh
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $row = $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     return $row;
@@ -54,7 +55,7 @@ class Activation extends Dbh
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
       return $row;
     } else {
@@ -129,7 +130,7 @@ class Activation extends Dbh
     $stmt->execute();
 
     if ($stmt->rowCount() > 0) {
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+      $row = $stmt->fetch(\PDO::FETCH_ASSOC);
     }
 
     return $row;

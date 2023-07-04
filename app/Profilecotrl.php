@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Profilecotrl extends Profile
 {
   private $file;

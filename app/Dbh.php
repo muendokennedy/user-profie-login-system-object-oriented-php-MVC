@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Dbh
 {
 
@@ -13,11 +14,11 @@ class Dbh
 
       $dsn = "mysql:host=" . $server_name . ";dbname=" . $database_name;
 
-      $conn = new PDO($dsn, $user_name, $password);
+      $conn = new \PDO($dsn, $user_name, $password);
 
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 
-    } catch (PDOException $e) {
+    } catch (\PDOException $e) {
 
       echo "There was a connection error: " . $e->getMessage();
 

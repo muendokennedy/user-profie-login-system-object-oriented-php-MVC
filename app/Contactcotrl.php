@@ -1,5 +1,5 @@
 <?php
-
+namespace profile\app;
 class Contactcotrl
 {
   private $fname;

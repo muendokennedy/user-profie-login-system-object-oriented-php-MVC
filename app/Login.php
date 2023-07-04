@@ -1,4 +1,5 @@
 <?php
+namespace profile\app;
 class Login extends Dbh
 {
   protected function confirmUser($user_name, $pwd, $remember)
@@ -16,7 +17,7 @@ class Login extends Dbh
 
     } else {
 
-      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+      $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 
       $check_pwd = password_verify($pwd, $result["password"]);
 

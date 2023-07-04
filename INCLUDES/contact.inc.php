@@ -3,13 +3,12 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
-
-if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+use profile\app\Contactcotrl;
 
   //Load Composer's autoloader
   require '../vendor/autoload.php';
 
-
+if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   // Collect the form data
 
   $firstname = $_POST["fname"];
@@ -18,7 +17,6 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   $subject = $_POST["subject"];
   $message = $_POST["message"];
 
-  require_once("../CLASSES/contactcotrl.php");
 
   $contact = new Contactcotrl($firstname, $lastname, $email, $subject, $message);
 
@@ -66,7 +64,7 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
   header("Location: ../contact.php?error=none");
   exit();
 
-  } catch (Exception $e) {
+  } catch (\Exception $e) {
 
   header("Location: ../contact.php?error=notsend");
   exit();

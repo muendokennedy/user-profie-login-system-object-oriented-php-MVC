@@ -1,4 +1,8 @@
 <?php
+use profile\app\Activationcotrl;
+  //Load Composer's autoloader
+  require '../vendor/autoload.php';
+  
 if (isset($_POST["reset-password-submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   $selector = $_POST["selector"];
@@ -15,11 +19,6 @@ if (isset($_POST["reset-password-submit"]) && $_SERVER["REQUEST_METHOD"] == "POS
     header("Location: ../reset_password.php?selector=" . $selector . "&validator=" . $validator . "&error=passwordsdontmatch");
     exit();
   }
-
-  // Process new password
-  require_once("../CLASSES/dbh.php");
-  require_once("../CLASSES/activation.php");
-  require_once("../CLASSES/activationcotrl.php");
 
   $new_pwd = new Activationcotrl();
 

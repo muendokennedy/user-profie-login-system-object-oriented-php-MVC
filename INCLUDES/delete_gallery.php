@@ -1,7 +1,7 @@
 <?php
-require_once("../CLASSES/dbh.php");
-require_once("../CLASSES/delete.php");
-require_once("../CLASSES/deletecotrl.php");
+use profile\app\DeleteCotrl;
+  //Load Composer's autoloader
+  require '../vendor/autoload.php';
 
 // Delete the filename from the database
 $delete_gallery_item = new DeleteCotrl($_GET["userid"], $_GET["id"]);

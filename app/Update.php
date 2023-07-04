@@ -1,5 +1,5 @@
 <?php
-
+namespace profile\app;
 class Update extends Dbh
 {
   public function checkUpdate($id)
@@ -15,7 +15,7 @@ class Update extends Dbh
     $result = "";
 
     if($stmt->rowCount() > 0){
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     return $result;
   }
@@ -33,7 +33,7 @@ class Update extends Dbh
     $result = "";
 
     if($stmt->rowCount() > 0){
-      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
     return $result;
   }
@@ -100,7 +100,7 @@ class Update extends Dbh
     $result = "";
 
     if($stmt->rowCount() > 0){
-      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+      $result = $stmt->fetch(\PDO::FETCH_ASSOC);
     }
     return $result;
   }
@@ -136,7 +136,7 @@ class Update extends Dbh
     $result = "";
     
     if($stmt->rowCount() > 0){
-      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+      $result = $stmt->fetch(\PDO::FETCH_ASSOC);
     }
     return $result;
   }
@@ -170,7 +170,7 @@ class Update extends Dbh
     $result = "";
     
     if($stmt->rowCount() > 0){
-      $result = $stmt->fetch(PDO::FETCH_ASSOC);
+      $result = $stmt->fetch(\PDO::FETCH_ASSOC);
     }
     return $result;
   }

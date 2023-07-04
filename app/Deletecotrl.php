@@ -1,5 +1,5 @@
 <?php
-
+namespace profile\app;
 class DeleteCotrl extends Delete
 {
   private $user_id;
