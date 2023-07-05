@@ -5,7 +5,10 @@ if(isset($_REQUEST["filename"])){
 
   $file = urldecode($_REQUEST["filename"]);
 
-  $file_path = "UPLOADS/" . $file;
+
+
+
+  $file_path = "uploads/" . $file;
 
   // Process the download
 

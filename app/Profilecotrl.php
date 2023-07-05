@@ -35,7 +35,7 @@ class Profilecotrl extends Profile
 
           $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
-          $file_destination = "../UPLOADS/" . $image_fullname;
+          $file_destination = "../uploads/" . $image_fullname;
 
           $this->check_photo($image_fullname, $id);
 
@@ -81,7 +81,7 @@ class Profilecotrl extends Profile
 
           $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
-          $file_destination = "../UPLOADS/" . $image_fullname;
+          $file_destination = "../uploads/" . $image_fullname;
 
             $this->set_hobbies($hobby_name, $hobby_more, $image_fullname, $id);
 
@@ -127,7 +127,7 @@ class Profilecotrl extends Profile
 
           $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
-          $file_destination = "../UPLOADS/" . $image_fullname;
+          $file_destination = "../uploads/" . $image_fullname;
 
             $this->set_careers($career_name, $career_more, $image_fullname, $id);
 
@@ -173,7 +173,7 @@ class Profilecotrl extends Profile
 
           $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
 
-          $file_destination = "../UPLOADS/" . $image_fullname;
+          $file_destination = "../uploads/" . $image_fullname;
 
             $this->set_friends($friend_name, $friend_more, $image_fullname, $id);
 
@@ -272,9 +272,9 @@ class Profilecotrl extends Profile
       
         $image = "<div>
         <div class=\"profile-swiper\">
-          <img src=\"UPLOADS/{$results[0]["imagefullname"]}\" alt=\"\" class=\"active\">
-          <img src=\"UPLOADS/{$results[1]["imagefullname"]}\" alt=\"\">
-          <img src=\"UPLOADS/{$results[2]["imagefullname"]}\" alt=\"\">
+          <img src=\"uploads/{$results[0]["imagefullname"]}\" alt=\"\" class=\"active\">
+          <img src=\"uploads/{$results[1]["imagefullname"]}\" alt=\"\">
+          <img src=\"uploads/{$results[2]["imagefullname"]}\" alt=\"\">
          </div>
          <div class=\"edit-btn\">
          <a href=\"profile1_update.php?usersid={$id}\" class=\"btn\">Edit</a>
@@ -319,7 +319,7 @@ class Profilecotrl extends Profile
                   <div class=\"name\">{$result["hobbyname"]}</div>
                   <div class=\"content\">{$result["hobbymore"]}</div>
                   <div class=\"image\">
-                    <img src=\"UPLOADS/{$result["hobbyphoto"]}\" alt=\"\">
+                    <img src=\"uploads/{$result["hobbyphoto"]}\" alt=\"\">
                   </div>
                 </div>
                 <div class=\"edit-btn\">
@@ -343,7 +343,7 @@ class Profilecotrl extends Profile
                 <div class=\"name\">{$result["careername"]}</div>
                 <div class=\"content\">{$result["careermore"]}</div>
                 <div class=\"image\">
-                  <img src=\"UPLOADS/{$result["careerphoto"]}\" alt=\"\">
+                  <img src=\"uploads/{$result["careerphoto"]}\" alt=\"\">
                 </div>
               </div>
               <div class=\"edit-btn\">
@@ -361,7 +361,7 @@ class Profilecotrl extends Profile
 
       echo "<div class=\"friend-box\">
               <div class=\"friend-image\">
-                <img src=\"UPLOADS/{$result["friendphoto"]}\" alt=\"\">
+                <img src=\"uploads/{$result["friendphoto"]}\" alt=\"\">
               </div>
               <div class=\"friend-name\">{$result["friendname"]}</div>
               <div class=\"friend-content\">{$result["friendmore"]}</div>

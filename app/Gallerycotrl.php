@@ -36,7 +36,7 @@ class Gallerycotrl extends Gallery
   
             $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
   
-            $file_destination = "../UPLOADS/" . $image_fullname;
+            $file_destination = "../uploads/" . $image_fullname;
   
               $this->setGallery($memory_name, $image_fullname, $user_id);
   
@@ -87,7 +87,7 @@ class Gallerycotrl extends Gallery
               <div class=\"box\">
                 <div class=\"name\">{$result["memoryname"]}</div>
                 <div class=\"image\">
-                  <img src=\"UPLOADS/{$result["memoryphoto"]}\">
+                  <img src=\"uploads/{$result["memoryphoto"]}\">
                 </div>
               </div>
               <div class=\"edit-btn\">

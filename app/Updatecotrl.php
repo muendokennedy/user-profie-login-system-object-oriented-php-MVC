@@ -41,7 +41,7 @@ class Updatecotrl extends Update
   
             $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
   
-            $file_destination = "../UPLOADS/" . $image_fullname;
+            $file_destination = "../uploads/" . $image_fullname;
 
             $this->updatePhoto($image_fullname, $user_id, $item_id);
   
@@ -105,7 +105,7 @@ class Updatecotrl extends Update
           
           $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
           
-          $file_destination = "../UPLOADS/" . $image_fullname;
+          $file_destination = "../uploads/" . $image_fullname;
           
           $this->updateHobby($hobby_name, $hobby_more, $image_fullname, $user_hobby_id, $user_item_id);
           
@@ -158,7 +158,7 @@ class Updatecotrl extends Update
           
           $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
           
-          $file_destination = "../UPLOADS/" . $image_fullname;
+          $file_destination = "../uploads/" . $image_fullname;
           
           $this->updateCareer($career_name, $career_more, $image_fullname, $user_career_id, $user_item_id);
           
@@ -204,7 +204,7 @@ class Updatecotrl extends Update
           
           $image_fullname = $file_extension[0] ."-" . uniqid() . "." . $fileactual_ext;
           
-          $file_destination = "../UPLOADS/" . $image_fullname;
+          $file_destination = "../uploads/" . $image_fullname;
           
           $this->updateFriend($friend_name, $friend_more, $image_fullname, $user_friend_id, $user_item_id);
           

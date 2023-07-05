@@ -54,7 +54,7 @@ session_start();
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
             repellendus aperiam</div>
           <div class="topic-image image">
-            <img src="IMAGES/home-1.jpg" alt="">
+            <img src="images/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
@@ -62,7 +62,7 @@ session_start();
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
             repellendus aperiam,</div>
           <div class="topic-image">
-            <img src="IMAGES/home-1.jpg" alt="">
+            <img src="images/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
@@ -70,7 +70,7 @@ session_start();
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
             repellendus aperiam?</div>
           <div class="topic-image">
-            <img src="IMAGES/home-1.jpg" alt="">
+            <img src="images/home-1.jpg" alt="">
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ session_start();
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
             repellendus aperiam, </div>
           <div class="topic-image">
-            <img src="IMAGES/home-1.jpg" alt="">
+            <img src="images/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
@@ -89,7 +89,7 @@ session_start();
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
             repellendus aperiam, </div>
           <div class="topic-image">
-            <img src="IMAGES/home-1.jpg" alt="">
+            <img src="images/home-1.jpg" alt="">
           </div>
         </div>
         <div class="topic-box">
@@ -97,7 +97,7 @@ session_start();
           <div class="topic-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad quo architecto qui nemo
             repellendus aperiam,</div>
           <div class="topic-image">
-            <img src="IMAGES/home-1.jpg" alt="">
+            <img src="images/home-1.jpg" alt="">
           </div>
         </div>
       </div>

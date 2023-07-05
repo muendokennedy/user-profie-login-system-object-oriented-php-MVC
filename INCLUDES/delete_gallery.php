@@ -8,7 +8,7 @@ $delete_gallery_item = new DeleteCotrl($_GET["userid"], $_GET["id"]);
 $delete_gallery_item->delete_gallery_photo($_GET["resource"]);
 
 // Delete the media file the uploads folder
-$filename = "../UPLOADS/" . $_GET["name"];
+$filename = "../uploads/" . $_GET["name"];
 
 unlink($filename);
 

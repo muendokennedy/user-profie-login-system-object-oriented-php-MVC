@@ -15,19 +15,19 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($first_pic["name"] !== $old_first_pic) {
 
-    $filename = "../UPLOADS/" . $old_first_pic;
+    $filename = "../uploads/" . $old_first_pic;
 
     unlink($filename);
   }
   if ($second_pic["name"] !== $old_second_pic) {
 
-    $filename = "../UPLOADS/" . $old_second_pic;
+    $filename = "../uploads/" . $old_second_pic;
 
     unlink($filename);
   }
   if ($third_pic["name"] !== $old_third_pic) {
 
-    $filename = "../UPLOADS/" . $old_third_pic;
+    $filename = "../uploads/" . $old_third_pic;
 
     unlink($filename);
   }
@@ -57,7 +57,7 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($hobby_photo["name"] !== $old_photo) {
 
-    $filename = "../UPLOADS/" . $old_photo;
+    $filename = "../uploads/" . $old_photo;
 
     unlink($filename);
   }
@@ -80,7 +80,7 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($career_photo["name"] !== $old_photo) {
 
-    $filename = "../UPLOADS/" . $old_photo;
+    $filename = "../uploads/" . $old_photo;
 
     unlink($filename);
   }
@@ -103,7 +103,7 @@ if (isset($_POST["submit"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($friend_photo["name"] !== $old_photo) {
 
-    $filename = "../UPLOADS/" . $old_photo;
+    $filename = "../uploads/" . $old_photo;
 
     unlink($filename);
   }
